@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geografik kashfiyot | Loyiha Taqdimoti</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg: #010409;
+            --accent: #00d2ff;
+            --secondary: #3a7bd5;
+            --text: #f0f6fc;
+            --dim: #8b949e;
+            --glass: rgba(255, 255, 255, 0.03);
+            --border: rgba(255, 255, 255, 0.1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* --- Header / Hero --- */
+        .hero {
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            background: radial-gradient(circle at 50% 50%, #161b22 0%, #010409 100%);
+        }
+
+        .author-tag {
+            background: linear-gradient(90deg, var(--accent), var(--secondary));
+            color: #000;
+            padding: 6px 20px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 800;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2.5rem, 7vw, 5rem);
+            margin-bottom: 15px;
+            letter-spacing: -2px;
+        }
+
+        .hero p {
+            max-width: 900px;
+            font-size: 1.25rem;
+            color: var(--dim);
+            line-height: 1.6;
+        }
+
+        /* --- Section Styling --- */
+        .container { max-width: 1300px; margin: 0 auto; padding: 80px 20px; }
+        
+        .section-header {
+            margin-bottom: 50px;
+            border-left: 5px solid var(--accent);
+            padding-left: 20px;
+        }
+
+        .section-header h2 {
+            font-size: 2.2rem;
+            font-family: 'Space Grotesk';
+            text-transform: uppercase;
+        }
+
+        /* --- Info Grid --- */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 60px;
+        }
+
+        .info-card {
+            background: var(--glass);
+            border: 1px solid var(--border);
+            padding: 35px;
+            border-radius: 24px;
+            transition: 0.3s;
+        }
+
+        .info-card:hover {
+            background: rgba(255,255,255,0.06);
+            border-color: var(--accent);
+        }
+
+        .info-card h3 {
+            color: var(--accent);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        /* --- Screenshot Gallery --- */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 30px;
+        }
+
+        .shot-box {
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            background: #000;
+        }
+
+        .shot-box img {
+            width: 100%;
+            height: auto;
+            display: block;
+            opacity: 0.85;
+            transition: 0.5s;
+        }
+
+        .shot-box:hover img { opacity: 1; transform: scale(1.03); }
+
+        .shot-desc { padding: 15px; font-size: 0.9rem; color: var(--dim); text-align: center; }
+
+        /* --- Formula & Logic --- */
+        .logic-section {
+            background: linear-gradient(to right, #0d1117, #161b22);
+            padding: 60px;
+            border-radius: 30px;
+            margin: 40px 0;
+            border: 1px dashed var(--border);
+        }
+
+        .formula {
+            font-family: 'Space Grotesk';
+            font-size: clamp(1.5rem, 4vw, 3rem);
+            color: #fff;
+            text-align: center;
+            margin: 30px 0;
+            text-shadow: 0 0 20px var(--accent);
+        }
+
+        /* --- Buttons --- */
+        .btn-play {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            background: var(--accent);
+            color: #000;
+            padding: 20px 45px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.2rem;
+            transition: 0.4s;
+            box-shadow: 0 10px 40px rgba(0, 210, 255, 0.3);
+        }
+
+        .btn-play:hover {
+            transform: scale(1.05);
+            background: #fff;
+            box-shadow: 0 15px 50px rgba(255, 255, 255, 0.2);
+        }
+
+        /* --- PC Optimization --- */
+        @media (min-width: 1024px) {
+            .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+            .info-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        footer {
+            text-align: center;
+            padding: 100px 20px;
+            background: #000;
+        }
+    </style>
+</head>
+<body>
+
+    <section class="hero">
+        <div class="author-tag">Loyiha muallifi: Rahmatjon Bekimmatov | 2025</div>
+        <h1>"Geografik kashfiyot"</h1>
+        <p>Toshkent iqtisodiy rayoni iqtisodiyoti, sanoati va tabiatini o‘rganishga yo‘naltirilgan, Leaflet texnologiyasi asosidagi strategik ta'lim o'yini.</p>
+    </section>
+
+    <div class="container">
+        <div class="section-header">
+            <h2>Loyiha Konsepsiyasi</h2>
+        </div>
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>Muammo</h3>
+                <p>An’anaviy geografiya darslarida testlar va quruq ma'lumotlar o‘quvchilarni zeriktiradi. Xaritada ob'ektlar joylashuvini real tasavvur qilish imkoniyati past.</p>
+            </div>
+            <div class="info-card">
+                <h3>Yechim</h3>
+                <p>O‘yinli metodika (Gamification). Bilimni virtual harakatga aylantirish. Har bir to‘g‘ri javob o‘quvchini maqsadga yaqinlashtiradi.</p>
+            </div>
+            <div class="info-card">
+                <h3>Maqsad</h3>
+                <p>Toshkent viloyatining iqtisodiy salohiyatini musobaqa ruhida o‘rgatish, real vaqt rejimida bilim darajasini baholash.</p>
+            </div>
+        </div>
+
+        <div class="section-header">
+            <h2>Interfeys va Funksionallik</h2>
+        </div>
+        <div class="gallery-grid">
+            <div class="shot-box">
+                <img src="https://i.ibb.co/380j1pn/IMG-20251217-224032-972.jpg" alt="Xarita">
+                <div class="shot-desc">Interaktiv xarita va guruhlar boshlang'ich nuqtasi</div>
+            </div>
+            <div class="shot-box">
+                <img src="https://i.ibb.co/dJHHKHBK/IMG-20251217-224035-940.jpg" alt="Savollar">
+                <div class="shot-desc">Guruhlar uchun intellektual savollar generatori</div>
+            </div>
+            <div class="shot-box">
+                <img src="https://i.ibb.co/zh2nQmqG/IMG-20251217-224038-786.jpg" alt="Harakat">
+                <div class="shot-desc">Harakatlanish mexanikasi va qo‘shimcha savollar</div>
+            </div>
+            <div class="shot-box">
+                <img src="https://i.ibb.co/ksHGt3K0/IMG-20251217-224041-610.jpg" alt="Dinamika">
+                <div class="shot-desc">Vaqt va masofa mutanosibligi ko‘rsatkichi</div>
+            </div>
+            <div class="shot-box">
+                <img src="https://i.ibb.co/zTpThQKF/IMG-20251217-224046-814.jpg" alt="Manzil">
+                <div class="shot-desc">Strategik nuqtaga yetib kelish jarayoni</div>
+            </div>
+            <div class="shot-box">
+                <img src="https://i.ibb.co/4gTQxFD8/IMG-20251217-224050-371.jpg" alt="Reyting">
+                <div class="shot-desc">Guruhlar reytingi va natijalar paneli</div>
+            </div>
+        </div>
+
+        <div class="logic-section">
+            <div class="section-header" style="border-color: #fff;">
+                <h2 style="color: #fff;">O‘yin Mexanikasi</h2>
+            </div>
+            <div class="info-grid" style="margin-top: 30px;">
+                <p>O‘yin 40 ta takrorlanmas savoldan iborat bo‘lib, 3 ta guruh o‘rtasida tsiklik tartibda taqsimlanadi. Har bir bosqichda asosiy va qo‘shimcha savollar beriladi.</p>
+                <p>Harakatlanish faqat to‘g‘ri javob orqali amalga oshiriladi. Agar javob xato bo‘lsa, guruh joyida qoladi va navbat avtomatik tarzda raqibga o‘tadi.</p>
+                <p>9 ta strategik nuqta (Chorvoq, Angren, Olmaliq va h.k.) mavjud. Ularning barchasini birinchi bo‘lib "kashf etgan" guruh g‘alaba qozonadi.</p>
+            </div>
+            <div class="formula">
+                Masofa = 50 × (Qolgan vaqt / 30)
+            </div>
+            <p style="text-align: center; opacity: 0.7;">Tezkorlik koeffitsienti: 30 soniya ichida qancha tez javob berilsa, harakat shuncha uzoq bo‘ladi.</p>
+        </div>
+
+        <div class="section-header">
+            <h2>Texnik Imkoniyatlar</h2>
+        </div>
+        <div class="info-grid">
+            <div class="info-card">
+                <i class="fa-solid fa-desktop" style="color: var(--accent); font-size: 1.5rem; margin-bottom: 10px;"></i>
+                <h4>Universal Adaptivlik</h4>
+                <p>Monitor, smartfon yoki sinf proyektorlari uchun to‘liq moslashgan interfeys.</p>
+            </div>
+            <div class="info-card">
+                <i class="fa-solid fa-volume-high" style="color: var(--accent); font-size: 1.5rem; margin-bottom: 10px;"></i>
+                <h4>Audio Atmosfera</h4>
+                <p>O‘yin muhitini boyitish uchun maxsus tanlangan musiqiy va audio effektlar.</p>
+            </div>
+            <div class="info-card">
+                <i class="fa-solid fa-shield-halved" style="color: var(--accent); font-size: 1.5rem; margin-bottom: 10px;"></i>
+                <h4>Maxfiylik Tizimi</h4>
+                <p>Bir guruhning kashfiyoti boshqalari uchun yashirin qoladi, bu esa raqobatni kuchaytiradi.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <h2 style="font-family: Space Grotesk; margin-bottom: 20px;">Toshkent iqtisodiy rayoni bo‘yicha bilimingizni sinab ko‘ring!</h2>
+        <div style="margin-bottom: 50px;">
+            <a href="https://bekimmatov.github.io/html/geometod/" target="_blank" class="btn-play">
+                <i class="fa-solid fa-play"></i> O‘YINNI BOSHLASH
+            </a>
+        </div>
+        <p style="font-weight: 700; font-size: 1.4rem;">RAHMATJON BEKIMMATOV</p>
+        <p style="color: var(--dim); margin-top: 5px;">Geografiya fani innovatori &copy; 2025</p>
+    </footer>
+
+</body>
+</html>
