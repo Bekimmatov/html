@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O'rta Osiyo orografiyasi</title>
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Map Container -->
+    <div id="map"></div>
+
+    <!-- UI Layer -->
+    <div class="ui-layer">
+
+        <!-- Header / Control Panel -->
+        <header class="glass-panel">
+            <h1>O'rta Osiyo Orografiyasi</h1>
+            <div class="mode-switch">
+                <button id="btn-study" class="active-mode">O'rganish rejimi</button>
+                <button id="btn-quiz">Test rejimi</button>
+            </div>
+
+            <!-- Search Bar (Study Mode) -->
+            <div id="search-container">
+                <input type="text" id="search-input" placeholder="Qidiruv...">
+                <div id="search-results" class="glass-panel hidden"></div>
+            </div>
+
+            <!-- Quiz Controls (Quiz Mode) -->
+            <div id="quiz-controls" class="hidden">
+                <div class="quiz-info">
+                    <span id="quiz-timer">00:00</span>
+                    <span id="quiz-score">Ball: 0</span>
+                </div>
+                <div id="quiz-question" class="highlight-text">Toping: <span id="target-mountain">...</span></div>
+            </div>
+        </header>
+
+        <!-- Sidebar / Details Panel (Initially Hidden) -->
+        <aside id="side-panel" class="glass-panel hidden side-panel-transition">
+            <button id="close-panel" class="close-btn">&times;</button>
+            <h2 id="panel-title">Tog' Nomi</h2>
+            <div id="panel-content">
+                <!-- Content will be injected here -->
+            </div>
+        </aside>
+
+        <!-- Action Buttons -->
+        <div class="action-buttons">
+            <button id="btn-details" class="icon-btn" title="Batafsil"><i class="fa-solid fa-info"></i></button>
+            <button id="btn-fullscreen" class="icon-btn" title="To'liq Ekran"><i
+                    class="fa-solid fa-expand"></i></button>
+        </div>
+
+        <!-- Footer -->
+        <footer class="glass-panel author-footer">
+            <div class="author-info">
+                <span><i class="fa-solid fa-user"></i> Muallif: Rahmatjon Bekimmatov</span>
+                <a href="https://t.me/+dttt9nKyaZ45MDgy" target="_blank"><i class="fa-brands fa-telegram"></i></a>
+                <a href="https://www.instagram.com/bekimmatovv" target="_blank"><i
+                        class="fa-brands fa-instagram"></i></a>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- About Modal -->
+    <div id="about-modal" class="modal hidden">
+        <div class="modal-content glass-panel">
+            <button id="close-modal" class="close-btn">&times;</button>
+            <h2>Loyiha Manbasi</h2>
+            <p></p>
+            <p class="citation">P. Baratov, M. Mamatqulov, A. Rafiqov. Oʻrta Osiyo tabiiy geografiyasi: Oliy oʻquv
+                yurtlarining geografiya boʻlimi talabalari uchun oʻquv qoʻllanma. – T.: Oʻqituvchi, 2002. - 440 b.</p>
+            <div class="modal-image-container">
+                <img src="https://i.ibb.co/DPqGymMY/Screenshot-20231025-202200-Document-Reader-2.jpg" alt="Manba Hujjat"
+                    loading="lazy">
+            </div>
+        </div>
+    </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <!-- App Script -->
+    <script src="script.js"></script>
+</body>
+
+</html>
