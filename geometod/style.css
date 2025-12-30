@@ -191,7 +191,7 @@ h1 {
 
 .options-container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 8px;
 }
 
@@ -574,4 +574,5 @@ h1 {
         transform: scale(1);
         opacity: 1;
     }
+
 }
