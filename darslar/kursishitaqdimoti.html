@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Xorazm viloyatida qurgʻoqchilik xavfi tahlili (GIS)</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reset.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/theme/black.min.css" id="theme">
+
+    <style>
+        :root {
+            --primary-color: #ff8c00; /* Qurg'oqchilik zarg'aldoq rangi */
+            --secondary-color: #00d2ff; /* Suv moviy rangi */
+            --bg-dark: #0a0a0a;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --text-glow: 0 0 10px rgba(255, 140, 0, 0.5), 0 0 20px rgba(255, 140, 0, 0.3);
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            overflow: hidden;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Particles.js orqa fon konteyneri */
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, #1a1a2e 0%, #000000 100%);
+            z-index: -1;
+        }
+
+        /* Reveal.js umumiy sozlamalari */
+        .reveal {
+            font-family: 'Montserrat', sans-serif;
+            color: #e0e0e0;
+        }
+
+        /* Sarlavhalar uchun tipografiya */
+        .reveal h1, .reveal h2, .reveal h3, .reveal h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 15px rgba(255, 140, 0, 0.4));
+        }
+        
+        .reveal h1 { font-size: 2.5em; }
+        .reveal h2 { font-size: 1.8em; }
+        .reveal h3 { font-size: 1.3em; }
+
+        /* Asosiy matn */
+        .reveal p, .reveal li {
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        /* Glassmorphism Karta Dizayni */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 20px;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            padding: 30px;
+            margin: 20px auto;
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+             box-shadow: 0 8px 32px 0 rgba(255, 140, 0, 0.2);
+             border: 1px solid rgba(255, 140, 0, 0.3);
+        }
+
+        /* Ro'yxat elementlari */
+        .reveal ul ul {
+            font-size: 0.8em;
+        }
+        
+        .reveal li {
+            margin-bottom: 15px;
+        }
+
+        /* Formula va muhim raqamlar uchun glow effect */
+        .highlight-glow {
+            color: var(--primary-color);
+            font-weight: bold;
+            text-shadow: var(--text-glow);
+            font-family: 'Space Grotesk', monospace;
+        }
+
+        /* Kinetik tipografiya elementlari (oddiy animatsiya) */
+        .kinetic-text span {
+            display: inline-block;
+            animation: floatText 3s ease-in-out infinite alternate;
+        }
+        @keyframes floatText {
+            from { transform: translateY(0); }
+            to { transform: translateY(-10px); text-shadow: 0 10px 20px rgba(255, 255, 255, 0.2); }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="particles-js"></div>
+
+    <div class="reveal">
+        <div class="slides">
+
+            <section data-transition="zoom">
+                <div class="glass-card kinetic-text">
+                    <h1>Xorazm viloyatida qurgʻoqchilik xavfini GIS texnologiyalari yordamida tahlil qilish</h1>
+                </div>
+                <div style="margin-top: 50px; font-size: 0.8em;">
+                    <p><span class="highlight-glow">Bajaruvchi:</span> Bekimmatov Rahmatjon</p>
+                    <p><span class="highlight-glow">Ilmiy rahbar:</span> Abdullayev Aminboy</p>
+                </div>
+            </section>
+
+            <section data-transition="convex">
+                <h2>Mavzuning dolzarbligi</h2>
+                <div class="glass-card" style="text-align: left;">
+                    <ul>
+                        <li class="fragment fade-up">Global iqlim oʻzgarishlari va ekologik beqarorlik fonida qurg'oqchilik jiddiy xavfga aylandi.</li>
+                        <li class="fragment fade-up">Xorazm viloyati Orolboʻyi mintaqasida joylashganligi sababli o'ta kritik xarakterga ega.</li>
+                        <li class="fragment fade-up">Viloyatning suv resurslari deyarli to'liq transchegaraviy <span class="highlight-glow">Amudaryo</span> oqimiga bog'liq.</li>
+                        <li class="fragment fade-up">Suv tanqisligi va anomal issiqlik tuproq degradatsiyasi va hosildorlik pasayishiga olib kelmoqda.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section data-transition="convex">
+                <h3>Tadqiqot maqsadi va vazifalari</h3>
+                <div class="glass-card">
+                    <p><strong class="highlight-glow">Maqsad:</strong> GIS va masofadan zondlash texnologiyalari orqali Xorazm viloyatida qurg'oqchilik xavfining fazoviy-vaqtinchalik dinamikasini tahlil qilish va xaritalash.</p>
+                </div>
+                <div class="glass-card" style="text-align: left; font-size: 0.8em;">
+                    <strong>Vazifalar:</strong>
+                    <ol>
+                        <li>Qurg'oqchilik fenomenini o'rganish.</li>
+                        <li>Spektral indekslarni (NDVI, NDWI) hisoblash.</li>
+                        <li>Tumanlar kesimida qurg'oqchilik xavfi xaritalarini yaratish.</li>
+                        <li>Oqibatlarni yumshatish bo'yicha tavsiyalar ishlab chiqish.</li>
+                    </ol>
+                </div>
+            </section>
+
+            <section data-transition="concave">
+                <div style="display: flex; gap: 20px; justify-content: center;">
+                    <div class="glass-card" style="flex: 1;">
+                        <h3>Tadqiqot obyekti</h3>
+                        <p>Xorazm viloyatining yer va suv resurslari, iqlimiy jarayonlar va qurg'oqchilikning hududiy tarqalishi.</p>
+                    </div>
+                    <div class="glass-card" style="flex: 1;">
+                        <h3>Tadqiqot predmeti</h3>
+                        <p>GIS va masofadan zondlash usullari orqali xavfni tahlil qilish, spektral indekslar (NDVI, NDWI) va xavfni modellashtirish jarayonlari.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section data-transition="convex">
+                <h2>Qurg'oqchilik tushunchasi va turlari</h2>
+                <p class="glass-card">Qurg'oqchilik — sekin kechuvchi ofat (<span class="highlight-glow">creeping disaster</span>) bo'lib, ta'siri uzoq vaqt saqlanadi.</p>
+                <div style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; font-size: 0.7em;">
+                    <div class="glass-card" style="flex: 1 1 40%;">
+                        <h4>1. Meteorologik</h4> Yog'ingarchilikning me'yordan kamayishi.
+                    </div>
+                    <div class="glass-card" style="flex: 1 1 40%;">
+                        <h4>2. Qishloq xo'jaligi</h4> Tuproq namligi yetishmovchiligi.
+                    </div>
+                    <div class="glass-card" style="flex: 1 1 40%;">
+                        <h4>3. Gidrologik</h4> Daryo va yer osti suvlari zaxirasining kamayishi.
+                    </div>
+                    <div class="glass-card" style="flex: 1 1 40%;">
+                        <h4>4. Ijtimoiy-iqtisodiy</h4> Suvga bo'lgan talabning taklifdan oshishi.
+                    </div>
+                </div>
+            </section>
+
+            <section data-transition="zoom">
+                <h3>Nima uchun GIS va Masofadan zondlash?</h3>
+                <div class="glass-card" style="text-align: left;">
+                    <ul>
+                        <li class="fragment highlight-current-blue">An'anaviy dala tadqiqotlari katta vaqt va mablag' talab etib, jarayonning fazoviy ko'lamini to'liq qamrab ololmaydi.</li>
+                        <li class="fragment highlight-current-blue">AQShning <span class="highlight-glow">Landsat</span> va Yevropa Ittifoqining <span class="highlight-glow">Sentinel</span> sun'iy yo'ldoshlari qurg'oqchilikni monitoring qilishda ishonchli manba.</li>
+                        <li class="fragment highlight-current-blue">GIS texnologiyalari (ArcGIS, QGIS, GEE) ma'lumotlarni qayta ishlash, saqlash va vizuallashtirish imkonini beradi.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section data-transition="convex">
+                <h2>Asosiy spektral indekslar</h2>
+                <div class="glass-card">
+                    <h3>NDVI (Vegetatsiya indeksi)</h3>
+                    <p>O'simliklarning sog'lomlik darajasi va xlorofill miqdorini baholaydi.</p>
+                    <p class="highlight-glow" style="font-size: 1.5em;">NDVI = (NIR - Red) / (NIR + Red)</p>
+                </div>
+                <div class="glass-card fragment">
+                    <h3>NDWI (Suv indeksi)</h3>
+                    <p>O'simlik barglaridagi va tuproq yuzasidagi namlik miqdorini bevosita aniqlaydi.</p>
+                </div>
+            </section>
+
+            <section data-transition="convex">
+                <h3>Qurg'oqchilik indikatori – VCI indeksi</h3>
+                <div class="glass-card">
+                    <p><strong>VCI (Vegetatsiya konditsiyasi indeksi):</strong> NDVI ning joriy holatini ko'p yillik (tarixiy) maksimum va minimum qiymatlar bilan qiyoslaydi.</p>
+                    <p style="font-size: 0.8em;">Turli ekotizimlardagi tabiiy farqlarni "tekislaydi".</p>
+                </div>
+                <div class="glass-card fragment" style="background: rgba(255, 0, 0, 0.1);">
+                    <h4>Xavf mezonlari:</h4>
+                    <p>Agar VCI <span class="highlight-glow">40%</span> dan past bo'lsa, qurg'oqchilik mavjud:</p>
+                    <ul>
+                        <li>0-10%: Ekstremal</li>
+                        <li>10-20%: Kuchli</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section data-transition="concave">
+                <h2>Xorazm viloyatining iqlimiy xususiyatlari</h2>
+                <div style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center;">
+                    <div class="glass-card kinetic-text" style="flex: 1 1 45%;">
+                        <h4>Iqlimi</h4> Keskin kontinental, quruq (arid va semiarid zonalar).
+                    </div>
+                    <div class="glass-card kinetic-text" style="flex: 1 1 45%;">
+                        <h4>Yog'ingarchilik</h4> Yiliga bor-yo'g'i <span class="highlight-glow">80-120 mm</span>.
+                    </div>
+                    <div class="glass-card kinetic-text" style="flex: 1 1 45%;">
+                        <h4>Bug'lanuvchanlik</h4> <span class="highlight-glow">1400-1600 mm</span> (yog'indan 12-15 barobar ko'p).
+                    </div>
+                    <div class="glass-card kinetic-text" style="flex: 1 1 45%; background: rgba(255, 140, 0, 0.1);">
+                        <h4>Asosiy Muammo</h4> "Bahorgi qurg'oqchilik" va issiq quruq shamollar ("garmsel").
+                    </div>
+                </div>
+            </section>
+
+            <section data-transition="convex">
+                <h2>Suv resurslari va irrigatsiya</h2>
+                <div class="glass-card" style="text-align: left;">
+                    <p><strong>Yagona manba:</strong> Transchegaraviy Amudaryo va Tuyamo'yin suv ombori.</p>
+                    <p class="fragment"><strong>Irrigatsiya tarmoqlari:</strong> Toshsoqa, Shovot, Polvon kabi kanallar asosan tuproq o'zanli. Katta filtratsiya yo'qotishlari mavjud.</p>
+                    <div class="fragment glass-card" style="text-align: center; border-color: var(--primary-color);">
+                        <p>Foydali ish koeffitsiyenti (FIK):</p>
+                        <p class="highlight-glow" style="font-size: 2em;">0,60 - 0,65</p>
+                        <p style="font-size: 0.7em;">(suvning 30-40 foizi dalagacha yetib bormaydi)</p>
+                    </div>
+                </div>
+            </section>
+
+                        <section data-transition="concave">
+                <h2>Yer fondi va meliorativ holat</h2>
+                <div class="glass-card" style="text-align: left;">
+                    <p>Sug'oriladigan yerlar maydoni: <span class="highlight-glow">~270 ming gektar</span>.</p>
+                    <div class="fragment glass-card" style="background: rgba(255, 0, 0, 0.1); border-color: red;">
+                        <h4>Asosiy xavf:</h4>
+                        <p>Yer osti sizot suvlarining yuza joylashuvi (1-2 metr).</p>
+                    </div>
+                    <ul>
+                        <li class="fragment">Viloyatdagi sug'oriladigan yerlarning qariyb 90-95 foizi turli darajada sho'rlangan.</li>
+                        <li class="fragment">Sho'rlangan tuproqlarda osmotik bosim oshib, o'simliklarda <span class="highlight-glow">"fiziologik qurg'oqchilik"</span> yuzaga keladi.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section data-transition="zoom">
+                <h3>GEE platformasida ma'lumotlarni tahlil qilish</h3>
+                <div class="glass-card">
+                    <p>Tahlil uchun AQShning <span class="highlight-glow">Landsat 8</span> sun'iy yo'ldosh ma'lumotlaridan foydalanildi.</p>
+                </div>
+                <div class="glass-card fragment">
+                    <p>Google Earth Engine bulutli platformasida <span class="highlight-glow">2014-2023 yillar</span> uchun tarixiy ma'lumotlar bazasi tahlil qilindi.</p>
+                </div>
+                <div class="glass-card fragment" style="font-size: 0.8em;">
+                    <p>Bulutli kunlar niqoblanib (cloud masking), ko'p yillik maksimal va minimal NDVI qiymatlari aniqlandi.</p>
+                </div>
+            </section>
+
+                        <section data-transition="zoom" data-background-color="rgba(0,0,0,0.8)">
+                <div class="glass-card" style="padding: 20px; max-width: 900px; margin: auto;">
+                    <h2 style="font-size: 1.5em; margin-bottom: 15px;">Xorazm viloyati qurg'oqchilik xaritasi (VCI)</h2>
+                    
+                    <img src="https://i.ibb.co/ZzbsCVCv/Screenshot-20260219-113536-Chrome.jpg" 
+                         alt="Xorazm qurg'oqchilik xaritasi" 
+                         style="max-height: 55vh; border-radius: 10px; box-shadow: 0 0 30px rgba(255,140,0,0.5); object-fit: contain; width: 100%;">
+                </div>
+                
+                <p class="glass-card fragment" style="margin-top: 15px; font-size: 0.7em;">
+                    Ushbu xarita o'simliklarning real fiziologik holatini hududning tabiiy-geografik fonini hisobga olgan holda ko'rsatadi.
+                </p>
+            </section>
+
+
+            <section data-transition="convex">
+                <h3>Xarita tahlili: Ekstremal xavf zonalari</h3>
+                <div class="glass-card" style="background: rgba(255, 0, 0, 0.2); border-color: red;">
+                    <h4>Qizil va zarg'aldoq ranglar (VCI < 35%)</h4>
+                    <p>Ekstremal va kuchli qurg'oqchilik zonalari.</p>
+                </div>
+                <div class="glass-card" style="text-align: left;">
+                    <p><strong>Hududlar:</strong> Qo'shko'pir, Shovot, Gurlan tumanlarining shimoliy va g'arbiy qismlari.</p>
+                    <p class="fragment"><strong>Sababi:</strong> Irrigatsiya tizimining eng oxirgi (<span class="highlight-glow">"quyruq"</span>) qismlarida joylashganligi va suvning to'liq yetib bormasligi.</p>
+                </div>
+            </section>
+
+            <section data-transition="convex">
+                <h3>Xarita tahlili: Barqaror zonalar</h3>
+                <div class="glass-card" style="background: rgba(0, 255, 0, 0.1); border-color: green;">
+                    <h4>Yashil ranglar (VCI > 50%)</h4>
+                    <p>Namlik ta'minoti yaxshi, qulay vegetatsiya zonalari.</p>
+                </div>
+                <div class="glass-card" style="text-align: left;">
+                    <p><strong>Hududlar:</strong> Hazorasp, Bog'ot, Xonqa va qisman Urganch tumanlari.</p>
+                    <p class="fragment"><strong>Sababi:</strong> Amudaryo o'zaniga va magistral kanallarning bosh inshootlariga yaqinligi, suv ta'minotining barqarorligi.</p>
+                </div>
+            </section>
+
+            <section data-transition="zoom">
+                <h2>Oqibatlarni yumshatish: "Erta ogohlantirish tizimi"</h2>
+                <div class="glass-card kinetic-text">
+                    <p>Geoaxborot monitoringi markazlarini tashkil etish orqali mintaqaviy <span class="highlight-glow">Early Warning System</span> ni joriy etish.</p>
+                </div>
+                <div class="glass-card fragment" style="margin-top: 30px;">
+                    <p>Bu tizim qurg'oqchilik o'choqlarini erta bahordayoq aniqlab, cheklangan suv zaxiralarini aynan eng zaif hududlarga tezkorlik bilan yo'naltirish imkonini beradi.</p>
+                </div>
+            </section>
+
+            <section data-transition="convex">
+                <h3>Suv tejovchi va agrotexnik tadbirlar</h3>
+                <div class="glass-card" style="text-align: left;">
+                    <ul>
+                        <li class="fragment fade-in-then-semi-out">Ochiq tuproq o'zanli kanallarni beton qoplamaga o'tkazib, FIKni 0,80-0,85 gacha ko'tarish.</li>
+                        <li class="fragment fade-in-then-semi-out"><span class="highlight-glow">Lazerli tekislash</span> (suvni 20-25% tejaydi) va tomchilatib sug'orishni keng joriy etish.</li>
+                        <li class="fragment fade-in-then-semi-out"><span class="highlight-glow">"No-Till"</span> (nol ishlov) texnologiyasi va mulchalash orqali tuproq namligini saqlash.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section data-transition="concave">
+                <h3>Innovatsion yondashuvlar va diversifikatsiya</h3>
+                <div style="display: flex; gap: 20px;">
+                    <div class="glass-card fragment" style="flex: 1;">
+                        <h4>Indeksli sug'urtalash</h4>
+                        <p style="font-size: 0.8em;">Agar GEE platformasida VCI kritik me'yordan tushib ketsa, dehqonlarga kompensatsiya to'lashning shaffof tizimi.</p>
+                    </div>
+                    <div class="glass-card fragment" style="flex: 1;">
+                        <h4>Ekinlarni diversifikatsiya qilish</h4>
+                        <p style="font-size: 0.8em;">Suv ta'minoti og'ir hududlarda sholi o'rniga qurg'oqchilikka chidamli ekinlar (mosh, no'xat, kunjut) va galofitlarni (yantoq, izen) ekish.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section data-transition="zoom">
+                <h2>Umumiy xulosa</h2>
+                <div class="glass-card" style="text-align: left;">
+                    <ul>
+                        <li class="fragment">Xorazm viloyatida qurg'oqchilik nafaqat meteorologik hodisa, balki <span class="highlight-glow">suv taqchilligi va tuproq sho'rlanishi sinergiyasi</span> natijasidir.</li>
+                        <li class="fragment">Landsat va GEE yordamida olingan natijalar qurg'oqchilik xavfi irrigatsiya tizimlari joylashuviga to'g'ridan-to'g'ri mutanosib ekanini isbotladi.</li>
+                        <li class="fragment">Muammoning yechimi Katta ma'lumotlar (Big Data) va Sun'iy intellekt (AI) algoritmlaridan foydalangan holda barqaror, proaktiv boshqaruv tizimiga o'tishdir.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section data-transition="zoom">
+                <div class="glass-card kinetic-text" style="padding: 50px;">
+                    <h1 class="highlight-glow">E'tiboringiz uchun rahmat!</h1>
+                    <p style="margin-top: 30px;">Savol va javoblar uchun tayyorman.</p>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+    <script>
+        // Reveal.js ni ishga tushirish
+        Reveal.initialize({
+            controls: true,       // Pastki o'ng burchakdagi boshqaruv tugmalari
+            progress: true,       // Pastki qismdagi progress bar
+            center: true,         // Slaydlarni markazlashtirish
+            hash: true,           // URL da slayd raqamini ko'rsatish
+            transition: 'convex', // Standart o'tish effekti (zoom, concave, convex, none)
+            backgroundTransition: 'zoom', // Orqa fon o'tish effekti
+            autoAnimateEasing: 'ease-out',
+            autoAnimateDuration: 0.8,
+            mouseWheel: false     // Sichqoncha g'ildiragi bilan o'tishni o'chirish
+        });
+
+        // Particles.js ni ishga tushirish (Chang/Qurg'oqchilik effekti)
+        particlesJS('particles-js', {
+            "particles": {
+                "number": {
+                    "value": 60,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": ["#ff8c00", "#ffffff"] // Zarg'aldoq va oq zarralar
+                },
+                "shape": {
+                    "type": "circle",
+                                        "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    },
+                    "polygon": {
+                        "nb_sides": 5
+                    }
+                },
+                "opacity": {
+                    "value": 0.3,
+                    "random": true,
+                    "anim": {
+                        "enable": true,
+                        "speed": 0.5,
+                        "opacity_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "size": {
+                    "value": 3,
+                    "random": true,
+                    "anim": {
+                        "enable": true,
+                        "speed": 2,
+                        "size_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "line_linked": {
+                    "enable": false, // Chiziqlarni o'chiramiz, faqat zarralar qolsin (chang effekti)
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 0.5, // Sekin harakat
+                    "direction": "none",
+                    "random": true,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": false,
+                        "rotateX": 600,
+                        "rotateY": 1200
+                    }
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": false // Sichqoncha kelganda reaksiya kerak emas
+                    },
+                    "onclick": {
+                        "enable": false
+                    },
+                    "resize": true
+                }
+            },
+            "retina_detect": true
+        });
+
+        // GSAP yordamida "kinetic-text" elementlariga qo'shimcha animatsiya berish (ixtiyoriy)
+        gsap.from(".kinetic-text h1, .kinetic-text h2", {
+            duration: 1.5,
+            y: 50,
+            opacity: 0,
+            ease: "power3.out",
+            stagger: 0.2,
+            delay: 0.5
+        });
+
+    </script>
+</body>
+</html>
+
