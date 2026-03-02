@@ -526,21 +526,29 @@
         ];
 
         function style(feature) {
-            const zoneName = feature.properties.nomi;
-            let colorIndex = 0;
-            if (zoneName) {
-                let hash = 0;
-                for (let i = 0; i < zoneName.length; i++) hash = zoneName.charCodeAt(i) + ((hash << 5) - hash);
-                colorIndex = Math.abs(hash) % colorPalette.length;
-            }
+    const zoneId = Number(feature.properties.id1); 
+    let zoneColor;
 
-            return {
-                color: '#1e293b', // borders matching map bg
-                weight: 1.5,
-                fillColor: colorPalette[colorIndex],
-                fillOpacity: 0.6
-            };
+    switch (zoneId) {
+        case 1: zoneColor = '#006400'; break; // Ekvatorial o'rmon (To'q yashil)
+        case 2: zoneColor = '#228B22'; break; // Mavsumiy sernam o'rmon (Yashil)
+        case 3: zoneColor = '#DAA520'; break; // Savanna (Sarg'ish-jigarrang)
+        case 4: zoneColor = '#3CB371'; break; // Qattiq bargli doimiy yashil o'rmon (Och yashil)
+        case 5: zoneColor = '#F4A460'; break; // Chala cho'l (Qumrang)
+        case 6: zoneColor = '#BDB76B'; break; // Dasht (Xaki/Sarg'ish-yashil)
+        case 7: zoneColor = '#8FBC8F'; break; // Aralash o'rmon (Xira yashil)
+        case 8: zoneColor = '#8B4513'; break; // Tog'lar (Jigarrang)
+        default: zoneColor = '#cccccc';       // Noma'lum zonalar (Kulrang)
+    }
+
+    return {
+        color: '#1e293b', 
+        weight: 1.5,
+        fillColor: zoneColor,
+        fillOpacity: 0.7 
+    };
         }
+        
 
         function highlightFeature(e) {
             if (gameStarted) return; // Disable hover effect during game for cleaner UI
