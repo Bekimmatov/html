@@ -483,7 +483,7 @@
         const map = L.map('map', { zoomControl: false }).setView([-23, -60.0], 3);
         L.control.zoom({ position: 'topright' }).addTo(map);
 
-        L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png', {
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 19,
             attribution: '&copy; CARTO'
         }).addTo(map);
