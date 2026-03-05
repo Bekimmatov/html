@@ -1,0 +1,833 @@
+<!doctype html>
+<html lang="uz">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Shimoliy Amerika Tabiat Zonalari</title>
+
+    <link rel="shortcut icon" href="https://i.ibb.co/1fTsX0WG/Screenshot-20251129-011814-Instagram-2.jpg"
+        type="image/x-icon">
+
+    <!-- Bootstrap & Leaflet -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.11.0/proj4.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4leaflet/1.0.2/proj4leaflet.min.js"></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap');
+
+        :root {
+            --bg-main: #0f172a;
+            --bg-card: rgba(30, 41, 59, 0.85);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-primary: #3b82f6;
+            --accent-success: #10b981;
+            --accent-warning: #f59e0b;
+            --accent-danger: #ef4444;
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg-main);
+            background-image:
+                radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.15) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(16, 185, 129, 0.15) 0px, transparent 50%);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        /* HEADER */
+        .app-header {
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--glass-border);
+            z-index: 10;
+        }
+
+        .app-title {
+            font-weight: 800;
+            font-size: 1.2rem;
+            margin: 0;
+            background: linear-gradient(to right, #60a5fa, #34d399);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        /* MAIN CONTENT AREA */
+        .main-wrapper {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        /* MAP */
+        #map {
+            width: 100%;
+            flex-grow: 1;
+            /* Fills remaining space */
+            min-height: 50vh;
+            background: #1e293b;
+            z-index: 1;
+        }
+
+        /* DASHBOARD overlayed on bottom */
+        .dashboard-glass {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 95%;
+            max-width: 600px;
+            background: var(--bg-card);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 15px 20px;
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        /* TARGET QUESTION BOX */
+        .question-area {
+            text-align: center;
+            min-height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .question-text {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .target-badge {
+            background: rgba(239, 68, 68, 0.2);
+            color: #fca5a5;
+            border: 1px solid rgba(239, 68, 68, 0.4);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 1.1rem;
+            margin-left: 10px;
+            letter-spacing: 0.5px;
+            box-shadow: 0 0 15px rgba(239, 68, 68, 0.2);
+        }
+
+        /* STATS (Score & Time) ROW */
+        .stats-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+            padding: 8px 15px;
+        }
+
+        .stat-item {
+            font-weight: 600;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .stat-score {
+            color: #60a5fa;
+        }
+
+        .stat-time {
+            color: #34d399;
+        }
+
+        /* COMPACT BUTTONS */
+        .btn-compact {
+            border: none;
+            border-radius: 12px;
+            padding: 8px 16px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            color: white;
+            cursor: pointer;
+        }
+
+        .btn-compact:active {
+            transform: scale(0.95);
+        }
+
+        .btn-play {
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+        }
+
+        .btn-play:hover {
+            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.5);
+        }
+
+        .btn-leaders {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--glass-border);
+            color: var(--text-main);
+        }
+
+        .btn-leaders:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        /* LEAFLET CUSTOMIZATIONS (Dark map overrides) */
+        .leaflet-container {
+            background: var(--bg-main) !important;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .leaflet-interactive {
+            transition: fill-opacity 0.3s, fill-color 0.3s;
+        }
+
+        .leaflet-popup-content-wrapper {
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(10px);
+            color: white;
+            border-radius: 12px;
+            border: 1px solid var(--glass-border);
+        }
+
+        .leaflet-popup-tip {
+            background: rgba(15, 23, 42, 0.9);
+        }
+
+        .leaflet-control-zoom a {
+            background: var(--bg-card) !important;
+            color: var(--text-main) !important;
+            border-color: var(--glass-border) !important;
+        }
+
+        /* ANIMATIONS */
+        @keyframes slideUpFade {
+            0% {
+                opacity: 0;
+                transform: translate(-50%, 20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translate(-50%, 0);
+            }
+        }
+
+        .slide-up {
+            animation: slideUpFade 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes pop {
+            0% {
+                transform: scale(0.9);
+                opacity: 0;
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .pop-anim {
+            animation: pop 0.4s ease-out forwards;
+        }
+
+
+        /* MODAL STYLING (Dark Theme) */
+        .modal-content {
+            background: #1e293b;
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            color: var(--text-main);
+        }
+
+        .modal-header {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .modal-footer {
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .btn-close-white {
+            filter: invert(1) grayscale(100%) brightness(200%);
+        }
+
+        .table-dark-custom {
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        .table-dark-custom th {
+            color: var(--text-main);
+            font-weight: 600;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .table-dark-custom td {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            vertical-align: middle;
+            padding: 12px 8px;
+        }
+
+        .medal-icon {
+            font-size: 1.2rem;
+        }
+
+        .medal-1 {
+            color: #fbbf24;
+            text-shadow: 0 0 10px rgba(251, 191, 36, 0.5);
+        }
+
+        /* Gold */
+        .medal-2 {
+            color: #94a3b8;
+        }
+
+        /* Silver */
+        .medal-3 {
+            color: #b45309;
+        }
+
+        /* Bronze */
+
+        /* MINIMAL FOOTER */
+        .footer-mini {
+            text-align: center;
+            padding: 8px;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            background: var(--bg-main);
+        }
+
+        .footer-mini a {
+            color: var(--accent-primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+
+        /* RESPONSIVE TWEAKS */
+        @media (max-width: 576px) {
+            .app-title {
+                font-size: 1.1rem;
+            }
+
+            .question-text {
+                font-size: 1rem;
+            }
+
+            .target-badge {
+                font-size: 0.95rem;
+                padding: 4px 12px;
+                display: block;
+                margin: 5px auto 0;
+                width: fit-content;
+            }
+
+            .dashboard-glass {
+                bottom: 15px;
+                padding: 12px 15px;
+                width: calc(100% - 30px);
+                border-radius: 16px;
+            }
+
+            .btn-compact {
+                font-size: 0.8rem;
+                padding: 7px 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="app-header">
+        <h1 class="app-title"><i class="fas fa-globe-americas me-2"></i>Shimoliy Amerika</h1>
+        <div class="header-actions">
+            <button type="button" class="btn-compact btn-leaders" data-bs-toggle="modal" data-bs-target="#recordsModal">
+                <i class="fas fa-crown"></i> <span class="d-none d-sm-inline">Top</span>
+            </button>
+        </div>
+    </header>
+
+    <div class="main-wrapper">
+        <div id="map"></div>
+
+        <!-- Floating Dashboard -->
+        <div class="dashboard-glass slide-up" id="dashboard">
+            <!-- Question Area -->
+            <div class="question-area" id="questionArea">
+                <div class="question-text w-100 text-center" id="initialText">
+                    Xaritani o'rganing yoki o'yinni boshlang
+                </div>
+            </div>
+
+            <!-- Stats & Play Button Row -->
+            <div class="stats-row">
+                <div class="stat-item stat-score" id="score">
+                    <i class="fas fa-star"></i> <span>0</span>
+                </div>
+
+                <button id="startButton" class="btn-compact btn-play">
+                    <i class="fas fa-play"></i> Boshlash
+                </button>
+
+                <div class="stat-item stat-time" id="timer">
+                    <i class="fas fa-clock"></i> <span>0s</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="recordsModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="fas fa-trophy text-warning me-2"></i> Rekordlar</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-0">
+                    <div id="recordsList" class="p-3"></div>
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn-compact btn-leaders text-danger border-danger" id="clearRecordsBtn"
+                        style="background: rgba(239, 68, 68, 0.1);">
+                        <i class="fas fa-trash"></i> Tozalash
+                    </button>
+                    <button type="button" class="btn-compact btn-play" data-bs-dismiss="modal">Yopish</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer-mini">
+        <div style="display: flex; justify-content: center; align-items: center; gap: 15px;">
+            <a href="https://instagram.com/Bekimmatovv" target="_blank"
+                style="display: flex; align-items: center; gap: 5px; color: #e1306c;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+                <span>@Bekimmatovv</span>
+            </a>
+            <span style="opacity: 0.5;">|</span>
+            <a href="https://t.me/Geografiya_Rahmatjon" target="_blank"
+                style="display: flex; align-items: center; gap: 5px; color: #0088cc;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+                <span>Geografiya_Rahmatjon</span>
+            </a>
+        </div>
+    </footer>
+
+    <!-- Audios -->
+    <audio id="sound_correct" src="https://github.com/Bekimmatov/R/raw/refs/heads/main/correct-156911.mp3"
+        preload="auto"></audio>
+    <audio id="sound_error"
+        src="https://github.com/Bekimmatov/R/raw/refs/heads/main/buzzer-or-wrong-answer-20582%20(1).mp3"
+        preload="auto"></audio>
+    <audio id="sound_win" src="https://github.com/Bekimmatov/R/raw/refs/heads/main/purchase-success-384963.mp3"
+        preload="auto"></audio>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <script>
+        // Map setup: Darker minimal basemap
+        const map = L.map('map', { zoomControl: false }).setView([45, -100.0], 3);
+        L.control.zoom({ position: 'topright' }).addTo(map);
+
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png', {
+            maxZoom: 19,
+            attribution: '&copy; CARTO'
+        }).addTo(map);
+
+        const soundCorrect = document.getElementById('sound_correct');
+        const soundError = document.getElementById('sound_error');
+        const soundWin = document.getElementById('sound_win');
+        let audioContextResumed = false;
+
+        function playSound(audioElement) {
+            if (audioElement && audioContextResumed) {
+                audioElement.currentTime = 0;
+                audioElement.play().catch(() => { });
+            }
+        }
+
+        const geojsonUrl = 'https://raw.githubusercontent.com/Bekimmatov/R/refs/heads/main/shamerikatzona.geojson';
+        const LOCAL_STORAGE_KEY = 'north_america_natural_zones_quiz_records';
+
+        let geojsonLayer;
+        let uniqueQuestions = [];
+        let currentIndex = 0;
+        let score = 0;
+        let firstTry = true;
+        let startTime = null;
+        let timerInterval = null;
+        let gameStarted = false;
+
+        const startButton = document.getElementById('startButton');
+        const questionArea = document.getElementById('questionArea');
+        const scoreElement = document.querySelector('#score span');
+        const timerElement = document.querySelector('#timer span');
+        const recordsListElement = document.getElementById('recordsList');
+        const clearRecordsBtn = document.getElementById('clearRecordsBtn');
+
+        // Specific color mapping for North America zones based on ID1
+        const zoneColors = {
+            1: '#ffffff', // Arktika cho‘llari
+            2: '#999393', // Tundra va o‘rmon tundra
+            3: '#2d6a4f', // Tayga
+            4: '#74c69d', // Aralash va keng bargli o‘rmonlar
+            5: '#d4e09b', // O‘rmon-dashtlar va dashtlar
+            6: '#f4d35e', // Chala cho‘llar va cho‘llar
+            7: '#4af05b', // Savannalar va siyrak o‘rmonlar
+            8: '#5a4acf', // Fasliy sernam o‘rmonlar
+            9: '#ec42f5', // Balandlik mintaqalanish o‘lkalari
+            10: '#52796f' // Qattiq bargli doimiy yashil o‘rmonlar
+        };
+
+        function style(feature) {
+            const id1 = feature.properties.ID1;
+            const color = zoneColors[id1] || '#334155';
+
+            return {
+                color: '#1e293b',
+                weight: 1.5,
+                fillColor: color,
+                fillOpacity: 0.7
+            };
+        }
+
+        function highlightFeature(e) {
+            if (gameStarted) return; // Disable hover effect during game for cleaner UI
+            const layer = e.target;
+            layer.setStyle({ fillOpacity: 0.9, weight: 2, color: '#fff' });
+            layer.bringToFront();
+        }
+
+        function resetHighlight(e) {
+            if (gameStarted) return;
+            const layer = e.target;
+            if (!layer.correct) geojsonLayer.resetStyle(layer);
+        }
+
+        function startTimer() {
+            if (timerInterval) clearInterval(timerInterval);
+            startTime = Date.now();
+            timerElement.innerText = `0s`;
+            timerInterval = setInterval(() => {
+                const elapsed = Math.floor((Date.now() - startTime) / 1000);
+                timerElement.innerText = `${elapsed}s`;
+            }, 1000);
+        }
+
+        function onStudyClick(e) {
+            if (!gameStarted) {
+                const zoneName = e.target.feature.properties.nomi || "Noma'lum zona";
+                e.target.bindPopup(`
+                <div class="text-center">
+                    <span style="font-size:0.8rem; color:#94a3b8; text-transform:uppercase; letter-spacing:1px;">Hudud</span><br>
+                    <strong style="font-size: 1.1rem;">${zoneName}</strong>
+                </div>
+            `, { closeButton: false }).openPopup();
+            }
+        }
+
+        function startGame() {
+            if (gameStarted) return;
+            gameStarted = true;
+
+            // Transform Start button into "Restart" or hide it
+            startButton.innerHTML = `<i class="fas fa-spinner fa-spin"></i>`;
+            startButton.disabled = true;
+
+            if (!audioContextResumed) {
+                soundCorrect.volume = 0;
+                soundCorrect.play().then(() => {
+                    soundCorrect.pause();
+                    soundCorrect.volume = 1;
+                    audioContextResumed = true;
+                }).catch(() => { audioContextResumed = false; });
+            }
+
+            if (geojsonLayer) {
+                geojsonLayer.eachLayer(layer => {
+                    layer.off('click', onStudyClick);
+                    layer.on('click', onViloyatClick);
+                    layer.correct = false;
+                    // Reset styling to a unified dull color for the quiz
+                    layer.setStyle({ fillColor: '#334155', fillOpacity: 0.8, color: '#0f172a', weight: 1 });
+                    layer.unbindPopup();
+                });
+            }
+
+            score = 0;
+            currentIndex = 0;
+            scoreElement.innerText = `0`;
+
+            if (uniqueQuestions.length === 0) {
+                questionArea.innerHTML = `<span class="text-muted"><i class="fas fa-spinner fa-spin me-2"></i> Yuklanmoqda...</span>`;
+                fetchGeoJSON(true);
+            } else {
+                shuffleQuestions();
+                showQuestion();
+                startTimer();
+                startButton.style.display = 'none'; // Hide entirely during play
+            }
+        }
+
+        function fetchGeoJSON(isGameStart = false) {
+            fetch(geojsonUrl)
+                .then(res => res.json())
+                .then(data => {
+                    const processedData = data; // New GeoJSON is already in WGS84
+
+                    const allLayersByGroup = {};
+
+                    geojsonLayer = L.geoJSON(processedData, {
+                        style: style,
+                        onEachFeature: (feature, layer) => {
+                            const name = feature.properties.nomi;
+                            layer.correct = false;
+                            if (name) {
+                                layer.nameGroup = name;
+                                layer.on({
+                                    mouseover: highlightFeature,
+                                    mouseout: resetHighlight,
+                                });
+                                layer.on('click', onStudyClick);
+                                if (!allLayersByGroup[name]) allLayersByGroup[name] = [];
+                                allLayersByGroup[name].push(layer);
+                            }
+                        }
+                    }).addTo(map);
+
+                    // Shift map slightly up so dashed board doesn't cover south
+                    map.fitBounds(geojsonLayer.getBounds(), { paddingBottomRight: [0, 150] });
+
+                    uniqueQuestions = Object.keys(allLayersByGroup).map(name => ({
+                        name: name,
+                        layers: allLayersByGroup[name]
+                    }));
+
+                    if (uniqueQuestions.length === 0) {
+                        questionArea.innerHTML = `<span class="text-danger">Xatolik: 'nomi' topilmadi.</span>`;
+                        startButton.innerHTML = 'Xato';
+                    }
+
+                    if (isGameStart) {
+                        geojsonLayer.eachLayer(layer => {
+                            layer.off('click', onStudyClick);
+                            layer.on('click', onViloyatClick);
+                            layer.unbindPopup();
+                            layer.setStyle({ fillColor: '#334155', fillOpacity: 0.8, color: '#0f172a', weight: 1 });
+                        });
+                        shuffleQuestions();
+                        showQuestion();
+                        startTimer();
+                        startButton.style.display = 'none';
+                    }
+                })
+                .catch(err => {
+                    questionArea.innerHTML = `<span class="text-danger"><i class="fas fa-wifi"></i> Aloqa xatosi</span>`;
+                    startButton.innerHTML = 'Xato';
+                });
+        }
+
+        function shuffleQuestions() {
+            uniqueQuestions.sort(() => 0.5 - Math.random());
+            currentIndex = 0;
+        }
+
+        function showQuestion() {
+            if (currentIndex >= uniqueQuestions.length) {
+                if (timerInterval) clearInterval(timerInterval);
+                gameStarted = false;
+                const elapsed = Math.floor((Date.now() - startTime) / 1000);
+                const total = uniqueQuestions.length;
+
+                saveRecord(score, elapsed, total);
+                audioContextResumed = true;
+                playSound(soundWin);
+
+                questionArea.innerHTML = `
+                <div class="pop-anim w-100">
+                    <div style="color:var(--accent-success); font-weight:800; font-size:1.2rem;">O'yin Yakunlandi!</div>
+                    <div style="font-size:0.9rem; color:var(--text-muted); margin-top:4px;">Qoyilmaqom natija</div>
+                </div>
+            `;
+
+                startButton.style.display = 'inline-flex';
+                startButton.innerHTML = '<i class="fas fa-redo"></i> Qayta';
+                startButton.disabled = false;
+
+                geojsonLayer.eachLayer(layer => {
+                    layer.off('click', onViloyatClick);
+                    layer.on('click', onStudyClick);
+                    // Return to original colorful style
+                    geojsonLayer.resetStyle(layer);
+                });
+
+                displayRecords();
+                setTimeout(() => {
+                    new bootstrap.Modal(document.getElementById('recordsModal')).show();
+                }, 1000);
+                return;
+            }
+
+            firstTry = true;
+            questionArea.innerHTML = `
+            <div class="question-text pop-anim">
+                <span class="d-none d-sm-inline">Toping:</span>
+                <div class="target-badge">${uniqueQuestions[currentIndex].name}</div>
+            </div>
+        `;
+        }
+
+        function onViloyatClick(e) {
+            if (!gameStarted) return;
+
+            const clickedLayer = e.target;
+            const currentQ = uniqueQuestions[currentIndex];
+
+            if (clickedLayer.correct) return;
+
+            if (clickedLayer.nameGroup === currentQ.name) {
+                playSound(soundCorrect);
+                const isFirstTry = firstTry;
+
+                currentQ.layers.forEach(layer => {
+                    layer.correct = true;
+                    layer.setStyle({
+                        fillColor: isFirstTry ? '#10b981' : '#f59e0b',
+                        fillOpacity: 0.9,
+                        weight: 2,
+                        color: '#fff'
+                    });
+                    layer.bringToFront();
+                });
+
+                if (isFirstTry) {
+                    score++;
+                    scoreElement.innerText = score;
+                }
+
+                currentIndex++;
+                setTimeout(showQuestion, 400);
+
+            } else {
+                playSound(soundError);
+                clickedLayer.setStyle({ fillColor: '#ef4444', fillOpacity: 0.9 });
+                setTimeout(() => {
+                    if (!clickedLayer.correct) {
+                        clickedLayer.setStyle({ fillColor: '#334155', fillOpacity: 0.8 });
+                    }
+                }, 400);
+                firstTry = false;
+            }
+        }
+
+        function loadRecords() {
+            try { return JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) || []; }
+            catch (e) { return []; }
+        }
+
+        function saveRecord(newScore, newTime, maxScore) {
+            let records = loadRecords();
+            records.push({ score: newScore, time: newTime, max: maxScore, date: new Date().toLocaleDateString('uz-UZ') });
+            records.sort((a, b) => b.score !== a.score ? b.score - a.score : a.time - b.time);
+            records = records.slice(0, 10);
+            localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(records));
+        }
+
+        function displayRecords() {
+            const records = loadRecords();
+            if (records.length === 0) {
+                recordsListElement.innerHTML = `
+                <div class="text-center text-muted py-5">
+                    <i class="fas fa-ghost fs-1 mb-2 opacity-50"></i>
+                    <p class="m-0">Rekordlar bo'sh</p>
+                </div>`;
+                return;
+            }
+
+            let html = `<table class="table table-borderless table-dark-custom w-100 text-center">
+                <thead><tr><th>O'rin</th><th>Ball</th><th>Vaqt</th><th>Sana</th></tr></thead><tbody>`;
+
+            records.forEach((rec, i) => {
+                let medal = i === 0 ? '<i class="fas fa-medal medal-icon medal-1"></i>' :
+                    i === 1 ? '<i class="fas fa-medal medal-icon medal-2"></i>' :
+                        i === 2 ? '<i class="fas fa-medal medal-icon medal-3"></i>' :
+                            `<span class="text-muted fw-bold">${i + 1}</span>`;
+
+                html += `<tr>
+                    <td>${medal}</td>
+                    <td class="text-info fw-bold">${rec.score}/${rec.max}</td>
+                    <td class="text-success">${rec.time}s</td>
+                    <td class="small">${rec.date}</td>
+                </tr>`;
+            });
+            recordsListElement.innerHTML = html + `</tbody></table>`;
+        }
+
+        startButton.onclick = startGame;
+        clearRecordsBtn.onclick = () => {
+            if (confirm("Tarix tozalanadimi?")) {
+                localStorage.removeItem(LOCAL_STORAGE_KEY); displayRecords();
+            }
+        };
+
+        document.getElementById('recordsModal').addEventListener('show.bs.modal', displayRecords);
+        fetchGeoJSON(false);
+
+    </script>
+</body>
+
+</html>
