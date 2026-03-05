@@ -480,11 +480,11 @@
 
     <script>
         // Map setup: Darker minimal basemap
-        const map = L.map('map', { zoomControl: false }).setView([45, -100.0], 3);
+        const map = L.map('map', { zoomControl: false }).setView([45, -100.0], 7);
         L.control.zoom({ position: 'topright' }).addTo(map);
 
         L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png', {
-            maxZoom: 19,
+            maxZoom: 20,
             attribution: '&copy; CARTO'
         }).addTo(map);
 
