@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Janubiy Amerika geografik interaktiv moduli</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/panzoom@9.4.0/dist/panzoom.min.js"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap');
+body { font-family: 'Inter', sans-serif; background-color: #0B1121; color: #f8fafc; margin: 0; overflow: hidden; height: 100dvh; display: flex; flex-direction: column; }
+#map-wrapper { flex: 1; position: relative; width: 100%; min-height: 0; display: flex; justify-content: center; align-items: center; overflow: hidden; background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%); }
+#map-container { width: 100%; height: 100%; touch-action: none; display: flex; justify-content: center; align-items: center; }
+#map-container svg { width: 100% !important; height: 100% !important; object-fit: contain; filter: drop-shadow(0 15px 25px rgba(0,0,0,0.6)); transform-origin: center center; }
+
+/* SVG Path Stillari */
+path { cursor: pointer; transition: fill-opacity 0.3s ease, stroke 0.3s ease, fill 0.3s ease; stroke: rgba(255,255,255,0.3); stroke-width: 0.5px; }
+@media (hover: hover) { path:hover { stroke: #ffffff !important; stroke-width: 2px !important; fill-opacity: 0.8; filter: brightness(1.2); } }
+
+/* Sinov rejimi effektlari */
+.found-perfect { pointer-events: none !important; stroke: #10b981 !important; stroke-width: 2px !important; fill: #10b981 !important; fill-opacity: 0.8 !important; filter: drop-shadow(0 0 15px rgba(16,185,129,0.6)) brightness(1.2) !important; z-index: 10; }
+.found-flawed { pointer-events: none !important; stroke: #ef4444 !important; stroke-width: 2px !important; fill: #ef4444 !important; fill-opacity: 0.8 !important; filter: drop-shadow(0 0 15px rgba(239,68,68,0.6)) brightness(1.2) !important; z-index: 10; }
+
+/* O'rganish rejimi effekti */
+.learn-active { stroke: #3b82f6 !important; stroke-width: 3px !important; filter: brightness(1.3) drop-shadow(0 0 10px rgba(59,130,246,0.6)) !important; z-index: 20; }
+
+.wrong-click { animation: errorShake 0.4s cubic-bezier(.36,.07,.19,.97) both; }
+@keyframes errorShake { 10%, 90% { transform: translate3d(-2px, 0, 0); } 20%, 80% { transform: translate3d(3px, 0, 0); } 30%, 50%, 70% { transform: translate3d(-5px, 0, 0); } 40%, 60% { transform: translate3d(5px, 0, 0); } }
+.active-task { color: #facc15; animation: textPulse 2s infinite; text-shadow: 0 0 15px rgba(250,204,21,0.4); }
+@keyframes textPulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.8; } }
+
+#tooltip { position: fixed; background: rgba(15, 23, 42, 0.95); color: #fff; padding: 8px 12px; border-radius: 8px; font-size: 12px; font-weight: 700; pointer-events: none; display: none; z-index: 100; white-space: nowrap; border: 1px solid rgba(255,255,255,0.2); box-shadow: 0 10px 15px rgba(0,0,0,0.5); backdrop-filter: blur(4px); }
+.pb-safe { padding-bottom: env(safe-area-inset-bottom, 20px); }
+.glass-header { background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255,255,255,0.1); }
+.glass-footer { background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(20px); border-top: 1px solid rgba(255,255,255,0.1); box-shadow: 0 -10px 30px rgba(0,0,0,0.5); }
+.zoom-controls { position: absolute; right: 15px; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 10px; z-index: 40; }
+.zoom-btn { width: 48px; height: 48px; background: rgba(30, 41, 59, 0.9); border: 1px solid rgba(255,255,255,0.2); border-radius: 12px; color: white; font-size: 24px; font-weight: bold; display: flex; justify-content: center; align-items: center; box-shadow: 0 8px 15px rgba(0,0,0,0.4); transition: all 0.2s; }
+.zoom-btn:active { background: #3b82f6; transform: scale(0.9); }
+</style>
+</head>
+<body>
+
+<div id="tooltip"></div>
+
+<div id="confirm-modal" class="fixed inset-0 bg-black/80 hidden z-[200] items-center justify-center p-4 backdrop-blur-sm opacity-0 transition-opacity duration-300">
+    <div class="bg-slate-800 p-6 sm:p-8 rounded-2xl border border-slate-600 max-w-sm w-full text-center shadow-2xl transform scale-95 transition-transform duration-300" id="modal-content">
+        <div class="w-16 h-16 bg-red-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+        </div>
+        <h3 class="text-xl font-bold text-white mb-2">Diqqat!</h3>
+        <p class="text-slate-300 text-sm mb-6 leading-relaxed">O'yinni rostdan ham to'xtatmoqchimisiz? Barcha natijalar yo'qoladi.</p>
+        <div class="flex gap-3">
+            <button id="btn-cancel-stop" class="flex-1 py-3 bg-slate-600 hover:bg-slate-500 rounded-xl font-bold text-white transition-all active:scale-95">Yo'q</button>
+            <button id="btn-confirm-stop" class="flex-1 py-3 bg-red-600 hover:bg-red-500 rounded-xl font-bold text-white transition-all active:scale-95">Ha, to'xtatish</button>
+        </div>
+    </div>
+</div>
+
+<header class="flex-none flex justify-between items-center px-4 sm:px-6 py-3 sm:py-4 glass-header z-20">
+    <div class="flex flex-col items-start bg-slate-800/50 px-4 py-2 rounded-xl border border-white/5 w-24 sm:w-32">
+        <span class="text-[10px] text-slate-400 uppercase font-bold tracking-widest mb-1">Ball</span>
+        <span id="score" class="text-xl sm:text-2xl font-black text-emerald-400 leading-none">0</span>
+    </div>
+    <div class="text-center hidden md:block">
+        <h1 class="text-lg font-black bg-gradient-to-r from-blue-400 to-emerald-400 bg-clip-text text-transparent">Janubiy Amerika geografik interaktiv moduli</h1>
+    </div>
+    <div class="flex flex-col items-end bg-slate-800/50 px-4 py-2 rounded-xl border border-white/5 w-24 sm:w-32">
+        <span class="text-[10px] text-slate-400 uppercase font-bold tracking-widest mb-1">Vaqt</span>
+        <span id="timer" class="text-xl sm:text-2xl font-black text-blue-400 leading-none">00:00</span>
+    </div>
+</header>
+
+<main id="map-wrapper">
+    <div id="map-container">
+        <div class="text-blue-400 font-bold animate-pulse text-sm flex items-center gap-3 bg-slate-900/80 px-6 py-3 rounded-full border border-blue-500/30">
+            <div class="w-5 h-5 border-2 border-blue-400 border-t-transparent rounded-full animate-spin"></div>
+            Geografik ma'lumotlar yuklanmoqda...
+        </div>
+    </div>
+    <div class="zoom-controls hidden" id="zoom-controls">
+        <button id="zoom-in" class="zoom-btn shadow-blue-900/50">+</button>
+        <button id="zoom-out" class="zoom-btn shadow-blue-900/50">−</button>
+    </div>
+</main>
+
+<footer class="flex-none glass-footer z-20 p-4 sm:p-5 pb-safe flex flex-col items-center gap-3 sm:gap-4">
+    <div class="w-full max-w-2xl text-center bg-blue-900/10 py-3 sm:py-4 px-4 rounded-xl border border-blue-500/20 min-h-[5rem] flex flex-col justify-center transition-all" id="info-box">
+        <span id="target-label" class="block text-[10px] text-blue-400 uppercase font-bold tracking-widest mb-1 sm:mb-2 opacity-90 transition-all">Izlanayotgan hudud:</span>
+        <div id="target-display" class="text-sm sm:text-lg font-bold flex items-center justify-center text-slate-400 leading-snug transition-all">
+            Iltimos, rejimni tanlang
+        </div>
+    </div>
+    
+    <div id="menu-btns" class="w-full max-w-2xl flex gap-3">
+        <button id="btn-learn" class="flex-1 py-3 sm:py-4 bg-slate-700 hover:bg-slate-600 border border-slate-500 rounded-xl font-bold text-white transition-all active:scale-95 shadow-lg tracking-wide text-xs sm:text-sm">
+            <svg class="w-4 h-4 inline-block mr-1 -mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+            O'RGANISH
+        </button>
+        <button id="btn-play" class="flex-1 py-3 sm:py-4 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 rounded-xl font-black text-white transition-all active:scale-95 shadow-lg shadow-blue-900/40 tracking-wide text-xs sm:text-sm">
+            <svg class="w-4 h-4 inline-block mr-1 -mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+            TEZKOR SINOV
+        </button>
+    </div>
+
+    <button id="btn-stop" class="hidden w-full max-w-2xl py-3 sm:py-4 bg-red-900/40 hover:bg-red-900/80 border border-red-500/50 rounded-xl font-bold text-red-200 transition-all active:scale-95 text-xs sm:text-sm uppercase tracking-wider">
+        To'xtatish va Menyuga qaytish
+    </button>
+</footer>
+
+<audio id="snd-success" src="https://assets.mixkit.co/active_storage/sfx/2013/2013-preview.mp3" preload="auto"></audio>
+<audio id="snd-error" src="https://assets.mixkit.co/active_storage/sfx/2018/2018-preview.mp3" preload="auto"></audio>
+<audio id="snd-win" src="https://assets.mixkit.co/active_storage/sfx/1435/1435-preview.mp3" preload="auto"></audio>
+
+<script>
+const SVG_URL = 'https://raw.githubusercontent.com/Bekimmatov/R/refs/heads/main/jamerikatzona.svg';
+let gameMode = 'none'; // 'none', 'learn', 'test'
+let timer = 0, score = 0, interval, zones = [], originalZones = [], currentTarget = "";
+let mistakesOnCurrent = 0;
+const tooltip = document.getElementById('tooltip');
+let pz; 
+
+// Geografik hududlar ma'lumotlar bazasi (O'rganish rejimi uchun)
+const geoDictionary = {
+    "Sernam ekvatorial o'rmonlar": "Iqlimi issiq va nam, yil davomida yomg'ir yog'adi, o'simlik va hayvonot dunyosi juda boy (Selva).",
+    "Savannalar va siyrak o'rmonlar": "Yilning quruq va nam mavsumlari aniq ajraladi, bo'yi baland o'tlar va siyrak daraxtlar o'sadi (Lyanos, Kampos).",
+    "Dashtlar": "Subtropik iqlimda joylashgan, tuprog'i unumdor, asosan boshoqli o't o'simliklari qoplaydi (Pampa).",
+    "Cho'l va chala cho'llar": "Yog'ingarchilik juda kam, qurg'oqchil, o'simlik qoplami siyrak (Atakama, Patagoniya).",
+    "Balandlik mintaqalari": "And tog'lari bo'ylab balandlik oshgan sari iqlim va tabiat zonalari qonuniyatli o'zgarib boradi.",
+    "Qattiq bargli doimiy yashil o'rmonlar": "O'rta dengiz tipidagi iqlim xos, yozi issiq va quruq, qishi nam bo'ladi.",
+    "Fasliy sernam (shu jumladan musson) o'rmonlar": "Namlik mavsumga qarab o'zgaradi, barg to'kuvchi va doimiy yashil daraxtlar aralash holda o'sadi.",
+    "Aralash o'rmonlar": "Mo'tadil iqlimda tarqalgan, igna bargli va keng bargli daraxtlar aralash holda o'sadi."
+};
+
+function getNaturalColor(zoneName) {
+    const name = zoneName.toLowerCase();
+    if (name.includes('sernam ekvatorial')) return '#1e5631'; 
+    if (name.includes('savanna') || name.includes('siyrak')) return '#a4de02'; 
+    if (name.includes('dasht') || name.includes('pampa')) return '#e3b448'; 
+    if (name.includes("cho'l") || name.includes('atakama')) return '#c2b280'; 
+    if (name.includes('balandlik') || name.includes('tog\'')) return '#737373'; 
+    if (name.includes('qattiq bargli')) return '#4c9a2a'; 
+    if (name.includes('fasliy sernam')) return '#76ba1b'; 
+    return '#475569'; 
+}
+
+async function initMap() {
+    try {
+        const res = await fetch(SVG_URL);
+        const text = await res.text();
+        const mapContainer = document.getElementById('map-container');
+        mapContainer.innerHTML = text;
+        
+        const svgElement = mapContainer.querySelector('svg');
+        
+        // Responsive sozlamalar (width/height olib tashlanadi)
+        svgElement.removeAttribute('width');
+        svgElement.removeAttribute('height');
+        
+        // Foydalanuvchi javobni bilib qolmasligi uchun xato <title> larni o'chirish
+        svgElement.querySelectorAll('title').forEach(t => t.remove());
+
+        pz = panzoom(svgElement, { maxZoom: 8, minZoom: 0.5, bounds: true, boundsPadding: 0.1, zoomDoubleClickSpeed: 1 });
+        document.getElementById('zoom-controls').classList.remove('hidden');
+
+        document.getElementById('zoom-in').addEventListener('click', () => pz.smoothZoom(window.innerWidth/2, window.innerHeight/2, 1.5));
+        document.getElementById('zoom-out').addEventListener('click', () => pz.smoothZoom(window.innerWidth/2, window.innerHeight/2, 0.66));
+
+        prepareMapData();
+    } catch (err) {
+        document.getElementById('target-display').innerText = "Ma'lumotlarni yuklashda xatolik yuz berdi.";
+    }
+}
+
+function prepareMapData() {
+    const paths = document.querySelectorAll('#map-container path');
+    const uniqueZones = new Set();
+    
+    paths.forEach((p, i) => {
+        let rawName = p.getAttribute('data-nomi');
+        if (rawName && rawName.length > 2) {
+            // Imloviy tuzatishlar
+            let cleanName = rawName.startsWith(':') ? rawName.substring(1).trim() : rawName.trim();
+            if(cleanName === "Balandlik mintaqalanish o'lkalari") cleanName = "Balandlik mintaqalari";
+
+            // Unikal va toza Data-ID
+            const safeId = cleanName.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+            p.setAttribute('data-id', `${safeId}-${i}`);
+            p.setAttribute('data-nomi-clean', cleanName);
+            
+            p.removeAttribute('fill');
+            p.style.fill = getNaturalColor(cleanName);
+            uniqueZones.add(cleanName);
+
+            // Desktop Tooltip
+            p.addEventListener('mouseenter', () => {
+                if(gameMode === 'test' && (p.classList.contains('found-perfect') || p.classList.contains('found-flawed'))) return;
+                if(window.innerWidth < 768) return;
+                tooltip.style.display = 'block';
+                tooltip.innerText = cleanName;
+            });
+            p.addEventListener('mousemove', (e) => {
+                tooltip.style.left = (e.clientX + 15) + 'px';
+                tooltip.style.top = (e.clientY + 15) + 'px';
+            });
+            p.addEventListener('mouseleave', () => tooltip.style.display = 'none');
+            
+            // Sensorli ekran va Sichqoncha uchun aniq Click (Surishdan ajratish)
+            let startX = 0, startY = 0;
+            const onDown = (e) => { let evt = e.touches ? e.touches[0] : e; startX = evt.clientX; startY = evt.clientY; };
+            const onUp = (e) => {
+                let evt = e.changedTouches ? e.changedTouches[0] : e;
+                if (Math.abs(evt.clientX - startX) < 10 && Math.abs(evt.clientY - startY) < 10) {
+                    tooltip.style.display = 'none'; 
+                    handleZoneClick(p, cleanName);
+                }
+            };
+            p.addEventListener('mousedown', onDown); p.addEventListener('touchstart', onDown, {passive: true});
+            p.addEventListener('mouseup', onUp); p.addEventListener('touchend', onUp);
+        }
+    });
+    originalZones = Array.from(uniqueZones);
+}
+
+function handleZoneClick(element, clickedName) {
+    if (gameMode === 'none') return;
+
+    // 1. O'RGANISH REJIMI
+    if (gameMode === 'learn') {
+        document.querySelectorAll('path').forEach(p => p.classList.remove('learn-active'));
+        document.querySelectorAll(`path[data-nomi-clean="${clickedName}"]`).forEach(p => p.classList.add('learn-active'));
+        
+        document.getElementById('target-label').innerText = "Tanlangan hudud haqida ma'lumot:";
+        const infoText = geoDictionary[clickedName] || "Bu hudud Janubiy Amerikaning o'ziga xos tabiat zonalaridan biridir.";
+        document.getElementById('target-display').innerHTML = `
+            <div class="flex flex-col items-center">
+                <span class="text-emerald-400 font-bold mb-1">${clickedName}</span>
+                <span class="text-xs text-slate-400 font-normal max-w-lg">${infoText}</span>
+            </div>
+        `;
+        return;
+    }
+
+    // 2. TEZKOR SINOV REJIMI
+    if (gameMode === 'test') {
+        if (clickedName === currentTarget) {
+            document.getElementById('snd-success').play();
+            score += 10;
+            document.getElementById('score').innerText = score;
+            
+            // Xato qilinganiga qarab yashil yoki qizil
+            const applyClass = (mistakesOnCurrent === 0) ? 'found-perfect' : 'found-flawed';
+            document.querySelectorAll(`path[data-nomi-clean="${clickedName}"]`).forEach(p => p.classList.add(applyClass));
+
+            zones = zones.filter(z => z !== clickedName);
+            if (zones.length > 0) generateTask();
+            else endGame();
+        } else {
+            document.getElementById('snd-error').play();
+            element.classList.add('wrong-click');
+            setTimeout(() => element.classList.remove('wrong-click'), 400);
+            
+            mistakesOnCurrent++;
+            score = Math.max(0, score - 2);
+            document.getElementById('score').innerText = score;
+        }
+    }
+}
+
+function generateTask() {
+    mistakesOnCurrent = 0; 
+    currentTarget = zones[Math.floor(Math.random() * zones.length)];
+    const display = document.getElementById('target-display');
+    display.innerText = currentTarget;
+    display.classList.add('active-task');
+}
+
+function clearMapStyles() {
+    document.querySelectorAll('path').forEach(p => { 
+        p.classList.remove('found-perfect', 'found-flawed', 'learn-active'); 
+    });
+}
+
+function startLearnMode() {
+    gameMode = 'learn';
+    clearMapStyles();
+    document.getElementById('target-label').innerText = "Erkin o'rganish rejimi";
+    document.getElementById('target-display').innerText = "Geografik ma'lumot olish uchun xaritadagi hududlarni bosing";
+    document.getElementById('target-display').classList.remove('active-task');
+    toggleUI(true);
+    if(pz) pz.moveTo(0, 0); 
+}
+
+function startTestMode() {
+    if (originalZones.length === 0) return;
+    gameMode = 'test';
+    timer = 0; score = 0; zones = [...originalZones];
+    document.getElementById('score').innerText = "0";
+    clearMapStyles();
+    
+    document.getElementById('target-label').innerText = "Izlanayotgan hudud:";
+    toggleUI(true);
+
+    interval = setInterval(() => {
+        timer++;
+        let m = Math.floor(timer / 60).toString().padStart(2, '0');
+        let s = (timer % 60).toString().padStart(2, '0');
+        document.getElementById('timer').innerText = `${m}:${s}`;
+    }, 1000);
+
+    generateTask();
+    if(pz) pz.moveTo(0, 0); 
+}
+
+// Modal va UI boshqaruvi
+const modal = document.getElementById('confirm-modal');
+const modalContent = document.getElementById('modal-content');
+
+function requestStop() {
+    modal.classList.remove('hidden');
+    // Kichik kechikish bilan animatsiyani yoqish
+    setTimeout(() => {
+        modal.classList.remove('opacity-0');
+        modalContent.classList.remove('scale-95');
+    }, 10);
+}
+
+function cancelStop() {
+    modal.classList.add('opacity-0');
+    modalContent.classList.add('scale-95');
+    setTimeout(() => {
+        modal.classList.add('hidden');
+    }, 300);
+}
+
+function confirmStop() {
+    cancelStop();
+    gameMode = 'none';
+    clearInterval(interval);
+    clearMapStyles();
+    document.getElementById('target-display').classList.remove('active-task');
+    document.getElementById('target-label').innerText = "Izlanayotgan hudud:";
+    document.getElementById('target-display').innerText = "Iltimos, rejimni tanlang";
+    document.getElementById('timer').innerText = "00:00";
+    document.getElementById('score').innerText = "0";
+    toggleUI(false);
+}
+
+function endGame() {
+    gameMode = 'none'; 
+    clearInterval(interval);
+    document.getElementById('snd-win').play();
+    const display = document.getElementById('target-display');
+    display.classList.remove('active-task');
+    document.getElementById('target-label').innerText = "Yakuniy natija:";
+    display.innerHTML = `<span class="text-emerald-400">Ajoyib! To'plangan ball: ${score}</span>`;
+    toggleUI(false); 
+}
+
+function toggleUI(isPlaying) {
+    if (isPlaying) {
+        document.getElementById('menu-btns').classList.add('hidden');
+        document.getElementById('btn-stop').classList.remove('hidden');
+    } else {
+        document.getElementById('menu-btns').classList.remove('hidden');
+        document.getElementById('btn-stop').classList.add('hidden');
+    }
+}
+
+document.getElementById('btn-learn').addEventListener('click', startLearnMode);
+document.getElementById('btn-play').addEventListener('click', startTestMode);
+document.getElementById('btn-stop').addEventListener('click', requestStop);
+document.getElementById('btn-cancel-stop').addEventListener('click', cancelStop);
+document.getElementById('btn-confirm-stop').addEventListener('click', confirmStop);
+
+window.onload = initMap;
+</script>
+</body>
+</html>
