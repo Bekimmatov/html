@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Janubiy Amerika Tabiat Zonalari Puzzle</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap');
+body { 
+    font-family: 'Inter', sans-serif; 
+    background-color: #0B1121; 
+    color: #f8fafc; 
+    margin: 0; 
+    overflow: hidden; 
+    height: 100dvh; 
+    display: flex;
+    flex-direction: column;
+}
+
+#game-area {
+    flex: 1;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
+}
+
+#puzzle-svg {
+    width: 100%;
+    height: 100%;
+    touch-action: none; 
+    display: block;
+}
+
+/* Materik qolipi (Izi) */
+.base-slot {
+    fill: rgba(30, 41, 59, 0.4);
+    stroke: rgba(148, 163, 184, 0.3);
+    stroke-width: 2px;
+    transition: all 0.3s ease;
+}
+
+/* Pazl bo'laklari */
+.puzzle-piece {
+    cursor: grab;
+    stroke: rgba(255,255,255,0.5);
+    stroke-width: 1px;
+    filter: drop-shadow(0 6px 10px rgba(0,0,0,0.5));
+    transition: filter 0.2s, stroke-width 0.2s;
+}
+
+.puzzle-piece:active, .is-dragging {
+    cursor: grabbing;
+    stroke: #fff;
+    stroke-width: 2px;
+    filter: drop-shadow(0 15px 25px rgba(0,0,0,0.8)) brightness(1.2);
+    z-index: 100;
+}
+
+/* O'z o'rnini topgan bo'lak */
+.locked-piece {
+    pointer-events: none;
+    stroke: rgba(255,255,255,0.8) !important;
+    stroke-width: 1px !important;
+    filter: drop-shadow(0 0 5px rgba(16,185,129,0.5)) !important;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.3s;
+}
+
+.glass-ui { 
+    background: rgba(15, 23, 42, 0.85); 
+    backdrop-filter: blur(12px); 
+    border-color: rgba(255,255,255,0.1); 
+}
+
+@keyframes snapPulse {
+    0% { transform: scale(1); filter: brightness(1); }
+    50% { transform: scale(1.03); filter: brightness(1.5) drop-shadow(0 0 25px #10b981); z-index: 50; }
+    100% { transform: scale(1); filter: brightness(1) drop-shadow(0 0 5px rgba(16,185,129,0.5)); }
+}
+.snap-anim { animation: snapPulse 0.5s ease-out; }
+
+/* Tugma urib turish animatsiyasi */
+.btn-pulse { animation: btnPulse 2s infinite; }
+@keyframes btnPulse {
+    0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(16, 185, 129, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+</style>
+</head>
+<body>
+
+<div class="w-full bg-slate-900/95 py-2 sm:py-3 text-center border-b border-white/10 z-[110] flex-none shadow-lg relative">
+    <h1 class="text-xs sm:text-base md:text-lg font-black bg-gradient-to-r from-emerald-400 to-blue-500 bg-clip-text text-transparent uppercase tracking-widest px-2">
+        JANUBIY AMERIKA TABIAT ZONALARI PUZZLE
+    </h1>
+</div>
+
+<header class="flex-none flex justify-between items-center px-2 sm:px-4 py-2 glass-ui z-[110] border-b shadow-md relative">
+    
+    <div class="bg-blue-600/20 px-2 sm:px-4 py-1.5 rounded-lg border border-blue-500/30 min-w-[65px] sm:min-w-[80px] text-center">
+        <span class="block text-[8px] sm:text-[10px] text-blue-400 uppercase font-bold tracking-widest mb-0.5">Joylandi</span>
+        <div class="text-sm sm:text-xl font-black text-white leading-none">
+            <span id="progress-count">0</span><span class="text-[10px] sm:text-sm text-slate-500">/<span id="total-count">0</span></span>
+        </div>
+    </div>
+    
+    <div id="piece-info" class="flex-1 text-center px-2 opacity-0 transition-opacity duration-200">
+        <span class="block text-[8px] sm:text-[10px] text-slate-400 uppercase font-bold tracking-widest mb-0.5">Tanlangan zona:</span>
+        <span id="piece-name" class="text-[10px] sm:text-sm font-black text-yellow-400 leading-tight block truncate">...</span>
+    </div>
+
+    <div class="bg-slate-800/80 px-2 sm:px-4 py-1.5 rounded-lg border border-white/10 text-center min-w-[65px] sm:min-w-[80px]">
+        <span class="block text-[8px] sm:text-[10px] text-slate-400 uppercase font-bold tracking-widest mb-0.5">Vaqt</span>
+        <span id="timer" class="text-sm sm:text-xl font-black text-emerald-400 leading-none">00:00</span>
+    </div>
+
+</header>
+
+<main id="game-area">
+    <svg id="puzzle-svg" viewBox="100 -50 850 950" xmlns="http://www.w3.org/2000/svg">
+        <g id="base-layer"></g>
+        <g id="pieces-layer"></g>
+    </svg>
+
+    <div id="start-container" class="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-[200] w-full max-w-xs px-4 transition-all duration-300 pointer-events-auto">
+        <button id="start-btn" onclick="window.startGame()" ontouchstart="window.startGame()" class="w-full py-4 bg-emerald-600 hover:bg-emerald-500 rounded-2xl font-black text-white transition-transform active:scale-95 btn-pulse tracking-widest text-sm sm:text-base uppercase border-2 border-emerald-400/50 cursor-pointer shadow-2xl block relative">
+            O'YINNI BOSHLASH
+        </button>
+    </div>
+
+    <div id="loading" class="absolute inset-0 flex flex-col items-center justify-center bg-slate-900/95 z-[150]">
+        <div class="w-10 h-10 sm:w-12 sm:h-12 border-4 border-blue-500 border-t-transparent rounded-full animate-spin mb-4"></div>
+        <p class="text-xs sm:text-sm text-blue-400 font-bold tracking-widest uppercase animate-pulse">Pazl tayyorlanmoqda...</p>
+    </div>
+</main>
+
+<footer class="flex-none bg-slate-900/95 border-t border-white/10 z-[110] py-2.5 px-2 flex flex-wrap justify-center items-center gap-x-4 sm:gap-x-6 gap-y-2 text-[10px] sm:text-xs text-slate-400 relative">
+    <div class="font-bold text-slate-300 tracking-wide">Rahmatjon Bekimmatov</div>
+    
+    <a href="https://instagram.com/bekimmatovv" target="_blank" class="flex items-center gap-1 hover:text-pink-400 transition-colors z-[120]">
+        <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        @bekimmatovv
+    </a>
+    
+    <a href="https://t.me/Geografiya_Rahmatjon" target="_blank" class="flex items-center gap-1 hover:text-blue-400 transition-colors z-[120]">
+        <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295-.002 0-.003 0-.005 0l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.94z"/></svg>
+        @Geografiya_Rahmatjon
+    </a>
+</footer>
+
+<div id="completion-modal" class="fixed inset-0 bg-black/80 z-[250] flex items-center justify-center p-4 opacity-0 pointer-events-none scale-95 transition-all duration-500">
+    <div class="glass-ui p-6 sm:p-8 rounded-2xl max-w-sm w-full text-center border-t-4 border-emerald-500 shadow-2xl">
+        <div class="w-16 h-16 sm:w-20 sm:h-20 bg-emerald-500/20 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
+            <svg class="w-8 h-8 sm:w-10 sm:h-10 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-black text-white mb-2">Ajoyib!</h2>
+        <p class="text-xs sm:text-sm text-slate-300 mb-6">Siz xaritani muvaffaqiyatli yig'dingiz.</p>
+        <div class="bg-slate-800/50 p-3 sm:p-4 rounded-xl mb-6">
+            <span class="block text-[10px] sm:text-xs text-slate-400 uppercase tracking-widest mb-1">Sarflangan vaqt</span>
+            <span id="final-time" class="text-2xl sm:text-3xl font-black text-emerald-400">00:00</span>
+        </div>
+        <button onclick="window.resetAndStart()" class="w-full py-3 sm:py-4 bg-emerald-600 hover:bg-emerald-500 rounded-xl font-bold text-white transition-all active:scale-95 uppercase tracking-wider text-sm sm:text-base shadow-lg cursor-pointer">
+            Qayta O'ynash
+        </button>
+    </div>
+</div>
+
+<script src="https://unpkg.com/panzoom@9.4.0/dist/panzoom.min.js"></script>
+<audio id="snd-pick" src="https://assets.mixkit.co/active_storage/sfx/2568/2568-preview.mp3" preload="auto"></audio>
+<audio id="snd-snap" src="https://assets.mixkit.co/active_storage/sfx/2013/2013-preview.mp3" preload="auto"></audio>
+<audio id="snd-win" src="https://assets.mixkit.co/active_storage/sfx/1435/1435-preview.mp3" preload="auto"></audio>
+
+<script>
+const SVG_URL = 'https://raw.githubusercontent.com/Bekimmatov/R/refs/heads/main/jamerikatzona.svg';
+let gameActive = false, totalPieces = 0, placedPieces = 0, timer = 0, interval = null;
+const svgCanvas = document.getElementById('puzzle-svg');
+const baseLayer = document.getElementById('base-layer');
+const piecesLayer = document.getElementById('pieces-layer');
+let activePiece = null;
+let offset = { x: 0, y: 0 };
+let pz;
+
+function getNaturalColor(zoneName) {
+    const name = zoneName.toLowerCase();
+    if (name.includes('sernam ekvatorial')) return '#1e5631'; 
+    if (name.includes('savanna') || name.includes('siyrak')) return '#a4de02'; 
+    if (name.includes('dasht') || name.includes('pampa')) return '#e3b448'; 
+    if (name.includes("cho'l") || name.includes('atakama')) return '#c2b280'; 
+    if (name.includes('balandlik') || name.includes('tog\'')) return '#737373'; 
+    if (name.includes('qattiq bargli')) return '#4c9a2a'; 
+    if (name.includes('fasliy sernam')) return '#76ba1b'; 
+    return '#475569'; 
+}
+
+function getMousePosition(evt) {
+    const CTM = svgCanvas.getScreenCTM();
+    let clientX = evt.clientX;
+    let clientY = evt.clientY;
+    if (evt.touches && evt.touches.length > 0) {
+        clientX = evt.touches[0].clientX;
+        clientY = evt.touches[0].clientY;
+    }
+    return {
+        x: (clientX - CTM.e) / CTM.a,
+        y: (clientY - CTM.f) / CTM.d
+    };
+}
+
+async function initPuzzle() {
+    try {
+        const res = await fetch(SVG_URL);
+        const text = await res.text();
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(text, 'image/svg+xml');
+        const paths = doc.querySelectorAll('path');
+        
+        totalPieces = 0;
+        
+        paths.forEach((p, index) => {
+            let rawName = p.getAttribute('data-nomi');
+            if (rawName && rawName.length > 2) {
+                let cleanName = rawName.startsWith(':') ? rawName.substring(1).trim() : rawName.trim();
+                totalPieces++;
+
+                // Qolip
+                const baseSlot = p.cloneNode(true);
+                baseSlot.removeAttribute('data-nomi');
+                baseSlot.setAttribute('class', 'base-slot');
+                baseLayer.appendChild(baseSlot);
+
+                // Pazl bo'laklari
+                const piece = p.cloneNode(true);
+                piece.setAttribute('class', 'puzzle-piece locked-piece'); 
+                piece.style.fill = getNaturalColor(cleanName);
+                piece.dataset.id = `piece-${index}`;
+                piece.dataset.name = cleanName;
+                
+                const transform = svgCanvas.createSVGTransform();
+                transform.setTranslate(0, 0);
+                piece.transform.baseVal.insertItemBefore(transform, 0);
+
+                piecesLayer.appendChild(piece);
+            }
+        });
+
+        document.getElementById('total-count').innerText = totalPieces;
+        document.getElementById('progress-count').innerText = totalPieces; 
+        
+        pz = panzoom(svgCanvas, {
+            maxZoom: 5,
+            minZoom: 0.3,
+            bounds: true,
+            boundsPadding: 0.1,
+            zoomDoubleClickSpeed: 1,
+            onTouch: function(e) {
+                if (gameActive && e.target.classList.contains('puzzle-piece') && !e.target.classList.contains('locked-piece')) {
+                    return false;
+                }
+                return true;
+            }
+        });
+
+        setupEvents();
+        document.getElementById('loading').style.display = 'none';
+
+    } catch (err) {
+        document.getElementById('loading').innerHTML = "<p class='text-red-500 font-bold'>Xarita ma'lumotlari topilmadi!</p>";
+    }
+}
+
+function scramblePieces() {
+    const isMobile = window.innerWidth < 768;
+    const pieces = document.querySelectorAll('.puzzle-piece');
+    
+    pieces.forEach(piece => {
+        try {
+            piece.classList.remove('locked-piece', 'snap-anim');
+            
+            let cx = 400, cy = 300;
+            try {
+                const bbox = piece.getBBox();
+                if(bbox.width > 0) {
+                    cx = bbox.x + bbox.width / 2;
+                    cy = bbox.y + bbox.height / 2;
+                }
+            } catch(e) {}
+            
+            let targetX, targetY;
+            if (isMobile) {
+                targetX = 150 + Math.random() * 550; 
+                targetY = 700 + Math.random() * 200; 
+            } else {
+                targetX = 750 + Math.random() * 100;
+                targetY = 100 + Math.random() * 500;
+            }
+            
+            const tx = targetX - cx;
+            const ty = targetY - cy;
+            
+            piece.transform.baseVal.getItem(0).setTranslate(tx, ty);
+        } catch(e) {}
+    });
+}
+
+function setupEvents() {
+    svgCanvas.addEventListener('mousedown', startDrag);
+    svgCanvas.addEventListener('mousemove', drag);
+    window.addEventListener('mouseup', endDrag);
+
+    svgCanvas.addEventListener('touchstart', startDrag, { passive: false });
+    svgCanvas.addEventListener('touchmove', drag, { passive: false });
+    window.addEventListener('touchend', endDrag);
+}
+
+function startDrag(evt) {
+    if (!gameActive) return;
+    if (evt.target.classList.contains('puzzle-piece') && !evt.target.classList.contains('locked-piece')) {
+        evt.preventDefault();
+        if(pz) pz.pause(); 
+
+        document.getElementById('snd-pick').play().catch(()=>{});
+        
+        activePiece = evt.target;
+        activePiece.classList.add('is-dragging');
+        piecesLayer.appendChild(activePiece);
+
+        const zoneName = activePiece.dataset.name;
+        document.getElementById('piece-name').innerText = zoneName;
+        document.getElementById('piece-info').classList.remove('opacity-0');
+        
+        const coord = getMousePosition(evt);
+        const transform = activePiece.transform.baseVal.getItem(0);
+        
+        offset.x = coord.x - transform.matrix.e;
+        offset.y = coord.y - transform.matrix.f;
+    }
+}
+
+function drag(evt) {
+    if (activePiece && gameActive) {
+        evt.preventDefault(); 
+        const coord = getMousePosition(evt);
+        const tx = coord.x - offset.x;
+        const ty = coord.y - offset.y;
+        activePiece.transform.baseVal.getItem(0).setTranslate(tx, ty);
+    }
+}
+
+function endDrag(evt) {
+    if (activePiece && gameActive) {
+        activePiece.classList.remove('is-dragging');
+        document.getElementById('piece-info').classList.add('opacity-0');
+        
+        const transform = activePiece.transform.baseVal.getItem(0);
+        const tx = transform.matrix.e;
+        const ty = transform.matrix.f;
+
+        if (Math.abs(tx) < 40 && Math.abs(ty) < 40) {
+            transform.setTranslate(0, 0);
+            activePiece.classList.add('locked-piece', 'snap-anim');
+            
+            document.getElementById('snd-snap').play().catch(()=>{});
+            placedPieces++;
+            document.getElementById('progress-count').innerText = placedPieces;
+
+            if (placedPieces === totalPieces) winGame();
+        }
+        
+        activePiece = null;
+        if(pz) pz.resume(); 
+    }
+}
+
+window.startGame = function() {
+    if(gameActive) return; // Ikki marta bosilishdan himoya
+    gameActive = true;
+    scramblePieces();
+    placedPieces = 0;
+    timer = 0;
+    document.getElementById('progress-count').innerText = "0";
+    document.getElementById('timer').innerText = "00:00";
+    
+    // Tugmani yashirish
+    document.getElementById('start-container').classList.add('opacity-0', 'pointer-events-none', 'translate-y-10');
+
+    clearInterval(interval);
+    interval = setInterval(() => {
+        timer++;
+        let m = Math.floor(timer / 60).toString().padStart(2, '0');
+        let s = (timer % 60).toString().padStart(2, '0');
+        document.getElementById('timer').innerText = `${m}:${s}`;
+    }, 1000);
+
+    if(pz) {
+        try { pz.moveTo(0, 0); pz.zoomAbs(0, 0, 1); } catch(e){}
+    }
+}
+
+window.resetAndStart = function() {
+    const modal = document.getElementById('completion-modal');
+    modal.classList.replace('opacity-100', 'opacity-0');
+    modal.classList.add('pointer-events-none');
+    modal.classList.replace('scale-100', 'scale-95');
+    gameActive = false; // Vaqtinchalik
+    setTimeout(window.startGame, 400);
+}
+
+function winGame() {
+    gameActive = false;
+    clearInterval(interval);
+    document.getElementById('snd-win').play().catch(()=>{});
+    document.getElementById('final-time').innerText = document.getElementById('timer').innerText;
+    
+    const modal = document.getElementById('completion-modal');
+    modal.classList.replace('opacity-0', 'opacity-100');
+    modal.classList.remove('pointer-events-none');
+    modal.classList.replace('scale-95', 'scale-100');
+    
+    // Tugmani qayta ko'rsatish
+    const startContainer = document.getElementById('start-container');
+    startContainer.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-10');
+    document.getElementById('start-btn').innerText = "QAYTA O'YNASH";
+}
+
+window.onload = initPuzzle;
+</script>
+</body>
+</html>
