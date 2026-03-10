@@ -8,53 +8,410 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
-        body { 
-            margin:0; 
-            padding:0; 
-            font-family: 'Arial', sans-serif;
-            background-color: #f8f9fa;
+        :root {
+            --primary: #4f46e5;
+            --primary-dark: #3730a3;
+            --primary-light: #818cf8;
+            --accent: #06b6d4;
+            --success: #10b981;
+            --danger: #ef4444;
+            --warning: #f59e0b;
+            --bg: #0f172a;
+            --bg-card: #1e293b;
+            --bg-card2: #263248;
+            --border: #334155;
+            --text: #f1f5f9;
+            --text-muted: #94a3b8;
+            --shadow: 0 8px 32px rgba(0,0,0,0.4);
+            --radius: 16px;
         }
+
+        * { box-sizing: border-box; }
+
+        body { 
+            margin: 0; 
+            padding: 0; 
+            font-family: 'Inter', 'Arial', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+        }
+
+        /* ===== HEADER ===== */
+        .app-header {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--accent) 100%);
+            padding: 18px 24px;
+            margin: 14px 0 0 0;
+            border-radius: var(--radius) var(--radius) 0 0;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        .app-header::before {
+            content: '';
+            position: absolute;
+            top: -40%;
+            right: -10%;
+            width: 280px;
+            height: 280px;
+            background: rgba(255,255,255,0.06);
+            border-radius: 50%;
+        }
+        .app-header::after {
+            content: '';
+            position: absolute;
+            bottom: -50%;
+            left: 5%;
+            width: 180px;
+            height: 180px;
+            background: rgba(255,255,255,0.04);
+            border-radius: 50%;
+        }
+        .app-header h1 {
+            font-size: clamp(1rem, 2.5vw, 1.4rem);
+            font-weight: 800;
+            margin: 0;
+            color: #fff;
+            letter-spacing: -0.3px;
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+        .app-header .subtitle {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.75);
+            margin-top: 4px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ===== MAP ===== */
         #map { 
             width: 100%; 
-            height: 70vh; 
+            height: 68vh;
+            display: block;
         }
-        #quiz { 
-            background: #fff; 
-            padding: 15px; 
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
-            border-bottom-left-radius: 8px;
-            border-bottom-right-radius: 8px;
+        .leaflet-interactive { cursor: pointer !important; }
+
+        /* ===== QUIZ PANEL ===== */
+        #quiz {
+            background: var(--bg-card);
+            padding: 20px 24px;
+            box-shadow: var(--shadow);
+            border-radius: 0 0 var(--radius) var(--radius);
+            border: 1px solid var(--border);
+            border-top: none;
+        }
+
+        /* Stats row */
+        .stats-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+
+        .stat-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: 0.2px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+            transition: transform 0.15s, box-shadow 0.15s;
+        }
+        .stat-pill:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.35); }
+
+        .stat-pill.score-pill {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: #fff;
+        }
+        .stat-pill.timer-pill {
+            background: linear-gradient(135deg, var(--success), #34d399);
+            color: #fff;
+        }
+        .stat-pill i { font-size: 1rem; }
+
+        /* Question box */
+        #question-box {
+            flex: 1;
+            min-width: 200px;
             text-align: center;
         }
-        .header-box {
-            background-color: #0d6efd; 
-            color: white;
-            padding: 15px;
-            border-top-left-radius: 8px;
-            border-top-right-radius: 8px;
-            margin-top: 10px;
+        #question {
+            font-size: clamp(0.9rem, 2vw, 1.05rem);
+            font-weight: 600;
+            color: var(--text);
+            line-height: 1.5;
         }
-        .header-box h1 {
-            font-weight: 700;
-            margin: 0;
+        #question .badge {
+            font-size: 1rem;
+            padding: 6px 14px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, var(--danger), #f87171) !important;
+            box-shadow: 0 2px 12px rgba(239,68,68,0.35);
+            animation: pulse-badge 1.5s infinite;
         }
-        #question-box { 
-            padding: 10px 0; 
-            min-height: 40px;
+        @keyframes pulse-badge {
+            0%, 100% { box-shadow: 0 2px 12px rgba(239,68,68,0.35); }
+            50%       { box-shadow: 0 4px 22px rgba(239,68,68,0.6); }
         }
-        .leaflet-interactive {
-            cursor: pointer !important; 
-        }
-        .color-primary { color: #0d6efd; }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+        /* Buttons */
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 6px;
         }
-        .fade-in-result {
-            animation: fadeIn 0.5s ease-out;
+        .btn-game {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 28px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-decoration: none;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+        }
+        .btn-game:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(0,0,0,0.4); }
+        .btn-game:active { transform: translateY(0); }
+
+        .btn-start {
+            background: linear-gradient(135deg, var(--warning), #fbbf24);
+            color: #1a1a1a;
+        }
+        .btn-records {
+            background: linear-gradient(135deg, var(--accent), #67e8f9);
+            color: #0f172a;
+        }
+        .btn-restart {
+            background: linear-gradient(135deg, var(--success), #34d399);
+            color: #0f172a;
+        }
+
+        /* Progress bar */
+        .progress-wrap {
+            margin-bottom: 14px;
+        }
+        .progress-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .progress {
+            height: 6px;
+            border-radius: 99px;
+            background: var(--border);
+            overflow: hidden;
+        }
+        .progress-bar {
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            border-radius: 99px;
+            transition: width 0.4s ease;
+        }
+
+        /* Legend */
+        .legend-strip {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 14px;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+        .legend-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 4px;
+            border: 1px solid rgba(255,255,255,0.15);
+            flex-shrink: 0;
+        }
+
+        /* ===== FOOTER ===== */
+        .app-footer {
+            text-align: center;
+            padding: 14px 0 10px;
+            border-top: 1px solid var(--border);
+            margin-top: 14px;
+        }
+        .app-footer a {
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            padding: 5px 12px;
+            border-radius: 8px;
+            transition: background 0.2s;
+        }
+        .app-footer a.tg-link { color: #38bdf8; }
+        .app-footer a.tg-link:hover { background: rgba(56,189,248,0.12); }
+        .app-footer a.ig-link { color: #f472b6; }
+        .app-footer a.ig-link:hover { background: rgba(244,114,182,0.12); }
+        .app-footer .author { color: var(--text-muted); font-size: 0.82rem; }
+
+        /* ===== MODAL ===== */
+        .modal-content {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            color: var(--text);
+        }
+        .modal-header {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            border-radius: calc(var(--radius) - 1px) calc(var(--radius) - 1px) 0 0;
+            border-bottom: none;
+            padding: 18px 22px;
+        }
+        .modal-header .modal-title { font-weight: 700; font-size: 1.1rem; }
+        .modal-body { padding: 20px 22px; }
+        .modal-footer {
+            border-top: 1px solid var(--border);
+            padding: 14px 22px;
+        }
+
+        /* Records table */
+        .records-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 6px;
+        }
+        .records-table thead tr th {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: var(--text-muted);
+            padding: 6px 14px;
+            font-weight: 600;
+        }
+        .records-table tbody tr {
+            background: var(--bg-card2);
+            border-radius: 10px;
+        }
+        .records-table tbody tr td,
+        .records-table tbody tr th {
+            padding: 10px 14px;
+            font-size: 0.9rem;
+        }
+        .records-table tbody tr th { border-radius: 10px 0 0 10px; }
+        .records-table tbody tr td:last-child { border-radius: 0 10px 10px 0; }
+        .records-table tbody tr:first-child { background: linear-gradient(90deg, rgba(79,70,229,0.25), rgba(6,182,212,0.15)); }
+
+        .rec-badge-score {
+            background: linear-gradient(135deg, var(--success), #34d399);
+            color: #0f172a;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+        }
+        .rec-badge-time {
+            background: linear-gradient(135deg, var(--accent), #67e8f9);
+            color: #0f172a;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+        }
+        .rank-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 26px; height: 26px;
+            border-radius: 8px;
+            font-weight: 800;
+            font-size: 0.85rem;
+            background: var(--border);
+            color: var(--text-muted);
+        }
+        .rank-badge.gold   { background: linear-gradient(135deg,#f59e0b,#fbbf24); color: #1a1a1a; }
+        .rank-badge.silver { background: linear-gradient(135deg,#94a3b8,#cbd5e1); color: #1a1a1a; }
+        .rank-badge.bronze { background: linear-gradient(135deg,#b45309,#d97706); color: #fff; }
+
+        /* Btn inside modal */
+        .btn-danger-custom {
+            background: linear-gradient(135deg,var(--danger),#f87171);
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            padding: 8px 18px;
+            font-weight: 600;
+            font-size: 0.88rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: 0 2px 10px rgba(239,68,68,0.3);
+        }
+        .btn-danger-custom:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(239,68,68,0.4); }
+        .btn-secondary-custom {
+            background: var(--bg-card2);
+            color: var(--text-muted);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 8px 18px;
+            font-weight: 600;
+            font-size: 0.88rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .btn-secondary-custom:hover { background: var(--border); color: var(--text); }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(16px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in-result { animation: fadeInUp 0.5s ease-out; }
+
+        @keyframes popIn {
+            0%   { transform: scale(0.8); opacity: 0; }
+            70%  { transform: scale(1.06); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .pop-in { animation: popIn 0.35s ease-out; }
+
+        /* Leaflet popup dark */
+        .leaflet-popup-content-wrapper {
+            background: var(--bg-card) !important;
+            color: var(--text) !important;
+            border: 1px solid var(--border) !important;
+            border-radius: 12px !important;
+            box-shadow: var(--shadow) !important;
+        }
+        .leaflet-popup-tip { background: var(--bg-card) !important; }
+        .leaflet-popup-content b { color: var(--primary-light); }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--bg); }
+        ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 99px; }
+
+        @media (max-width: 576px) {
+            .stats-row { gap: 8px; }
+            .stat-pill { padding: 7px 14px; font-size: 0.88rem; }
+            .btn-game { padding: 10px 20px; font-size: 0.9rem; }
+            #quiz { padding: 14px 14px; }
+            .app-header { padding: 14px 16px; }
         }
     </style>
 </head>
@@ -62,71 +419,120 @@
 
 <div class="container-fluid p-0">
     <div class="container">
-        <div class="header-box">
-            <h1>🌍 O‘rta Osiyo tabiiy geografik rayonlashtirish xaritasi</h1>
+        <div class="app-header">
+            <h1>🌍 O'rta Osiyo Tabiiy Geografik Rayonlashtirish Xaritasi</h1>
+            <div class="subtitle"><i class="fas fa-map-marked-alt me-1"></i> Interaktiv o'quv o'yini</div>
         </div>
     </div>
-    
+
     <div id="map"></div>
-    
+
     <div class="container">
-        <div id="quiz" class="mb-3">
-            <div class="row align-items-center mb-3">
-                
-                <div class="col-4 col-md-3">
-                    <span id="score" class="badge bg-primary fs-5"><i class="fas fa-trophy me-1"></i> Ball: 0</span>
+        <div id="quiz" class="mb-2">
+
+            <!-- Legend -->
+            <div class="legend-strip">
+                <div class="legend-item">
+                    <div class="legend-dot" style="background:#ffc107;"></div>
+                    <span>Turon kichik o'lkasi</span>
                 </div>
-                
-                <div class="col-4 col-md-6" id="question-box">
-                    <div id="question" class="fw-bold fs-5 color-primary">
-                        O'yinni boshlash tugmasini bosing yoki hududlarni o'rganing!
-                    </div>
+                <div class="legend-item">
+                    <div class="legend-dot" style="background:#fd7e14;"></div>
+                    <span>Qozog'iston kichik o'lkasi</span>
                 </div>
-                
-                <div class="col-4 col-md-3">
-                    <span id="timer" class="badge bg-success fs-5"><i class="fas fa-clock me-1"></i> Vaqt: 0 s</span>
+                <div class="legend-item">
+                    <div class="legend-dot" style="background:#5dade2;"></div>
+                    <span>Boshqa hududlar</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-dot" style="background:#10b981;"></div>
+                    <span>To'g'ri</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-dot" style="background:#ef4444;"></div>
+                    <span>Xato / Topildi</span>
                 </div>
             </div>
 
-            <div class="d-grid gap-2 d-md-block">
-                <button id="startButton" class="btn btn-lg btn-warning fw-bold shadow me-2">
-                    <i class="fas fa-play me-2"></i> O'yinni Boshlash
+            <!-- Progress bar (hidden until game starts) -->
+            <div class="progress-wrap" id="progressWrap" style="display:none;">
+                <div class="progress-label">
+                    <span id="progressLabel">Savol 0 / 0</span>
+                    <span id="progressPct">0%</span>
+                </div>
+                <div class="progress">
+                    <div class="progress-bar" id="progressBar" style="width:0%"></div>
+                </div>
+            </div>
+
+            <!-- Stats & Question row -->
+            <div class="stats-row">
+                <span id="score" class="stat-pill score-pill pop-in">
+                    <i class="fas fa-trophy"></i> Ball: 0
+                </span>
+
+                <div id="question-box">
+                    <div id="question">
+                        O'yinni boshlash tugmasini bosing yoki hududlarni o'rganing!
+                    </div>
+                </div>
+
+                <span id="timer" class="stat-pill timer-pill pop-in">
+                    <i class="fas fa-clock"></i> 0 s
+                </span>
+            </div>
+
+            <!-- Action buttons -->
+            <div class="action-buttons">
+                <button id="startButton" class="btn-game btn-start">
+                    <i class="fas fa-play"></i> O'yinni Boshlash
                 </button>
-                <button type="button" class="btn btn-lg btn-info fw-bold shadow" data-bs-toggle="modal" data-bs-target="#recordsModal">
-                    <i class="fas fa-star me-2"></i> Rekordlar
+                <button type="button" class="btn-game btn-records" data-bs-toggle="modal" data-bs-target="#recordsModal">
+                    <i class="fas fa-star"></i> Rekordlar
                 </button>
             </div>
+
         </div>
     </div>
-    
-    <div class="container mb-3">
-        <div class="text-center text-muted border-top pt-2 mt-2">
-            <small>
-                Muallif: <b>Rahmatjon Bekimmatov</b>| 
-                <a href="https://t.me/Bekimmatov" target="_blank" class="text-decoration-none mx-1"><i class="fab fa-telegram color-primary"></i> @Bekimmatov</a> | 
-                <a href="https://instagram.com/Bekimmatovv" target="_blank" class="text-decoration-none mx-1"><i class="fab fa-instagram text-danger"></i> @Bekimmatovv</a>
-            </small>
+
+    <div class="container">
+        <div class="app-footer">
+            <span class="author"><i class="fas fa-user-circle me-1"></i> Muallif: <b>Rahmatjon Bekimmatov</b></span>
+            &nbsp;|&nbsp;
+            <a href="https://t.me/Bekimmatov" target="_blank" class="tg-link">
+                <i class="fab fa-telegram me-1"></i>@Bekimmatov
+            </a>
+            &nbsp;|&nbsp;
+            <a href="https://instagram.com/Bekimmatovv" target="_blank" class="ig-link">
+                <i class="fab fa-instagram me-1"></i>@Bekimmatovv
+            </a>
         </div>
     </div>
 </div>
 
+<!-- Records Modal -->
 <div class="modal fade" id="recordsModal" tabindex="-1" aria-labelledby="recordsModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
-            <div class="modal-header bg-primary text-white">
-                <h5 class="modal-title" id="recordsModalLabel"><i class="fas fa-trophy me-2"></i> Eng Yaxshi Natijalar (Top 10)</h5>
+            <div class="modal-header">
+                <h5 class="modal-title" id="recordsModalLabel">
+                    <i class="fas fa-trophy me-2" style="color:#f59e0b;"></i> Eng Yaxshi Natijalar (Top 10)
+                </h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <p class="text-muted"><small>Ballar teng bo'lganda, eng qisqa vaqt ustunlik qiladi.</small></p>
-                <div id="recordsList">
-                    </div>
+                <p style="color:var(--text-muted);font-size:0.8rem;margin-bottom:14px;">
+                    <i class="fas fa-info-circle me-1"></i> Ballar teng bo'lganda, eng qisqa vaqt ustunlik qiladi.
+                </p>
+                <div id="recordsList"></div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-sm btn-danger me-auto" id="clearRecordsBtn">
-                     <i class="fas fa-trash"></i> Rekordlarni Tozalash
+                <button type="button" class="btn-danger-custom me-auto" id="clearRecordsBtn">
+                    <i class="fas fa-trash me-1"></i> Tozalash
                 </button>
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Yopish</button>
+                <button type="button" class="btn-secondary-custom" data-bs-dismiss="modal">
+                    <i class="fas fa-times me-1"></i> Yopish
+                </button>
             </div>
         </div>
     </div>
@@ -149,7 +555,6 @@
     
     let audioContextResumed = false;
 
-    // QO'SHIMCHA FUNKSIYA: Ovozni o'ynatish
     function playSound(audioElement) {
         if (audioElement && audioContextResumed) {
             audioElement.currentTime = 0; 
@@ -157,13 +562,11 @@
         }
     }
 
-    // XARITA QATLAMINI RELYEFLI (OpenTopoMap) GA O'ZGARTIRISH
     L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
         maxZoom: 17,
         attribution: 'Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
     }).addTo(map);
 
-    // YANGI GEOJSON MANZILI
     const geojsonUrl = 'https://raw.githubusercontent.com/Bekimmatov/R/refs/heads/main/orta_osiyo_rayonlar.geojson'; 
     const LOCAL_STORAGE_KEY = 'orta_osiyo_map_quiz_records'; 
 
@@ -182,133 +585,110 @@
     const timerElement = document.getElementById('timer');
     const recordsListElement = document.getElementById('recordsList');
     const clearRecordsBtn = document.getElementById('clearRecordsBtn');
-    
-    // --- BOSH LANG'ICH STYLING FUNKSIYASI ---
+    const progressWrap = document.getElementById('progressWrap');
+    const progressBar = document.getElementById('progressBar');
+    const progressLabel = document.getElementById('progressLabel');
+    const progressPct = document.getElementById('progressPct');
+
+    function updateProgress() {
+        if (viloyatlar.length === 0) return;
+        const pct = Math.round((currentIndex / viloyatlar.length) * 100);
+        progressBar.style.width = pct + '%';
+        progressLabel.textContent = 'Savol ' + currentIndex + ' / ' + viloyatlar.length;
+        progressPct.textContent = pct + '%';
+    }
+
     function style(feature) { 
         const olkaTipi = feature.properties.olka_tipi || feature.properties.OLKA_TIPI;
-        let fillColor = '#5dade2'; // Standart rang
-        
-        if (olkaTipi === 1) {
-            // Turon tabiiy geografik kichik oʻlkasi (Sariq)
-            fillColor = '#ffc107'; 
-        } else if (olkaTipi === 2) {
-            // Qozogʻiston tabiiy kichik geografik oʻlkasi (To'q sariq)
-            fillColor = '#fd7e14'; 
-        }
-
-        return { 
-            color: '#444', 
-            weight: 1, 
-            fillColor: fillColor, 
-            fillOpacity: 0.7 
-        }; 
+        let fillColor = '#5dade2';
+        if (olkaTipi === 1) fillColor = '#ffc107'; 
+        else if (olkaTipi === 2) fillColor = '#fd7e14'; 
+        return { color: '#222', weight: 1, fillColor: fillColor, fillOpacity: 0.75 }; 
     }
     
     function highlightFeature(e) { 
         const layer = e.target;
-        layer.setStyle({ fillOpacity: 0.9, weight: 2 });
+        layer.setStyle({ fillOpacity: 0.95, weight: 2.5 });
     }
     
     function resetHighlight(e) { 
         const layer = e.target;
-        if (!layer.correct) { 
-            geojsonLayer.resetStyle(layer); 
-        }
+        if (!layer.correct) geojsonLayer.resetStyle(layer); 
     }
     
     function startTimer() { 
         startTime = Date.now();
         timerInterval = setInterval(() => {
             const elapsed = Math.floor((Date.now() - startTime) / 1000);
-            timerElement.innerHTML = `<i class="fas fa-clock me-1"></i> Vaqt: ${elapsed} s`;
+            timerElement.innerHTML = `<i class="fas fa-clock"></i> ${elapsed} s`;
         }, 1000);
     }
     
-    // --- O'RGANISH POP-UP FUNKSIYASI ---
     function onStudyClick(e) {
         if (!gameStarted) { 
             const properties = e.target.feature.properties;
             const rayonNomi = properties.Nomi || properties.NOMI || "Noma'lum rayon"; 
             const olkaTipi = properties.olka_tipi || properties.OLKA_TIPI;
-            
             let olkaNomi = "Noma'lum o'lka";
-            if (olkaTipi === 1) {
-                olkaNomi = "Turon tabiiy geografik kichik oʻlkasi";
-            } else if (olkaTipi === 2) {
-                olkaNomi = "Qozogʻiston tabiiy kichik geografik oʻlkasi";
-            }
-            
-            e.target.bindPopup(`
-                <b>Rayon nomi:</b> ${rayonNomi}<br>
-                <b>O'lka:</b> ${olkaNomi}
-            `).openPopup();
+            if (olkaTipi === 1) olkaNomi = "Turon tabiiy geografik kichik oʻlkasi";
+            else if (olkaTipi === 2) olkaNomi = "Qozogʻiston tabiiy kichik geografik oʻlkasi";
+            e.target.bindPopup(`<b>Rayon nomi:</b> ${rayonNomi}<br><b>O'lka:</b> ${olkaNomi}`).openPopup();
         }
     }
 
-
-    // --- O'YINNI BOSHLASH FUNKSIYASI ---
     function startGame() {
         if (gameStarted) return;
-        
         gameStarted = true;
         startButton.style.display = 'none'; 
         questionElement.innerText = "Rayonni toping!";
+        progressWrap.style.display = 'block';
         
         if (!audioContextResumed) {
             soundCorrect.play().then(() => { audioContextResumed = true; }).catch(e => { audioContextResumed = false; });
         }
         
-        if(geojsonLayer){
-             geojsonLayer.eachLayer(layer => {
-                 layer.off('click', onStudyClick); 
-                 layer.on('click', onViloyatClick); 
-                 layer.correct = false; 
-                 geojsonLayer.resetStyle(layer);
-                 layer.unbindPopup(); 
-             });
+        if (geojsonLayer) {
+            geojsonLayer.eachLayer(layer => {
+                layer.off('click', onStudyClick); 
+                layer.on('click', onViloyatClick); 
+                layer.correct = false; 
+                geojsonLayer.resetStyle(layer);
+                layer.unbindPopup(); 
+            });
         }
         
         score = 0;
         currentIndex = 0;
-        scoreElement.innerHTML = `<i class="fas fa-trophy me-1"></i> Ball: 0`;
+        scoreElement.innerHTML = `<i class="fas fa-trophy"></i> Ball: 0`;
 
         if (viloyatlar.length === 0) {
-             questionElement.innerText = "Ma'lumotlar yuklanmoqda... Kuting.";
-             fetchGeoJSON(true); 
+            questionElement.innerText = "Ma'lumotlar yuklanmoqda... Kuting.";
+            fetchGeoJSON(true); 
         } else {
-             shuffleQuestions();
-             showQuestion();
-             startTimer();
+            shuffleQuestions();
+            showQuestion();
+            startTimer();
         }
     }
 
-    // --- GEOJSON NI YUKLASH FUNKSIYASI ---
     function fetchGeoJSON(isGameStart = false) {
         fetch(geojsonUrl)
         .then(res => res.json())
         .then(data => {
-            
             geojsonLayer = L.geoJSON(data, {
                 style: style,
                 onEachFeature: (feature, layer) => {
                     const name = feature.properties.Nomi || feature.properties.NOMI; 
                     layer.correct = false; 
-                    if (name) {
-                        viloyatlar.push({name: name, layer: layer});
-                    }
-                    
-                    layer.on({
-                        mouseover: highlightFeature,
-                        mouseout: resetHighlight,
-                    });
-                    
+                    if (name) viloyatlar.push({name: name, layer: layer});
+                    layer.on({ mouseover: highlightFeature, mouseout: resetHighlight });
                     layer.on('click', onStudyClick); 
                 }
             }).addTo(map);
 
             if (viloyatlar.length === 0) {
-                 questionElement.innerHTML = `🚨 **Xatolik:** GeoJSON yuklandi, lekin 'Nomi' yoki 'NOMI' ustuni topilmadi.`;
-                 startButton.disabled = true;
+                questionElement.innerHTML = `🚨 <b>Xatolik:</b> GeoJSON yuklandi, lekin 'Nomi' yoki 'NOMI' ustuni topilmadi.`;
+                startButton.disabled = true;
             }
             
             if (isGameStart) { 
@@ -324,7 +704,7 @@
         })
         .catch(err => {
             console.error('GeoJSON yuklashda xatolik:', err);
-            questionElement.innerHTML = `🚨 **Xatolik:** GeoJSON fayl yuklanmadi. Manzilni yoki internet aloqasini tekshiring.`;
+            questionElement.innerHTML = `🚨 <b>Xatolik:</b> GeoJSON fayl yuklanmadi.`;
             startButton.disabled = true;
         });
     }
@@ -332,23 +712,33 @@
     function shuffleQuestions() { viloyatlar.sort(() => 0.5 - Math.random()); currentIndex = 0; }
     
     function showQuestion() {
-        if(currentIndex >= viloyatlar.length){
-            // O'yin tugadi
+        updateProgress();
+        if (currentIndex >= viloyatlar.length) {
             clearInterval(timerInterval);
             gameStarted = false;
             const elapsed = Math.floor((Date.now() - startTime) / 1000);
-            
             saveRecord(score, elapsed);
             playSound(soundWin); 
 
-            questionElement.className = 'fw-bold fs-5 color-primary fade-in-result';
+            progressWrap.style.display = 'none';
+            questionElement.className = 'fade-in-result';
             questionElement.innerHTML = `
-                <h2>🎉 O'yin Tugadi! 🎉</h2>
-                <p><b>Yakuniy ball:</b> ${score} / ${viloyatlar.length}</p>
-                <p><b>Sarflangan vaqt:</b> ${elapsed} soniya</p>
+                <div style="text-align:center;padding:8px 0;">
+                    <div style="font-size:2.2rem;margin-bottom:6px;">🎉</div>
+                    <div style="font-size:1.2rem;font-weight:800;color:#f1f5f9;margin-bottom:8px;">O'yin Tugadi!</div>
+                    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+                        <span style="background:linear-gradient(135deg,#10b981,#34d399);color:#0f172a;padding:6px 18px;border-radius:10px;font-weight:700;font-size:1rem;">
+                            <i class="fas fa-trophy me-1"></i> ${score} / ${viloyatlar.length}
+                        </span>
+                        <span style="background:linear-gradient(135deg,#06b6d4,#67e8f9);color:#0f172a;padding:6px 18px;border-radius:10px;font-weight:700;font-size:1rem;">
+                            <i class="fas fa-clock me-1"></i> ${elapsed} s
+                        </span>
+                    </div>
+                </div>
             `;
-            startButton.innerText = 'Qayta Boshlash';
-            startButton.style.display = 'inline-block';
+            startButton.innerHTML = '<i class="fas fa-redo"></i> Qayta Boshlash';
+            startButton.className = 'btn-game btn-restart';
+            startButton.style.display = 'inline-flex';
             
             geojsonLayer.eachLayer(layer => {
                 layer.off('click', onViloyatClick); 
@@ -362,11 +752,11 @@
         }
         
         firstTry = true; 
-        questionElement.className = 'fw-bold fs-5 color-primary'; 
-        questionElement.innerHTML = `Rayonni toping: <span class="badge bg-danger">${viloyatlar[currentIndex].name}</span>`;
+        questionElement.className = '';
+        questionElement.innerHTML = `Rayonni toping: <span class="badge">${viloyatlar[currentIndex].name}</span>`;
     }
 
-    function onViloyatClick(e){
+    function onViloyatClick(e) {
         if (!gameStarted) return; 
 
         const clickedLayer = e.target;
@@ -375,52 +765,36 @@
         clickedLayer.unbindPopup();
         map.closePopup();
 
-        if (clickedLayer.correct) { return; } 
+        if (clickedLayer.correct) return; 
 
-        if(clickedLayer === current.layer){
-            // === TO'G'RI JAVOB BERILDI: RANG YASHIL/QIZIL BO'LADI ===
+        if (clickedLayer === current.layer) {
             clickedLayer.correct = true; 
             playSound(soundCorrect); 
 
-            if(firstTry){
-                // ✅ Yashil rang (To'g'ri va birinchi urinish)
-                clickedLayer.setStyle({fillColor: '#198754', fillOpacity:0.9, weight: 1}); 
-                score++; // Ball faqat birinchi urinishda beriladi
+            if (firstTry) {
+                clickedLayer.setStyle({fillColor: '#10b981', fillOpacity: 0.92, weight: 1.5}); 
+                score++;
             } else {
-                // ❌ QIZIL RANG: Oldin xato qilingan bo'lsa, keyin topilsa ham Qizil bo'lib qolsin.
-                clickedLayer.setStyle({fillColor: '#dc3545', fillOpacity:0.9, weight: 1}); 
-                // Ball bu yerda berilmaydi.
+                clickedLayer.setStyle({fillColor: '#ef4444', fillOpacity: 0.92, weight: 1.5}); 
             }
             
-            scoreElement.innerHTML = `<i class="fas fa-trophy me-1"></i> Ball: ${score}`;
+            scoreElement.innerHTML = `<i class="fas fa-trophy"></i> Ball: ${score}`;
             currentIndex++;
             setTimeout(showQuestion, 400);
             
         } else {
-            // === NOTO'G'RI JAVOB BERILDI: RANG QIZIL, KEYIN ASLIGA QAYTADI ===
             playSound(soundError); 
-            
-            // Qizil rang (Noto'g'ri)
-            clickedLayer.setStyle({fillColor: '#dc3545', fillOpacity:0.9, weight: 3}); 
-            
-            // 600ms dan so'ng boshlang'ich rangiga qaytaramiz
-            setTimeout(() => {
-                geojsonLayer.resetStyle(clickedLayer);
-            }, 600);
-            
+            clickedLayer.setStyle({fillColor: '#ef4444', fillOpacity: 0.92, weight: 3}); 
+            setTimeout(() => { geojsonLayer.resetStyle(clickedLayer); }, 600);
             firstTry = false;
         }
     }
     
-    // --- UTILITIY FUNKSIYALAR (Rekordlar uchun, o'zgarishsiz) ---
-
     function loadRecords() {
         try {
             const records = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
             return Array.isArray(records) ? records : [];
-        } catch (e) {
-            return [];
-        }
+        } catch (e) { return []; }
     }
 
     function saveRecord(newScore, newTime) {
@@ -428,10 +802,7 @@
         const maxScore = viloyatlar.length || 1; 
         const newRecord = { score: newScore, time: newTime, max: maxScore, date: new Date().toLocaleString('uz-UZ') };
         records.push(newRecord);
-        records.sort((a, b) => {
-            if (b.score !== a.score) { return b.score - a.score; }
-            return a.time - b.time;
-        });
+        records.sort((a, b) => { if (b.score !== a.score) return b.score - a.score; return a.time - b.time; });
         records = records.slice(0, 10); 
         localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(records));
         return records;
@@ -440,44 +811,29 @@
     function displayRecords() {
         const records = loadRecords();
         if (records.length === 0) {
-            recordsListElement.innerHTML = '<p class="text-center text-muted">Hali rekordlar mavjud emas. Birinchi o\'yinni boshlang!</p>';
+            recordsListElement.innerHTML = '<p style="text-align:center;color:var(--text-muted);padding:20px 0;">Hali rekordlar mavjud emas. Birinchi o\'yinni boshlang!</p>';
             return;
         }
-
-        let html = `
-            <table class="table table-hover table-striped">
-                <thead>
-                    <tr class="table-primary">
-                        <th scope="col">#</th>
-                        <th scope="col">Ball</th>
-                        <th scope="col">Vaqt</th>
-                        <th scope="col" class="d-none d-sm-table-cell">Sana</th>
-                    </tr>
-                </thead>
-                <tbody>
-        `;
+        const rankClasses = ['gold','silver','bronze'];
+        let html = '<table class="records-table"><thead><tr><th>#</th><th>Ball</th><th>Vaqt</th><th class="d-none d-sm-table-cell">Sana</th></tr></thead><tbody>';
         records.forEach((rec, index) => {
-            html += `
-                <tr>
-                    <th scope="row">${index + 1}</th>
-                    <td><span class="badge bg-success">${rec.score} / ${rec.max}</span></td>
-                    <td><span class="badge bg-info">${rec.time} s</span></td>
-                    <td class="d-none d-sm-table-cell"><small>${rec.date}</small></td>
-                </tr>
-            `;
+            const rc = rankClasses[index] || '';
+            html += `<tr>
+                <td><span class="rank-badge ${rc}">${index + 1}</span></td>
+                <td><span class="rec-badge-score">${rec.score} / ${rec.max}</span></td>
+                <td><span class="rec-badge-time">${rec.time} s</span></td>
+                <td class="d-none d-sm-table-cell" style="color:var(--text-muted);font-size:0.78rem;">${rec.date}</td>
+            </tr>`;
         });
-        html += `</tbody></table>`;
+        html += '</tbody></table>';
         recordsListElement.innerHTML = html;
     }
 
-
-    // --- EVENT HANDLERS VA INIT ---
     startButton.onclick = startGame;
-    clearRecordsBtn.onclick = () => { localStorage.removeItem(LOCAL_STORAGE_KEY); displayRecords(); alert('Rekordlar ro\'yxati tozalandi.'); };
+    clearRecordsBtn.onclick = () => { localStorage.removeItem(LOCAL_STORAGE_KEY); displayRecords(); };
     document.getElementById('recordsModal').addEventListener('show.bs.modal', displayRecords);
     
     fetchGeoJSON(false); 
-
 </script>
 </body>
 </html>
