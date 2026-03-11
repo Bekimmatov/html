@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geografik Bilimlar Evolyutsiyasi</title>
+    <!-- Reveal.js CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reset.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/black.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    <style>
+        /* Custom CSS for Glassmorphism, Neumorphism, Gradients */
+        body {
+            background: linear-gradient(-45deg, #1a1a2e, #16213e, #0f3460, #e94560);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            font-family: 'Montserrat', sans-serif;
+            color: #fff;
+            margin: 0;
+            overflow: hidden;
+        }
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+        .reveal {
+            z-index: 1;
+        }
+        .reveal .slides section {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37), inset 0 0 20px rgba(255,255,255,0.05);
+            padding: 40px;
+            box-sizing: border-box;
+            height: 100%;
+            overflow-y: auto;
+            position: relative;
+        }
+        .reveal h1, .reveal h2, .reveal h3 {
+            font-family: 'Playfair Display', serif;
+            text-transform: none;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            color: #fff;
+            margin-bottom: 20px;
+        }
+        .reveal p, .reveal li {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            text-align: justify;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+            margin-bottom: 15px;
+        }
+        .slide-bg-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            opacity: 0.2;
+            border-radius: 20px;
+        }
+        .gsap-title {
+            display: inline-block;
+        }
+        /* Scrollbar for long text */
+        .reveal .slides section::-webkit-scrollbar {
+            width: 8px;
+        }
+        .reveal .slides section::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+        .reveal .slides section::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+        }
+        .author-info {
+            text-align: center !important;
+            font-size: 1.5rem !important;
+            margin-top: 30px;
+            color: #ffd700;
+        }
+    </style>
+</head>
+<body>
+    <div id="particles-js"></div>
+    <div class="reveal">
+        <div class="slides">
+            
+            <!-- Slide 1 -->
+            <section>
+                <img class="slide-bg-img" src="https://picsum.photos/seed/geography/1920/1080" alt="Background">
+                <h2 class="gsap-title">Ekspeditsiya tadqiqotlari, tijorat geografiyasi va kameral statistika paradigmalarining o'zaro ta'siri va rivojlanishi</h2>
+                <p class="author-info"><strong>Ma'ruzachi:</strong> Baxtiyorova Shahina</p>
+                <p style="text-align: center;"><strong>Maqsad:</strong> Geografik bilimlar evolyutsiyasini tahlil qilish.</p>
+            </section>
+
+            <!-- Slide 2 -->
+            <section>
+                <img class="slide-bg-img" src="https://picsum.photos/seed/plan/1920/1080" alt="Background">
+                <h2 class="gsap-title">Reja</h2>
+                <ul>
+                    <li>Kirish</li>
+                    <li>1. Geografiya fanining shakllanishi va rivojlanishining tarixiy-metodologik bosqichlari.</li>
+                    <li>2. Ekspeditsiya tadqiqotlari paradigmasi va dala uslubining fan poydevori sifatidagi o'rni.</li>
+                    <li>3. Tijorat geografiyasining tug'ilishi va merkantilizm davrida geografik bilimlarning iqtisodiy manfaatlarga xizmat qilishi.</li>
+                    <li>4. Kameral statistika yo'nalishi va davlat boshqaruvida geografik ma'lumotlarning raqamlarga aylanishi.</li>
+                    <li>5. XVIII-XIX asrlarda geografik sintez hamda zamonaviy iqtisodiy-geografik modellarning shakllanishi.</li>
+                </ul>
+            </section>
+
+            <!-- Slide 3 -->
+            <section>
+                <img class="slide-bg-img" src="https://picsum.photos/seed/history/1920/1080" alt="Background">
+                <h2 class="gsap-title">Geografiya fanining shakllanish bosqichlari</h2>
+                <p>Geografiya fanining shakllanish bosqichlari insoniyatning atrof-muhitni anglash darajasi bilan bevosita bog'liq bo'lib, qadimgi dunyo olimlarining ilk tavsiflaridan boshlab zamonaviy fundamental fan darajasigacha bo'lgan murakkab yo'lni bosib o'tgan. Fan taraqqiyotida ekspeditsiya yo'nalishi eng asosiy poydevor hisoblanib, u yangi yerlarni kashf etish, qit'alar qirg'oqlarini aniqlash va xaritalashtirish orqali geografik bilimlarning miqdoriy jihatdan ortishiga xizmat qilgan.</p>
+                <p>Buyuk geografik kashfiyotlar davrida aynan ekspeditsiyalar natijasida yer yuzining butunligi haqidagi tasavvurlar shakllangan va dunyoning umumiy manzarasi chizilgan. Tijorat yo'nalishi esa geografiyaning amaliy ahamiyatini kuchaytirib, savdo yo'llarini o'rganish, tabiiy resurslar va xomashyo bazalarini aniqlash hamda bozorlar o'rtasidagi iqtisodiy aloqalarni shakllantirishda muhim rol o'ynagan.</p>
+                <p>Ushbu yo'nalish tufayli iqtisodiy geografiyaning ilk elementlari vujudga kelgan va hududlarning xo'jalik salohiyati tahlil qilingan. Kameral statistika yo'nalishi geografik ma'lumotlarni tizimlashtirish va davlat boshqaruvi uchun zarur bo'lgan raqamli ko'rsatkichlarni tahlil qilish bosqichi bo'lib xizmat qilgan.</p>
+                <p>U hududlarning aholisi, xo'jaligi va tabiiy boyliklari haqidagi dafn etilgan ma'lumotlarni ilmiy tartibga solish orqali mamlakatshunoslik fanining rivojlanishiga turtki bergan. Bugungi kunda ushbu tahlilning dolzarbligi global ekologik muammolar, tabiiy resurslardan oqilona foydalanish va barqaror rivojlanish strategiyalarini belgilashda o'tmishdagi metodologik tajribalarga tayanish zarurati bilan izohlanadi. Geografiya fanining shakllanish tarixini o'rganish hozirgi zamon geoaxborot tizimlari va masofadan zondlash kabi ilg'or texnologiyalarning nazariy asoslarini tushunishga hamda hududiy farqlarni ilmiy asoslangan holda bashorat qilishga yordam beradi.</p>
+            </section>
+
+            <!-- Slide 4 -->
+            <section>
+                <img class="slide-bg-img" src="https://picsum.photos/seed/expedition/1920/1080" alt="Background">
+                <h2 class="gsap-title">Ekspeditsiya tadqiqotlari paradigmasi</h2>
+                <p>Ekspeditsiya tadqiqotlari paradigmasi geografiya fanining eng qadimgi va fundamental asosi bo‘lib, u yer yuzasini bevosita kuzatish, o‘lchash va birlamchi ma’lumotlarni joyida to‘plash tamoyiliga tayanadi. Ushbu paradigma tadqiqotchining o‘rganilayotgan ob’ekt yoki hodisa bilan bevosita muloqotda bo‘lishini va empirik dalillarga asoslangan ilmiy xulosalar chiqarishni ko‘zda tutadi.</p>
+                <p>Buyuk geografik kashfiyotlar davri ushbu paradigmaning shakllanishida hal qiluvchi bosqich bo‘lib, u nafaqat dunyo xaritasidagi oq dog‘larni o‘chirishga, balki geografik ma’lumotlarni yig‘ishning tizimli usullarini ishlab chiqishga xizmat qilgan. Bu davrda tashkil etilgan dengiz va quruqlik sayohatlari natijasida materiklar qirg‘oq chiziqlari, okean oqimlari, iqlimiy mintaqalar va flora hamda fauna dunyosi haqidagi ilk ilmiy tasavvurlar shakllangan.</p>
+                <p>Buyuk sayyohlarning hisobotlari va kundaliklari geografik bilimlarni tavsifiy xarakterdan tizimli ilmiy ma’lumotlar bazasiga aylantirgan. Dala tadqiqotlari ekspeditsiya paradigmasining asosiy uslubi sifatida namoyon bo‘ladi va u laboratoriya yoki kabinet sharoitida olingan nazariy bilimlarni amaliyotda sinash imkonini beradi.</p>
+                <p>Dala sharoitida o‘tkaziladigan geomorfologik kuzatuvlar, gidrologik o‘lchovlar va landshaft tahlillari geografik qonuniyatlarni aniqlashda eng ishonchli manba hisoblanadi. Hozirgi kunda ham zamonaviy texnologiyalar rivojlanganiga qaramay, masofadan zondlash orqali olingan ma’lumotlarni tekshirish va tasdiqlash uchun dala tadqiqotlari o‘zining ilmiy qiymatini yo‘qotmagan. Ushbu uslub orqali to‘plangan faktlar geografiyaning boshqa barcha nazariy yo‘nalishlari uchun xomashyo bazasi bo‘lib xizmat qiladi va hududlarning o‘ziga xos xususiyatlarini aniq aks ettiradi.</p>
+            </section>
+
+            <!-- Slide 5 -->
+            <section>
+                <img class="slide-bg-img" src="https://picsum.photos/seed/evolution/1920/1080" alt="Background">
+                <h2 class="gsap-title">Ekspeditsiyalarning tarixiy evolyutsiyasi</h2>
+                <p>Ekspeditsiyalarning tarixiy evolyutsiyasi insoniyatning intellektual va texnologik taraqqiyoti bilan uzviy bog'liq bo'lib, bir necha asosiy bosqichni bosib o'tgan. Dastlabki bosqichlarda ekspeditsiyalar asosan yangi hududlarni egallash, chorvachilik uchun yaylovlar topish va savdo yo'llarini ochish kabi utilitar maqsadlarga yo'naltirilgan edi.</p>
+                <p>Qadimgi dunyo davrida finikiyaliklarning dengiz sayohatlari va yunon olimlarining O'rta yer dengizi havzasini o'rganishi geografik tadqiqotlarning ilk kurtaklari bo'lib xizmat qildi. O'rta asrlarda esa ekspeditsiyalar xarakteri biroz o'zgarib, ziyoratchilar va elchilarning safarlari orqali uzoq o'lkalarning madaniyati va tabiati haqidagi ma'lumotlar to'plana boshladi.</p>
+                <p>Buyuk geografik kashfiyotlar davri ekspeditsiyalar evolyutsiyasida inqilobiy burilish yasadi, chunki bu davrda tadqiqotlar davlat miqyosidagi strategik vazifaga aylandi va okean orti hududlarini tizimli o'rganish boshlandi. XVIII-XIX asrlarga kelib ekspeditsiyalar sof ilmiy qiyofa kasb etdi va Jeyms Kuk, Aleksandr Gumboldt kabi tadqiqotchilar o'z safarlarida maxsus laboratoriya jihozlaridan foydalanib, tabiat hodisalarini o'zaro bog'liqlikda tahlil qila boshladilar.</p>
+                <p>Bu davrda geografik jamiyatlarning tashkil etilishi ekspeditsiyalarni moliyalashtirish va ularning natijalarini nashr etish tizimini shakllantirdi. XX asrga kelib ekspeditsiya tadqiqotlari ekstremal hududlarni, xususan, Arktika, Antarktida va dunyo okeanining tubini o'rganishga yo'naltirildi. Hozirgi zamon evolyutsion bosqichida an'anaviy dala tadqiqotlari sun'iy yo'ldosh texnologiyalari va geoaxborot tizimlari bilan integratsiyalashgan holda olib borilmoqda. Bugungi ekspeditsiyalar nafaqat yangi faktlarni to'plash, balki global iqlim o'zgarishi va ekotizimlar degradatsiyasini monitoring qilish kabi murakkab vazifalarni bajarmoqda. Ushbu evolyutsion jarayon geografiyaning tavsifiy fandan prognozlovchi va boshqaruvchi fan darajasiga ko'tarilishini ta'minladi.</p>
+            </section>
+
+            <!-- Slide 6 -->
+            <section>
+                <img class="slide-bg-img" src="https://picsum.photos/seed/methodology/1920/1080" alt="Background">
+                <h2 class="gsap-title">Ekspeditsiya usullarining metodologiyasi</h2>
+                <p>Ekspeditsiya usullarining metodologiyasi geografik tadqiqotlarni tashkil etish va o‘tkazishning tizimli asosini tashkil etib, u ob’ektni bevosita tabiatning o‘zida o‘rganishga qaratilgan amallar majmuasidir. Ushbu metodologiya uchta asosiy bosqichni o‘z ichiga oladi, bular tayyorgarlik, dala tadqiqotlari va kamerallik bosqichlaridir.</p>
+                <p>Tayyorgarlik davrida tadqiqot hududiga doir mavjud adabiyotlar, kartografik materiallar va arxiv ma’lumotlari tahlil qilinib, ekspeditsiyaning aniq marshrutlari hamda kuzatuv nuqtalari belgilanadi. Dala tadqiqotlari bosqichi metodologiyaning markaziy qismi bo‘lib, unda bevosita kuzatish, asbob-uskunalar yordamida o‘lchash, namuna olish va so‘rovnomalar o‘tkazish kabi usullar qo‘llaniladi. Ushbu bosqichda landshaftning morfologik tuzilishi, tuproq qatlamlari, o‘simlik qoplami va gidrologik ko‘rsatkichlar qayd etiladi.</p>
+                <p>Metodologiyaning muhim qismi bo‘lgan xaritalashtirish usuli orqali olingan ma’lumotlar joyning o‘zida qog‘oz yoki raqamli xaritalarga tushiriladi. Kamerallik bosqichida esa dala sharoitida to‘plangan materiallar laboratoriya tahlillaridan o‘tkaziladi, statistik qayta ishlanadi va ilmiy umumlashtirish orqali yakuniy xulosalar chiqariladi.</p>
+                <p>Hozirgi zamon ekspeditsiya metodologiyasida geoaxborot tizimlari va GPS navigatsiyasi kabi yuqori texnologik usullar keng qo‘llanilmoqda, bu esa ma’lumotlarning koordinata aniqligini va tezkorligini ta’minlamoqda. Shuningdek, qiyosiy-geografik usul yordamida turli hududlarning o‘xshash va farqli jihatlari aniqlanadi, bu esa hududiy qonuniyatlarni ochib berishga xizmat qiladi. Ekspeditsiya metodologiyasi nafaqat faktik material to‘plash, balki tabiat va jamiyat o‘rtasidagi aloqalarni dinamik holatda o‘rganish imkonini beradi. Ushbu yondashuv geografiya fanining amaliy va nazariy darajasini belgilab beruvchi eng ishonchli vosita bo‘lib qolmoqda.</p>
+            </section>
+
+            <!-- Slide 7 -->
+            <section>
+                <img class="slide-bg-img" src="https://picsum.photos/seed/commerce/1920/1080" alt="Background">
+                <h2 class="gsap-title">Tijorat geografiyasining tug'ilishi</h2>
+                <p>Tijorat geografiyasining tug'ilishi jamiyat taraqqiyotida iqtisodiy munosabatlarning globallashuvi va hududlararo mehnat taqsimotining shakllanishi bilan uzviy bog'liqdir. Savdo yo'llarining ahamiyati ortishi geografik bilimlarning amaliy yo'nalishga o'tishiga kuchli turtki berdi, chunki Buyuk ipak yo'li va keyinchalik okean orti savdo yo'nalishlarining ochilishi yangi bozorlar, xomashyo manbalari va strategik punktlarni aniq xaritalashtirishni talab qildi.</p>
+                <p>Dengiz yo'llarining rivojlanishi nafaqat masofalarni qisqartirish, balki yuk tashish xarajatlarini kamaytirish va xalqaro savdo aylanmasini kengaytirish imkonini berdi, bu esa o'z navbatida port shaharlarining iqtisodiy markazlar sifatida yuksalishiga olib keldi. Merkantilizm davri geografik bilimlarning mazmunini tubdan o'zgartirdi, chunki bu davrda davlatning boyligi oltin va kumush zaxiralari hamda ijobiy savdo balansi bilan o'lchanar edi.</p>
+                <p>Merkantilistlar uchun geografiya yangi konlarni topish, mustamlakalardan arzon xomashyo tashish va tayyor mahsulotlarni sotish uchun qulay hududlarni aniqlash vositasi bo'lib xizmat qildi. Geografiyaning iqtisodiy manfaatlarga xizmat qilishi fanning tavsifiy xarakteridan konstruktiv va amaliy fan darajasiga ko'tarilishini ta'minladi. Iqtisodiy manfaatlar turtkisida hududlarning tabiiy resurslar salohiyati, aholi joylashuvi va transport-geografik o'rni tizimli ravishda baholana boshlandi.</p>
+                <p>Ushbu jarayon tijorat geografiyasining mustaqil yo'nalish sifatida shakllanishiga va keyinchalik zamonaviy iqtisodiy geografiya fanining poydevori yaratilishiga asos bo'ldi. Bugungi kunda ham tijorat geografiyasi tamoyillari xalqaro logistika, transmilliy korporatsiyalar faoliyati va jahon bozoridagi raqobatbardoshlikni tahlil qilishda o'z dolzarbligini saqlab qolmoqda. Iqtisodiy samaradorlikni oshirish maqsadida hududiy farqlarni o'rganish geografiya fanining jamiyatdagi ijtimoiy-iqtisodiy rolini belgilab beruvchi asosiy omillardan biri hisoblanadi.</p>
+            </section>
+
+            <!-- Slide 8 -->
+            <section>
+                <img class="slide-bg-img" src="https://picsum.photos/seed/market/1920/1080" alt="Background">
+                <h2 class="gsap-title">Tijorat geografiyasi: Maqsad va vazifalar</h2>
+                <p>Tijorat geografiyasining asosiy maqsadi jahon bozori va hududiy iqtisodiy tizimlarning shakllanish qonuniyatlarini o'rganish hamda savdo aloqalarining geografik o'rnini tahlil qilish orqali iqtisodiy samaradorlikka erishish yo'llarini ko'rsatib berishdan iboratdir. Ushbu fan yo'nalishi turli mamlakat va hududlarning xalqaro mehnat taqsimotidagi o'rnini belgilaydi va ularning eksport hamda import salohiyatini geografik jihatdan asoslab beradi.</p>
+                <p>Tijorat geografiyasining vazifalari qatoriga birinchi navbatda tabiiy va iqtisodiy resurslarning hududiy joylashuvini xatlovdan o'tkazish va ulardan foydalanishning qulay yo'nalishlarini ishlab chiqish kiradi. Shuningdek jahon bozoridagi tovar va xizmatlar oqimini kuzatish hamda transport-logistika yo'laklarining o'tkazuvchanlik qobiliyatini baholash fanning muhim amaliy vazifalaridan biri hisoblanadi. Tadqiqotlar davomida xalqaro savdo markazlarining shakllanish omillari va transmilliy kompaniyalarning hududiy strategiyalari chuqur tahlil qilinadi.</p>
+                <p>Bozor konyunkturasining geografik farqlarini o'rganish orqali ishlab chiqarishni iste'molchilarga yaqinlashtirish va xomashyo bazalaridan oqilona foydalanish bo'yicha ilmiy tavsiyalar ishlab chiqiladi. Tijorat geografiyasi o'z oldiga qo'ygan vazifalarni bajarishda iqtisodiy-geografik rayonlashtirish tamoyillariga tayanadi va davlatlararo savdo shartnomalarining hududiy oqibatlarini bashorat qiladi.</p>
+                <p>Bugungi globallashuv sharoitida raqamli iqtisodiyot va elektron tijoratning geografik tarqalishi hamda ularning an'anaviy bozor tuzilmalariga ta'sirini baholash fanning yangi va dolzarb vazifasiga aylandi. Shu bilan birga tijorat geografiyasi hududlarning investitsion jozibadorligini oshirish va erkin iqtisodiy zonalarni tashkil etishning geografik asoslarini yaratishda ham bevosita ishtirok etadi. Yakuniy vazifa sifatida ushbu fan barcha iqtisodiy jarayonlarni makon va vaqt birligida mujassamlashtirib jamiyatning ijtimoiy-iqtisodiy rivojlanishiga xizmat qiladi.</p>
+            </section>
+
+            <!-- Slide 9 -->
+            <section>
+                <img class="slide-bg-img" src="https://picsum.photos/seed/statistics/1920/1080" alt="Background">
+                <h2 class="gsap-title">Kameral statistika</h2>
+                <p>Kameral statistika geografiya fanining shakllanishidagi o'ziga xos yo'nalish bo'lib, u XVII-XVIII asrlarda asosan Germaniya va Rossiyada davlat boshqaruvini takomillashtirish hamda hududiy resurslarni tizimli hisobga olish ehtiyoji natijasida vujudga kelgan. Ushbu yo'nalishning mohiyati davlatning qudrati va imkoniyatlarini ifodalovchi ma'lumotlarni to'plash, guruhlash va tahlil qilishdan iborat bo'lib, u "davlatshunoslik" fani sifatida ham talqin qilingan.</p>
+                <p>Kameral statistika an'anaviy tasvirlashdan raqamlarga va aniq ko'rsatkichlarga o'tish davrini boshlab berdi hamda mamlakatning maydoni, aholi soni, tabiiy boyliklari, qishloq xo'jaligi va sanoat mahsulotlari hajmini hududlar kesimida o'rganishni asosiy vazifa qilib belgiladi. Bu yo'nalishning fan taraqqiyotidagi o'rni shundaki, u geografik ma'lumotlarni faqatgina sayohat xotiralari ko'rinishida emas, balki qat'iy mantiqiy tartibda va qiyosiy tahlil qilish imkonini beradigan tizimli jadval hamda hisobotlar shakliga keltirdi.</p>
+                <p>Kameralist olimlar tomonidan ishlab chiqilgan uslublar yordamida hududlarning iqtisodiy-geografik salohiyati bir-biri bilan taqqoslana boshladi, bu esa keyinchalik iqtisodiy rayonlashtirish nazariyasining poydevori bo'lib xizmat qildi. Davlat boshqaruvi apparati uchun zarur bo'lgan ushbu statistik ma'lumotlar jamiyatning ijtimoiy-iqtisodiy holatini real baholash va kelajakdagi rivojlanish rejalarini tuzishda muhim vositaga aylandi.</p>
+                <p>Kameral statistika bosqichi geografiyani gumanitar va tavsifiy yo'nalishdan aniq ma'lumotlarga tayanadigan amaliy fan darajasiga ko'tardi. Bugungi kunda ushbu yo'nalishning vorisi sifatida zamonaviy ijtimoiy-iqtisodiy statistika, demografiya va hududiy menejment sohalarini ko'rsatish mumkin. Ma'lumotlarni yig'ish va ularni davlat manfaatlari yo'lida tizimlashtirish metodologiyasi hozirgi geoaxborot tizimlarida (GAT) qo'llaniladigan ma'lumotlar bazasini shakllantirish tamoyillari bilan hamohangdir. Shunday qilib, kameral statistika geografik fikrlash doirasini kengaytirib, makonni raqamlar tili bilan ifodalash madaniyatini shakllantirdi.</p>
+            </section>
+
+            <!-- Slide 10 -->
+            <section>
+                <img class="slide-bg-img" src="https://picsum.photos/seed/management/1920/1080" alt="Background">
+                <h2 class="gsap-title">Kameral statistika va boshqaruv o‘rtasidagi uzviy bog‘liqlik</h2>
+                <p>Kameral statistika va boshqaruv o‘rtasidagi uzviy bog‘liqlik davlatni markazlashgan holda boshqarish va uning resurslaridan samarali foydalanish ehtiyoji natijasida shakllangan bo‘lib, bu jarayon geografiyaning amaliy ahamiyatini yangi bosqichga olib chiqdi. Davlat qudratini belgilovchi asosiy ko‘rsatkichlar sifatida aholi soni, soliq tushumlari va harbiy salohiyatni aniq hisoblash kameral statistikaning bosh vazifasiga aylandi.</p>
+                <p>Aholini ro‘yxatga olish orqali nafaqat odamlar soni, balki ularning hududiy joylashuvi, yoshi va mehnatga layoqatliligi o‘rganildi, bu esa soliq bazasini to‘g‘ri shakllantirish va davlat xazinasiga tushadigan daromadlarni prognoz qilish imkonini berdi. Harbiy sohada esa hududlarning safarbarlik resurslari va strategik muhim punktlarning logistika imkoniyatlari raqamlar orqali ifodalandi. Geografik ma’lumotlarning raqamlarga aylanishi fanda sifat o‘zgarishini yasadi, ya’ni umumiy sifat tavsiflari o‘rnini qat’iy miqdoriy ko‘rsatkichlar egalladi.</p>
+                <p>Tog‘lar, daryolar va o‘rmonlar endi shunchaki tabiat ob’ekti emas, balki qazib olinishi mumkin bo‘lgan xomashyo, sug‘oriladigan yerlar yoki harbiy to‘siqlar sifatida statistik qiymatga ega bo‘ldi. Davlat boshqaruvida statistik tahlilning o‘rni shundaki, u boshqaruv qarorlarini qabul qilishda sub’ektiv yondashuvlardan voz kechib, aniq faktlarga tayanish imkonini berdi. Hududiy farqlarni raqamlar orqali ko‘ra bilish hukumatga iqtisodiy rivojlanishdan ortda qolayotgan viloyatlarni aniqlash va resurslarni qayta taqsimlashda ilmiy asoslangan strategiyalarni qo‘llashga yo‘l ochdi.</p>
+                <p>Ushbu tizimli tahlil natijasida davlat apparati hududlarni shunchaki nazorat qilishdan ularning salohiyatini boshqarish darajasiga ko‘tarildi. Shunday qilib, kameral statistika geografiyani davlat xizmatidagi eng muhim instrumental fanga aylantirdi va zamonaviy ma’muriy boshqaruv tizimlarining axborot poydevorini yaratdi.</p>
+            </section>
+
+            <!-- Slide 11 -->
+            <section>
+                <img class="slide-bg-img" src="https://picsum.photos/seed/synthesis/1920/1080" alt="Background">
+                <h2 class="gsap-title">XVIII-XIX asrlarda geografik sintez bosqichi</h2>
+                <p>XVIII-XIX asrlarda geografik sintez bosqichi fanning rivojlanishida sifat jihatidan yangi davrni boshlab berdi, bu davrda ma’lumotlarni oddiy tavsiflash va faktlarni shunchaki to‘plash uslubidan ularning o‘zaro bog‘liqligini ilmiy tahlil qilishga o‘tildi. Ilgari ekspeditsiyalar, tijorat va kameral statistika yo‘nalishlari alohida-alohida rivojlangan bo‘lsa, ushbu asrlarga kelib ularning natijalari yagona geografik qonuniyatlar tizimiga birlashtirila boshlandi.</p>
+                <p>Geografik sintezning mohiyati tabiat hodisalarini bir-biridan ajratilgan holda emas, balki yaxlit bir butunlikda o‘rganishdan iborat bo‘lib, bunda iqlim, relyef, o‘simliklar dunyosi va inson faoliyati o‘rtasidagi sabab-oqibat aloqalari asosiy tadqiqot ob’ektiga aylandi. Aleksandr fon Gumboldt o‘zining Kosmos asarida ekspeditsiya natijalari va tabiiy-ilmiy ma’lumotlarni sintez qilib, Yerning landshaft qobig‘i haqidagi ta’limotni yaratdi va qiyosiy geografiya uslubiga asos soldi. Uning tadqiqotlari natijasida geografiya shunchaki joy nomlari to‘plami emas, balki tabiatdagi o‘zaro aloqalarni tushuntiruvchi fundamental fanga aylandi.</p>
+                <p>Karl Ritter esa o‘z navbatida kameral statistika va tarixiy ma’lumotlarni geografik muhit bilan bog‘lab, yer yuzasining insoniyat rivojlanishidagi o‘rni haqidagi g‘oyalarni ilgari surdi. Ritter asarlarida geografik sintez hududiy butunlik tamoyili orqali namoyon bo‘ldi, ya’ni u har bir mintaqani o‘ziga xos organik birlik sifatida tahlil qildi.</p>
+                <p>Gumboldt va Ritter asarlarida ekspeditsiya usullari, iqtisodiy manfaatlar va statistik ko‘rsatkichlarning birlashishi geografiyaning nazariy poydevorini mustahkamladi. Ushbu sintez natijasida geografiya fani tasvirlashdan tushuntirishga, hodisalarning tashqi ko‘rinishini qayd etishdan ularning ichki mexanizmlarini ochib berishga o‘tdi. Bu davrda shakllangan metodologik yondashuvlar hozirgi zamon tabiiy va ijtimoiy-iqtisodiy geografiyasining ajralmas qismlari sifatida o‘z ahamiyatini saqlab qolmoqda. Sintez jarayoni geografik bilimlarni tizimlashtirib, ularni bashorat qilish xususiyatiga ega bo‘lgan ilmiy nazariyalar darajasiga ko‘tardi.</p>
+            </section>
+
+            <!-- Slide 12 -->
+            <section>
+                <img class="slide-bg-img" src="https://picsum.photos/seed/economy/1920/1080" alt="Background">
+                <h2 class="gsap-title">Tijorat geografiyasidan iqtisodiy geografiyaga o‘tish</h2>
+                <p>Tijorat geografiyasidan iqtisodiy geografiyaga o‘tish jarayoni fanning faqat savdo-sotiq va ayirboshlash jarayonlarini o‘rganishdan chekinib, ishlab chiqarish kuchlarini joylashtirishning chuqur nazariy asoslarini tadqiq etishga yo‘naltirilishi bilan xarakterlanadi. Bu bosqichda geografik makon iqtisodiy samaradorlikni optimallashtirish maydoni sifatida qarala boshlandi va hududiy mehnat taqsimoti tushunchasi fanning markaziga chiqdi.</p>
+                <p>Ishlab chiqarish kuchlarini joylashtirish nazariyasining shakllanishi iqtisodiy geografiyani tavsifiy fan darajasidan qat’iy matematik va geometrik modellarga tayanadigan konstruktiv fan darajasiga ko‘tardi. Ushbu o‘tish davrining eng yorqin namunasi sifatida Iogann fon Tyunenning qishloq xo‘jaligi halqalari modelini ko‘rsatish mumkin, u bozor markazidan uzoqlashgan sayin transport xarajatlarining mahsulot tannarxiga ta’sirini tahlil qilib, yerlardan foydalanishning hududiy zonalarini ilmiy asoslab berdi.</p>
+                <p>Keyinchalik Alfred Veber sanoat korxonalarini joylashtirishning "shnitsel" yoki lokatsion uchburchak modelini taklif etdi, bunda u transport, ishchi kuchi va aglomeratsiya omillarini hisobga olgan holda sanoat ob’ektlari uchun eng kam xarajatli nuqtani aniqlash metodologiyasini yaratdi. Bu nazariyalar majmuasi Valter Kristallerning markaziy joylar nazariyasini ishlab chiqishi bilan yanada boyidi, u aholi punktlarining ierarxik tizimi va xizmat ko‘rsatish radiuslarini asasalab, makonning geometrik to‘g‘ri taqsimlanishini ko‘rsatib berdi. Kristaller modeli iqtisodiy geografiyaning hududiy rejalashtirish va urbanizatsiya jarayonlarini boshqarishdagi rolini tubdan oshirdi.</p>
+                <p>Ushbu modellar iqtisodiy geografiyaning poydevori bo‘lib xizmat qilib, resurslarni taqsimlash, sanoat tugunlarini shakllantirish va shaharlar tizimini loyihalashda bugungi kunda ham o‘z dolzarbligini saqlab kelmoqda. Natijada geografiya shunchaki yer yuzini tasvirlashdan voz kechib, iqtisodiy jarayonlarni makon va vaqt birligida modellashtiruvchi strategik fanga aylandi. Iqtisodiy geografiya ushbu nazariyalar yordamida hududlarning ixtisoslashuvini va ularning bir-biri bilan o‘zaro iqtisodiy bog‘liqligini ilmiy bashorat qilish imkoniyatiga ega bo‘ldi.</p>
+            </section>
+
+            <!-- Slide 13 -->
+            <section>
+                <img class="slide-bg-img" src="https://picsum.photos/seed/conclusion/1920/1080" alt="Background">
+                <h2 class="gsap-title">Xulosa</h2>
+                <p>Geografiya fanining shakllanishi va rivojlanishi oddiy tasvirlashdan murakkab ilmiy sintez hamda matematik modellashtirishgacha bo'lgan tizimli evolyutsion yo'lni bosib o'tdi. Ekspeditsiya tadqiqotlari fanning empirik asosini yaratib, yer yuzi haqidagi birlamchi faktik ma'lumotlarni to'plash va dala uslubini shakllantirish imkonini berdi. Tijorat geografiyasi esa iqtisodiy manfaatlar turtkisida savdo yo'llari, resurslar bazasi va bozor konyunkturasini o'rganish orqali geografiyaning amaliy ahamiyatini oshirdi.</p>
+                <p>Kameral statistika yo'nalishi davlat boshqaruvida raqamli ko'rsatkichlarning o'rnini belgilab, geografik ma'lumotlarni tizimlashtirish va hududiy salohiyatni miqdoriy baholash metodologiyasini taklif etdi. XVIII-XIX asrlarda Gumboldt va Ritter kabi olimlar sa'y-harakati bilan ushbu tarqoq yo'nalishlar yagona ilmiy sintezga birlashtirildi, natijada tabiat va jamiyat hodisalari o'zaro aloqadorlikda tahlil qilina boshlandi.</p>
+                <p>Keyinchalik Tyunen, Veber va Kristaller kabi mutafakkirlarning nazariy modellari geografiyani ishlab chiqarish kuchlarini joylashtirishni optimallashtiruvchi aniq fanga aylantirdi. Xulosa qilib aytganda, geografiya fanining tarixiy bosqichlari bir-birini inkor etmasdan, balki to'ldirib keldi va bugungi kunda ushbu tajribalar zamonaviy geoaxborot texnologiyalari hamda hududiy rejalashtirish strategiyalarining fundamental negizini tashkil etmoqda. Ushbu evolyutsiya geografiyaning shunchaki "yer tasviri" emas, balki makonni boshqarish va kelajakni bashorat qilish fani ekanligini isbotladi.</p>
+            </section>
+
+            <!-- Slide 14 -->
+            <section>
+                <img class="slide-bg-img" src="https://picsum.photos/seed/books/1920/1080" alt="Background">
+                <h2 class="gsap-title">Foydalanilgan adabiyotlar</h2>
+                <ul>
+                    <li>1. Soliyev A.S. Iqtisodiy geografiya: Nazariya va metodika. - Toshkent: Universitet, 2013. - 320 b.</li>
+                    <li>2. Abdunazarov H.M. Geografiya tarixi: O'quv qoʻllanma. - Toshkent: Choʻlpon nomidagi NMIU, 2011. – 160 b.</li>
+                    <li>3. Vahobov H., Alimqulov N.R. Geografik tadqiqot metodlari. - Toshkent: Turon-Iqbol, 2014. - 190 b.</li>
+                    <li>4. Nabixonov M. Iqtisodiy geografiya va tijorat geografiyasi asoslari. - Toshkent: Iqtisod- moliya, 2010. - 245 b.</li>
+                    <li>5. Hakimov Q.M. Geografiya metodologiyasi. - Toshkent: Mumtoz soʻz, 2017. - 210 b.</li>
+                </ul>
+            </section>
+
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        // Initialize Reveal.js
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            center: true,
+            hash: true,
+            transition: 'slide',
+            backgroundTransition: 'fade',
+            width: 1200,
+            height: 800,
+            margin: 0.1,
+            minScale: 0.2,
+            maxScale: 2.0
+        });
+
+        // Initialize Particles.js
+        particlesJS("particles-js", {
+            "particles": {
+                "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+                "color": { "value": "#ffffff" },
+                "shape": { "type": "circle" },
+                "opacity": { "value": 0.5, "random": false },
+                "size": { "value": 3, "random": true },
+                "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.4, "width": 1 },
+                "move": { "enable": true, "speed": 2, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" }, "resize": true },
+                "modes": { "grab": { "distance": 140, "line_linked": { "opacity": 1 } }, "push": { "particles_nb": 4 } }
+            },
+            "retina_detect": true
+        });
+
+        // GSAP Animations on slide change
+        Reveal.on('slidechanged', event => {
+            const currentSlide = event.currentSlide;
+            const title = currentSlide.querySelector('h1, h2, h3');
+            if (title) {
+                gsap.fromTo(title, 
+                    { y: -50, opacity: 0 }, 
+                    { y: 0, opacity: 1, duration: 1, ease: "bounce.out" }
+                );
+            }
+            const paragraphs = currentSlide.querySelectorAll('p, li');
+            if (paragraphs.length > 0) {
+                gsap.fromTo(paragraphs,
+                    { x: -50, opacity: 0 },
+                    { x: 0, opacity: 1, duration: 0.8, stagger: 0.1, ease: "power2.out" }
+                );
+            }
+        });
+        
+        // Initial animation for the first slide
+        Reveal.on('ready', event => {
+            const firstSlide = event.currentSlide;
+            if(firstSlide) {
+                const title = firstSlide.querySelector('h1, h2, h3');
+                if (title) {
+                    gsap.fromTo(title, 
+                        { y: -50, opacity: 0 }, 
+                        { y: 0, opacity: 1, duration: 1, ease: "bounce.out", delay: 0.5 }
+                    );
+                }
+                const paragraphs = firstSlide.querySelectorAll('p, li');
+                if (paragraphs.length > 0) {
+                    gsap.fromTo(paragraphs,
+                        { x: -50, opacity: 0 },
+                        { x: 0, opacity: 1, duration: 0.8, stagger: 0.1, ease: "power2.out", delay: 1 }
+                    );
+                }
+            }
+        });
+    </script>
+</body>
+</html>
