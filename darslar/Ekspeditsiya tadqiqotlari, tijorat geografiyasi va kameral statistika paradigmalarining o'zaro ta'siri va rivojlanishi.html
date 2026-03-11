@@ -37,19 +37,25 @@
         .reveal {
             z-index: 1;
         }
-        .reveal .slides section {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37), inset 0 0 20px rgba(255,255,255,0.05);
-            padding: 40px;
-            box-sizing: border-box;
-            height: 100%;
-            overflow-y: auto;
-            position: relative;
+        // To'liq ekran funksiyasi
+const fsBtn = document.getElementById('fullscreen-btn');
+fsBtn.addEventListener('click', () => {
+    if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen();
+        fsBtn.innerText = "Chiqish";
+    } else {
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+            fsBtn.innerText = "To'liq ekran";
         }
+    }
+});
+
+// Reveal sozlamasida center: true ekanligini tekshiring
+Reveal.initialize({
+    center: true, // BU QATOR TRUE BO'LSIN
+    // ... boshqa sozlamalar
+});
         .reveal h1, .reveal h2, .reveal h3 {
             font-family: 'Playfair Display', serif;
             text-transform: none;
@@ -100,6 +106,8 @@
     </style>
 </head>
 <body>
+    <!-- SHU QATORNI QO'SHING -->
+    <button id="fullscreen-btn" style="position: fixed; bottom: 20px; left: 20px; z-index: 1000; padding: 10px; cursor: pointer;">To'liq ekran</button>
     <div id="particles-js"></div>
     <div class="reveal">
         <div class="slides">
@@ -308,7 +316,25 @@
                 );
             }
         });
-        
+        // To'liq ekran funksiyasi
+const fsBtn = document.getElementById('fullscreen-btn');
+fsBtn.addEventListener('click', () => {
+    if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen();
+        fsBtn.innerText = "Chiqish";
+    } else {
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+            fsBtn.innerText = "To'liq ekran";
+        }
+    }
+});
+
+// Reveal sozlamasida center: true ekanligini tekshiring
+Reveal.initialize({
+    center: true, // BU QATOR TRUE BO'LSIN
+    // ... boshqa sozlamalar
+});
         // Initial animation for the first slide
         Reveal.on('ready', event => {
             const firstSlide = event.currentSlide;
