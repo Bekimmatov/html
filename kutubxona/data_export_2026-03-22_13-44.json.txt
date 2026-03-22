@@ -1,0 +1,1291 @@
+[
+  {
+    "folder": "Geografiya talimida zamonaviy didaktik ko‘rgazmalarni tayyorlash usullari",
+    "fileName": "2 Рўзиева Д., Усманбаева М, Холиқова З. Интерфаол методлар моҳияти ва қўлланилиши (2013)",
+    "url": "https://drive.google.com/file/d/1Gxo60tVotkBwYsh1FyRBck2ajb3yAONz/view?usp=drivesdk"
+  },
+  {
+    "folder": "Geografiya talimida zamonaviy didaktik ko‘rgazmalarni tayyorlash usullari",
+    "fileName": "5 Z.B. Sangirova va boshqalar. 3 sinf uchun mashq daftari (2022)",
+    "url": "https://drive.google.com/file/d/17Xv-mSbZiZJnRO50ve-IjLTP79dkHmdF/view?usp=drivesdk"
+  },
+  {
+    "folder": "Aholi geografiyasi va demografiya asoslari",
+    "fileName": "4 Аҳоли географияси услубий қўлланма 2020",
+    "url": "https://drive.google.com/file/d/1HXT4B5IwSQuJY_yKEgInLTepK0wvyzQv/view?usp=drivesdk"
+  },
+  {
+    "folder": "Aholi geografiyasi va demografiya asoslari",
+    "fileName": "2018 Анохин А Житин Д География населения с основами демографии",
+    "url": "https://drive.google.com/file/d/1xTtwHiRTf1YOB4ay4pD_psocoN2u7mUh/view?usp=drivesdk"
+  },
+  {
+    "folder": "Aholi geografiyasi va demografiya asoslari",
+    "fileName": "2 Тожиева. Ахоли географияси 2019",
+    "url": "https://drive.google.com/file/d/1ORobwPU2sD2UE2lh5XYWQlyir-A9Q4V0/view?usp=drivesdk"
+  },
+  {
+    "folder": "Aholi geografiyasi va demografiya asoslari",
+    "fileName": "Aholi geografiyasi. Tojiyeva 2019",
+    "url": "https://drive.google.com/file/d/13R0xRK2uRB66H-ReUJr_tU4v791CHAFO/view?usp=drivesdk"
+  },
+  {
+    "folder": "Aholi geografiyasi va demografiya asoslari",
+    "fileName": "Aholi geografiyasi. Tojiyeva 2019 (1)",
+    "url": "https://drive.google.com/file/d/1AIcmOGe4Ox9L5FbyuqRi5iIr8zgAbYNg/view?usp=drivesdk"
+  },
+  {
+    "folder": "Aholi geografiyasi va demografiya asoslari",
+    "fileName": "3 Aholi geografiyasi va demografiya asoslari M Bo'riyeva, Z Tojiyeva",
+    "url": "https://drive.google.com/file/d/1k3ORuU72RtB5Q5UDpimSZ8fOmQk5-87t/view?usp=drivesdk"
+  },
+  {
+    "folder": "Aholi geografiyasi va demografiya asoslari",
+    "fileName": "1 Tojiyeva Z.N. Aholi geografiyasi2020",
+    "url": "https://drive.google.com/file/d/10kd2C83rxd2mwcO27L7f0bN5DmFkXBuB/view?usp=drivesdk"
+  },
+  {
+    "folder": "Aholi geografiyasi va demografiya asoslari",
+    "fileName": "Демография наш учебник",
+    "url": "https://drive.google.com/file/d/1zhOWnNj5sLypyKVFdWf9QUAHuWLotKcz/view?usp=drivesdk"
+  },
+  {
+    "folder": "Aholi geografiyasi va demografiya asoslari",
+    "fileName": "Краснокутская Н С География населения с основами демографии 1 (1)",
+    "url": "https://drive.google.com/file/d/1_WfngXBrIk__dAwd8hFgznMjveqOLVrB/view?usp=drivesdk"
+  },
+  {
+    "folder": "Aholi geografiyasi va demografiya asoslari",
+    "fileName": "Краснокутская Н С География населения с основами демографии 1",
+    "url": "https://drive.google.com/file/d/1GKdDq1ws58T1Ur7bYAzy7ES_WXkVXKZK/view?usp=drivesdk"
+  },
+  {
+    "folder": "Aholi geografiyasi va demografiya asoslari",
+    "fileName": "Buriyeva M Aholi geogUntitled.FR11",
+    "url": "https://drive.google.com/file/d/109CspMqNtnSgGUp3t2EkVCUS19kTDtUr/view?usp=drivesdk"
+  },
+  {
+    "folder": "Aholi geografiyasi va demografiya asoslari",
+    "fileName": "R.Y. Singh 2015.119504.Geography Of Settlements text 1994",
+    "url": "https://drive.google.com/file/d/1EDiYqej8dIs_DTadQs8Za5TBUWdvpw_i/view?usp=drivesdk"
+  },
+  {
+    "folder": "Aholi geografiyasi va demografiya asoslari",
+    "fileName": "Tojiyeva aholi geografiyasi 2019 kitob",
+    "url": "https://drive.google.com/file/d/1vHitGy7ounbGzC8aJnhDE4c0Fqu9O5h2/view?usp=drivesdk"
+  },
+  {
+    "folder": "Geofizika asoslari va geokimyo",
+    "fileName": "А. В. СмагинvГЕОХИМИЯ И ГЕОФИЗИКА БИОСФЕРЫ 2018",
+    "url": "https://drive.google.com/file/d/1y56DAtPFcN7tW6H3E0CBcT3K3Y-LLqEi/view?usp=drivesdk"
+  },
+  {
+    "folder": "Geofizika asoslari va geokimyo",
+    "fileName": "Атабаев Д Х, Атабаева Н Э Геофизика ва геокимё асослари",
+    "url": "https://drive.google.com/file/d/1tZFqB_ZRrmTuCaBL6rJnUb95Ng-prGw9/view?usp=drivesdk"
+  },
+  {
+    "folder": "Geofizika asoslari va geokimyo",
+    "fileName": "Q.S.Yarashev, F.Hikmatov, D.A.Saidova Geofizika asoslari",
+    "url": "https://drive.google.com/file/d/1XiaQwdXhgGGiJuflK-hgluQlfTLBMUph/view?usp=drivesdk"
+  },
+  {
+    "folder": "Geofizika asoslari va geokimyo",
+    "fileName": "geokniga uchebnoe posobie po geohimii",
+    "url": "https://drive.google.com/file/d/1LTZfPx1UtCbzP5IyfPzbeBJPSqGjc57u/view?usp=drivesdk"
+  },
+  {
+    "folder": "Geofizika asoslari va geokimyo",
+    "fileName": "aplonov geofizika dlya geologov1",
+    "url": "https://drive.google.com/file/d/1avhGBBMFb23IxvuYLZ5eN_uBP56u5w1b/view?usp=drivesdk"
+  },
+  {
+    "folder": "Geofizika asoslari va geokimyo",
+    "fileName": "5 William M. White. Geochemistry (2013)",
+    "url": "https://drive.google.com/file/d/1PRybyamTZqq-vrih7HL8IlSGhSXg54DX/view?usp=drivesdk"
+  },
+  {
+    "folder": "biogeografiya",
+    "fileName": "Jumaxanov Sh.Z. Biogeografiya 2019",
+    "url": "https://docs.google.com/document/d/1dEs4LR3CThakZFpFWgGhXCe5czT5k3bw/edit?usp=drivesdk&ouid=103609026798553673083&rtpof=true&sd=true"
+  },
+  {
+    "folder": "Geografik tadqiqot usullari",
+    "fileName": "1 Зайнутдинов А. ва бошк. Табиий географиядан ўқув   дала амалиёти. (Чорбоғ ўқув дала амалиёти мисолида) (2003)",
+    "url": "https://drive.google.com/file/d/1gIFf1Rr5BjKOIjgnXwEE3xg_jkxFoQoa/view?usp=drivesdk"
+  },
+  {
+    "folder": "Masofadan ma’lumotlar olish va GAT",
+    "fileName": "4 Shokirov Sh., Musaev I. M. Masofadan zondlash (2015)",
+    "url": "https://drive.google.com/file/d/10oH9rSvVOXM06AQLM66alrJf24kTf_Xk/view?usp=drivesdk"
+  },
+  {
+    "folder": "Masofadan ma’lumotlar olish va GAT",
+    "fileName": "3 David Di Biase. The Nature of Geographic Information (2013)",
+    "url": "https://drive.google.com/file/d/1ZbkRI-ZHuYnZQRNOQyA-SYAIMOLZAcMA/view?usp=drivesdk"
+  },
+  {
+    "folder": "Masofadan ma’lumotlar olish va GAT",
+    "fileName": "2 Gulyamova L. Geoaxborot tizimlari va texnologiyalari (2018)",
+    "url": "https://drive.google.com/file/d/1_PBHttn5GQlLnUbuuJSsAfva6sISw_wN/view?usp=drivesdk"
+  },
+  {
+    "folder": "Masofadan ma’lumotlar olish va GAT",
+    "fileName": "1 Campbel J.l, Shin M. Essentials of Geographic Information Systems (2011)",
+    "url": "https://drive.google.com/file/d/1ilgL0imNeiT8yMi7S1wKGJq0Z7jU8qEP/view?usp=drivesdk"
+  },
+  {
+    "folder": "O‘zbekiston geografiyasi",
+    "fileName": "5 А. Солиев ЎЗБЕКИСТОН ГЕОГРАФИЯСИ 2024",
+    "url": "https://drive.google.com/file/d/1RtYH0RATpzKpqUubPljcAIj949jr_Grw/view?usp=drivesdk"
+  },
+  {
+    "folder": "O‘zbekiston geografiyasi",
+    "fileName": "3 Ҳасанов И.А, Ғуломов П.Н, Қаюмов А.А. Ўзбекистон табиий географияси (II қисм)2010",
+    "url": "https://drive.google.com/file/d/1DROoNXpAhkQFe_RHO9h1RmoaZFc1yc_o/view?usp=drivesdk"
+  },
+  {
+    "folder": "O‘zbekiston geografiyasi",
+    "fileName": "2 Ҳасанов И.А, Ғуломов П.Н ЎЗБЕКИСТОН ТАБИИЙ ГЕОГРАФИЯСИ 2007",
+    "url": "https://drive.google.com/file/d/1ZgYWE-lJGPBnUjC_UOfkkqDwmJKs0F_2/view?usp=drivesdk"
+  },
+  {
+    "folder": "O‘zbekiston geografiyasi",
+    "fileName": "1 П. Баратов. Ўзбекистон табиий географияси (1996)",
+    "url": "https://drive.google.com/file/d/1gt011omDpi244b3VERYxwZ1CxJg10Lrw/view?usp=drivesdk"
+  },
+  {
+    "folder": "Qishloq xo‘jaligi geografiyasi",
+    "fileName": "3 Ракитников А. География сельского хозяйства (1970)",
+    "url": "https://drive.google.com/file/d/1aaY-8xlCRUbYIEBi1yp9YxuP6sQCTxz9/view?usp=drivesdk"
+  },
+  {
+    "folder": "Qishloq xo‘jaligi geografiyasi",
+    "fileName": "1 Қаюмов A.A., Қодиров Р.Б. Қишлоқ хўжалиги географияси ва иқтисодиёти (2007)",
+    "url": "https://docs.google.com/document/d/1n4OAfiIScmLXYBrlCYTOYf7F9_sZM4eq/edit?usp=drivesdk&ouid=103609026798553673083&rtpof=true&sd=true"
+  },
+  {
+    "folder": "Qishloq xo‘jaligi geografiyasi",
+    "fileName": "Қишлоқ жойлар географияси Солиев (1)",
+    "url": "https://docs.google.com/document/d/1FTS0h7aN2jdFatb5pWltbaXqB_0d6ZvF/edit?usp=drivesdk&ouid=103609026798553673083&rtpof=true&sd=true"
+  },
+  {
+    "folder": "Qishloq xo‘jaligi geografiyasi",
+    "fileName": "Қишлоқ жойлар демографияси (1)",
+    "url": "https://docs.google.com/document/d/1_ibo6QguPlzTEXPPm9_IVJSCtKYd08cY/edit?usp=drivesdk&ouid=103609026798553673083&rtpof=true&sd=true"
+  },
+  {
+    "folder": "Qishloq xo‘jaligi geografiyasi",
+    "fileName": "Қишлоқ жойлар демографияси",
+    "url": "https://docs.google.com/document/d/11wtOuWIjfGBuhegI3Q88agj9svjojtO3/edit?usp=drivesdk&ouid=103609026798553673083&rtpof=true&sd=true"
+  },
+  {
+    "folder": "Qishloq xo‘jaligi geografiyasi",
+    "fileName": "Қишлоқ жойлар географияси Солиев",
+    "url": "https://docs.google.com/document/d/1ENX1t3lHPS0R8ghZPKxzCWdPzyimJB2S/edit?usp=drivesdk&ouid=103609026798553673083&rtpof=true&sd=true"
+  },
+  {
+    "folder": "Qishloq xo‘jaligi geografiyasi",
+    "fileName": "Egamberdiyeva. U sanoat geografiyasi",
+    "url": "https://drive.google.com/file/d/1Q7cUqMnZ5vv_yWK57Sohmf13vhN7oqQA/view?usp=drivesdk"
+  },
+  {
+    "folder": "Qishloq xo‘jaligi geografiyasi",
+    "fileName": "2 Солиев А.С. Ўзбекистон географияси (2014)",
+    "url": "https://drive.google.com/file/d/1yRoE5vRklPRbFx9A5zFclSDSyjuhjr0-/view?usp=drivesdk"
+  },
+  {
+    "folder": "Geografiya va tabiiy fan (Science) o‘qitish metodikasi",
+    "fileName": "2 Интерфаол методлар мохияти ва қўлланилиши 2013",
+    "url": "https://drive.google.com/file/d/1p5mKv3QoMIMoCvDpBF-ShbkcBEPc7X4K/view?usp=drivesdk"
+  },
+  {
+    "folder": "Geografiya va tabiiy fan (Science) o‘qitish metodikasi",
+    "fileName": "1 Vahobov Geografiya o'qitish metodikasi",
+    "url": "https://drive.google.com/file/d/1wVZAlCoOwxgvJn826x74CVP7nD2QT-c5/view?usp=drivesdk"
+  },
+  {
+    "folder": "Geodemografiya",
+    "fileName": "3 Борисов В.А. Демография (2008)",
+    "url": "https://drive.google.com/file/d/12jbrgb6q5sNk2AKVQyI9qNN8k02WR0Dy/view?usp=drivesdk"
+  },
+  {
+    "folder": "Geodemografiya",
+    "fileName": "3 Борисов В.А. Демография (2001",
+    "url": "https://drive.google.com/file/d/10mXIzN5Z1RpTSQIi3DZNWp2EMv-2FuDg/view?usp=drivesdk"
+  },
+  {
+    "folder": "Geodemografiya",
+    "fileName": "2 Z.N.Tajiyeva, F.A. Do`smonov. Demografiya (2020",
+    "url": "https://drive.google.com/file/d/1ruphZefihMHJyiLeRcIJFUEs1jFEMfZl/view?usp=drivesdk"
+  },
+  {
+    "folder": "Geodemografiya",
+    "fileName": "2 Z.N.Tajiyeva, F.A. Do`smonov. Demografiya (2019)",
+    "url": "https://drive.google.com/file/d/1RiiNDt90iUtKjnDMHvSB6NrsiywrXRte/view?usp=drivesdk"
+  },
+  {
+    "folder": "Geodemografiya",
+    "fileName": "1 Abdurahmanov Q.H., Abduraxmanov X.X. Demografiya (2011)",
+    "url": "https://drive.google.com/file/d/1D15D41Tr7gRLj7wq5b1G6Ux1wiCLP6Ki/view?usp=drivesdk"
+  },
+  {
+    "folder": "Harbiy topografiya",
+    "fileName": "ҲАРБИЙ АТАМАЛАРНИНГ ҚИСҚАЧА ИЗОҲЛИ ЛУҒАТИ 2007",
+    "url": "https://drive.google.com/file/d/1tBl00-lGvCPRkWatiqx7eepylgZevdfN/view?usp=drivesdk"
+  },
+  {
+    "folder": "Harbiy topografiya",
+    "fileName": "В.А. ЗАХАРОВ ВОЕННАЯ ТОПОГРАФИЯ 2022",
+    "url": "https://drive.google.com/file/d/10CJk5IxdxGJglGbzYGNgnESaZQQkZbB7/view?usp=drivesdk"
+  },
+  {
+    "folder": "Harbiy topografiya",
+    "fileName": "Военная топография. Ориентирование на местности. Книга ворога ворожою мовою 2023",
+    "url": "https://drive.google.com/file/d/1JiltRNYZ81CM_9HFJweC3fDEBiqmB9He/view?usp=drivesdk"
+  },
+  {
+    "folder": "Harbiy topografiya",
+    "fileName": "А. С. НИКОЛАЕВА ВОЕННАЯ ТОПОГРАФИЯ 1977",
+    "url": "https://drive.google.com/file/d/1NnwaxKbbordlAN9PLe53yNDif18zoF06/view?usp=drivesdk"
+  },
+  {
+    "folder": "Harbiy topografiya",
+    "fileName": "А.М. Талыбов, И.А. Лятос СПРАВОЧНИК ПО ОСНОВАМ ВОЕННОЙ ТОПОГРАФИИ 2021",
+    "url": "https://drive.google.com/file/d/1XA1ADWZUoLT2IvDyY51TAYt_Lc6S0brL/view?usp=drivesdk"
+  },
+  {
+    "folder": "Harbiy topografiya",
+    "fileName": "ЖАНГОВАР ТАЙЁРГАРЛИК ЦИКЛИ 2023",
+    "url": "https://drive.google.com/file/d/1YOp9KuYc5vGTILs6y2lluj7_XVP5BFEd/view?usp=drivesdk"
+  },
+  {
+    "folder": "Harbiy topografiya",
+    "fileName": "А. А. ЕвдокимовvВОЕННАЯ ТОПОГРАФИЯ 2018",
+    "url": "https://drive.google.com/file/d/143zduGJzgcJoKeMzFsL1cVFhFqT-UfV0/view?usp=drivesdk"
+  },
+  {
+    "folder": "Harbiy topografiya",
+    "fileName": "Jangavor tayyorgalik darslik 2024",
+    "url": "https://drive.google.com/file/d/1G-VS4vK0sPcJCEmzouSWoasTSNM5EHSq/view?usp=drivesdk"
+  },
+  {
+    "folder": "Harbiy topografiya",
+    "fileName": "2 Harbiy topografiya. Tangirberdiyev S.K., Zakirov R.S., Shermatov 2005...",
+    "url": "https://drive.google.com/file/d/1T5WXsaghd7KfBY1Y5V3tZwLH5SNHad1t/view?usp=drivesdk"
+  },
+  {
+    "folder": "Harbiy topografiya",
+    "fileName": "voennaya topografiya 2018",
+    "url": "https://drive.google.com/file/d/1n1VzkgiLDsloZ6R_uxYffszg5YjKOEYG/view?usp=drivesdk"
+  },
+  {
+    "folder": "Harbiy topografiya",
+    "fileName": "Harbiy topografiya Akrambayev 2024",
+    "url": "https://drive.google.com/file/d/130Tlwte4IwgJ3DR_nxIf5WycC4av8wRT/view?usp=drivesdk"
+  },
+  {
+    "folder": "Harbiy topografiya",
+    "fileName": "5 Евдокимов А.А. Военная топография (Учебное пособие, 2008",
+    "url": "https://drive.google.com/file/d/16ocxk7RbmIsDAaMdCqdlMzQoHCuBGV2q/view?usp=drivesdk"
+  },
+  {
+    "folder": "Harbiy topografiya",
+    "fileName": "3 Ҳарбий топография (Тошметов) 2003",
+    "url": "https://drive.google.com/file/d/1xNoSP_pL2nmMos_JEa6eh2UNYexpxaqv/view?usp=drivesdk"
+  },
+  {
+    "folder": "Iqlimshunoslik va gidrologiya",
+    "fileName": "Расулов А Р, Ҳикматов Ф Ҳ, Айтбоев Д П Гидрология асослари",
+    "url": "https://drive.google.com/file/d/1Ha9QMbboypYXjfJ2XJI1-bnU4lu5lHhD/view?usp=drivesdk"
+  },
+  {
+    "folder": "Iqlimshunoslik va gidrologiya",
+    "fileName": "Umumiy gidrologiya va iqlimshunoslik",
+    "url": "https://drive.google.com/file/d/1x8c7V5kbvMNi4y70sDf1VyL2txfqDh6g/view?usp=drivesdk"
+  },
+  {
+    "folder": "Iqlimshunoslik va gidrologiya",
+    "fileName": "3 Yunusov G., Ziyayev R.R. Umumiy gidrologiya va iqlimshunoslik (2018)",
+    "url": "https://drive.google.com/file/d/155i1JPXxgRL4nE-jvnPAT0bTD-tCIaae/view?usp=drivesdk"
+  },
+  {
+    "folder": "Iqlimshunoslik va gidrologiya",
+    "fileName": "1 Petrov Y.V., Egamberdiyev Н.Т., Alautdinov М., Xolmatjanov В.М. Iqlimshunoslik (2010",
+    "url": "https://drive.google.com/file/d/14hIwPpvEem7FqqexclOC3KoGwda1Vngm/view?usp=drivesdk"
+  },
+  {
+    "folder": "Geografiyaning dolzarb muammolari",
+    "fileName": "Cолиев А С, Жумаханов Ш З Иқтисодий ва ижтимоий географиянинг замонавий",
+    "url": "https://drive.google.com/file/d/1gxUCyxS95yL3t1QpadtxcMWXIHr2RbL_/view?usp=drivesdk"
+  },
+  {
+    "folder": "Geografiyaning dolzarb muammolari",
+    "fileName": "Недоросткова И Г Методика обучения географии",
+    "url": "https://drive.google.com/file/d/1d9xyTAvHGee2S2MUlPfhsCBmVEPWyAZI/view?usp=drivesdk"
+  },
+  {
+    "folder": "Geografiyaning dolzarb muammolari",
+    "fileName": "География фанининг асосий муаммолари (1)",
+    "url": "https://drive.google.com/file/d/1jTkFxzOzDxZVZoJLzFNXlwtelEkSjPS6/view?usp=drivesdk"
+  },
+  {
+    "folder": "Geografiyaning dolzarb muammolari",
+    "fileName": "5 Назаров И. География фанининг асосий муаммолари (2013)",
+    "url": "https://drive.google.com/file/d/1cOQkSkJ9oSeOYZlKr7aYvIvUXnXS27iN/view?usp=drivesdk"
+  },
+  {
+    "folder": "Geografiyaning dolzarb muammolari",
+    "fileName": "4 Soliyev A.S., Jumaxanov Sh.Z., Toshpo‘latov A.M. Iqtisodiy va ijtimoiy geografiya (2024)",
+    "url": "https://drive.google.com/file/d/1CWTByl3wZCdMFqAFvecIv-63g5OUD3gc/view?usp=drivesdk"
+  },
+  {
+    "folder": "Geografiyaning dolzarb muammolari",
+    "fileName": "3 A.S.Soliyev, N.K.Komilova, S.L.Yanchuk, Sh.Z.Jumaxonov, F.T.Rajabov. Iqtisodiy va ijtimoiy geografiya (2019)",
+    "url": "https://drive.google.com/file/d/1zBV9oAx3fjVXGrcizlRCZ56aONmhBdOJ/view?usp=drivesdk"
+  },
+  {
+    "folder": "Geografiyaning dolzarb muammolari",
+    "fileName": "2 Джаналеева Г.М. Теоретические и методологические проблемы географии (2008)",
+    "url": "https://drive.google.com/file/d/1FgZ-Vw8-2DN50gX4tVG9RLXIu6UHAxL6/view?usp=drivesdk"
+  },
+  {
+    "folder": "Geografiyaning dolzarb muammolari",
+    "fileName": "1 Зокиров Ш.С. Кичик ҳудудлар табиий географияси (1999)",
+    "url": "https://drive.google.com/file/d/1eM-8zycO2Fjb76Q2Ha1c_bGV382aZ9zJ/view?usp=drivesdk"
+  },
+  {
+    "folder": "Iqtisodiy va ijtimoiy geografiya",
+    "fileName": "Iqtisodiy ijtimoiy geografiyaning rivojlanishi",
+    "url": "https://drive.google.com/file/d/1zjfiLbWOwZwE-2qJMki0JtrGDoXMCrhY/view?usp=drivesdk"
+  },
+  {
+    "folder": "Iqtisodiy va ijtimoiy geografiya",
+    "fileName": "ЦИАЛЬНО ЭКОНОМИЧЕСКАЯ...2013",
+    "url": "https://drive.google.com/file/d/12bvEQQy9AI-_ZCEdPg8K5Jxh_nhbtPNB/view?usp=drivesdk"
+  },
+  {
+    "folder": "Iqtisodiy va ijtimoiy geografiya",
+    "fileName": "ФИНАНСОВОЕ ПЛАНИРОВАНИЕ",
+    "url": "https://drive.google.com/file/d/1rXzoNkgQI11tA2z_phawwOEbfbmXNQJn/view?usp=drivesdk"
+  },
+  {
+    "folder": "Iqtisodiy va ijtimoiy geografiya",
+    "fileName": "inson geografiyasi. Komilova N",
+    "url": "https://drive.google.com/file/d/1IKR1W-JuJY62jsIDSmvjBwJAyhptq0Q4/view?usp=drivesdk"
+  },
+  {
+    "folder": "Iqtisodiy va ijtimoiy geografiya",
+    "fileName": "Iqsodiy geografiya va ekologiya",
+    "url": "https://drive.google.com/file/d/1sU5WGBd-zFYR9RmEpqFkHi8LxGpfWnlf/view?usp=drivesdk"
+  },
+  {
+    "folder": "Iqtisodiy va ijtimoiy geografiya",
+    "fileName": " В Волъского Социально экономическая география зарубежного мира 2003",
+    "url": "https://drive.google.com/file/d/1NzdD_UYI9We2PGpUkfrn_EWkwNz4miGt/view?usp=drivesdk"
+  },
+  {
+    "folder": "Iqtisodiy va ijtimoiy geografiya",
+    "fileName": "Economic and social geography of the CIS countries",
+    "url": "https://drive.google.com/file/d/1uxkoiW094NCFIo-R8EnapMPj4MDj5D1z/view?usp=drivesdk"
+  },
+  {
+    "folder": "Iqtisodiy va ijtimoiy geografiya",
+    "fileName": "3 Komilova N.Q., Jumaxonov Sh., Rajabov F. Inson geografiyasi (2018)",
+    "url": "https://drive.google.com/file/d/10-OvFmfnE_zKcvtmSkkpCdqs1QiQsYve/view?usp=drivesdk"
+  },
+  {
+    "folder": "Iqtisodiy va ijtimoiy geografiya",
+    "fileName": "1 Soliyev A.S., Jumaxanov Sh.Z., Toshpo‘latov A.M. Iqtisodiy va ijtimoiy geografiya (2024)",
+    "url": "https://drive.google.com/file/d/1889PPcitPZGT9SmZr9-jTSSQCMlBs9l2/view?usp=drivesdk"
+  },
+  {
+    "folder": "Iqtisodiy va ijtimoiy geografiya",
+    "fileName": "2 A.S.Soliyav, N.K.Komilova, S.L.Yanchuk, Sh.Z.Jumaxonov, F.T.Rajabov. Iqtisodiy va ijtimoiy geografiya (2019)",
+    "url": "https://drive.google.com/file/d/1bAkrKje_QKdENAF5GAnVKT_bbm8ClDtL/view?usp=drivesdk"
+  },
+  {
+    "folder": "Geografiya oqitish metodikasi",
+    "fileName": "5 Е.А. Таможняя и другие. Методика обучения географии учебник и практикум для вузов 2016",
+    "url": "https://drive.google.com/file/d/1eURM51RFv6jFqb69zahFcG-yFMU3yQ96/view?usp=drivesdk"
+  },
+  {
+    "folder": "Geografiya oqitish metodikasi",
+    "fileName": "1 Qurbonniyozov R. Geografiya ta'limi metodikasi (2001",
+    "url": "https://drive.google.com/file/d/1GQ3T8afe0J-vvi8Qil1jiLc-TkBz-yD3/view?usp=drivesdk"
+  },
+  {
+    "folder": "Geografiya oqitish metodikasi",
+    "fileName": "5 Е.А. Таможняя и другие. Методика обучения географии учебник и практикум для вузов (2018)",
+    "url": "https://drive.google.com/file/d/1lC-GPCdPX0ye1MCZcgBP6xwBhLX1EsDQ/view?usp=drivesdk"
+  },
+  {
+    "folder": "Geografiya oqitish metodikasi",
+    "fileName": "4 Matsaidova S. Maktab o’quvchilarida tabiiy geografik matnlar bilan ishlash ko’nikmalarini shakllantirish usullari. – u., 2022.",
+    "url": "https://drive.google.com/file/d/1_TH-zsI4PCPlSNlrJKYyfNUWq4zrhEZN/view?usp=drivesdk"
+  },
+  {
+    "folder": "Geografiya oqitish metodikasi",
+    "fileName": "Географик уйинлар Курбонниязов",
+    "url": "https://drive.google.com/file/d/11i9HCkxRt-KVFmvffK6l_gpgImAKAaGq/view?usp=drivesdk"
+  },
+  {
+    "folder": "Geografiya oqitish metodikasi",
+    "fileName": "QURBONNIYOZOV Geografik o'yinlar",
+    "url": "https://drive.google.com/file/d/1EndGwxMx6gxVy8oxYZvsttgatv-ML8Q4/view?usp=drivesdk"
+  },
+  {
+    "folder": "Geografiya oqitish metodikasi",
+    "fileName": "Расулбек Қурбонниёзов География ўқитиш методикаси 2022",
+    "url": "https://drive.google.com/file/d/1Aw55paMONWAqcDUMRdJySbSEt7hGRtXk/view?usp=drivesdk"
+  },
+  {
+    "folder": "Geografiya oqitish metodikasi",
+    "fileName": "О Мўминов География таълим методикаси",
+    "url": "https://drive.google.com/file/d/1lXStlEIluRi7161mCykN1qE56VlQjnby/view?usp=drivesdk"
+  },
+  {
+    "folder": "Geografiya oqitish metodikasi",
+    "fileName": "Қаршибаева Л К, Эрбўтаева Ў С, Хўжабекова Д Табиатшуносликни ўқитишда",
+    "url": "https://drive.google.com/file/d/10kN0mtJHlLAhWiVzJkinxqGVAQQdwO68/view?usp=drivesdk"
+  },
+  {
+    "folder": "Geografiya oqitish metodikasi",
+    "fileName": "Pedagogik atamalar lug'ati (R.Jo'rayev va b., 2008)",
+    "url": "https://drive.google.com/file/d/1we2ZLd3fD_ud5fzn1nWoymIAdJX7XddO/view?usp=drivesdk"
+  },
+  {
+    "folder": "Geografiya oqitish metodikasi",
+    "fileName": "M.Avezov Masalalar kitobi 2022 yil",
+    "url": "https://drive.google.com/file/d/13Hw8UWrPqbqMV27xeUU6vug9qVZN_sLX/view?usp=drivesdk"
+  },
+  {
+    "folder": "Geografiya oqitish metodikasi",
+    "fileName": "Geografiya o‘qitish metodikasi Vaxobov Х , Alimqulov N R , Sultanova",
+    "url": "https://drive.google.com/file/d/13nkXTwuBJnKR4IwEhOGvmRYMlgOgcfSf/view?usp=drivesdk"
+  },
+  {
+    "folder": "Geografiya oqitish metodikasi",
+    "fileName": "Geografiya darslarida allomalarimiz merosi",
+    "url": "https://drive.google.com/file/d/1ICYoox23Bz_BFpdLWufw3Mp13O7x9SNx/view?usp=drivesdk"
+  },
+  {
+    "folder": "Geografiya oqitish metodikasi",
+    "fileName": "Geografik krosvordlar Uslubiy qo`llanma ",
+    "url": "https://drive.google.com/file/d/14CwDrKdWbqmdEp_TDlorp-0wpeyMMdwU/view?usp=drivesdk"
+  },
+  {
+    "folder": "Geografiya oqitish metodikasi",
+    "fileName": "3 Рўзиева Д., Усманбаева М, Холиқова З. Интерфаол методлар моҳияти ва қўлланилиши (2013",
+    "url": "https://drive.google.com/file/d/1Ff9U9WQbV597ifx4-UO0FZpxHZH7Xgff/view?usp=drivesdk"
+  },
+  {
+    "folder": "Geografiya oqitish metodikasi",
+    "fileName": "2 Ваҳобов Ҳ. Geografiya o’qitish metodikasi 2021",
+    "url": "https://drive.google.com/file/d/12cx9Wsutg74TBBMhMwaPSNIHbZHA9wrs/view?usp=drivesdk"
+  },
+  {
+    "folder": "Gidralogiya va iqlimshunoslik",
+    "fileName": "3 Yunusov G., Ziyayev R.R. Umumiy gidrologiya va iqlimshunoslik (2018)",
+    "url": "https://drive.google.com/file/d/1bG26OAdgSUkr2y3GWaAwLCYtGC4MGVj8/view?usp=drivesdk"
+  },
+  {
+    "folder": "Gidralogiya va iqlimshunoslik",
+    "fileName": "2 Расулов А.Р., Ҳикматов Ф.Ҳ., Айтбоев Д.П. Гидрология асослари (2003)",
+    "url": "https://drive.google.com/file/d/102pnV46F2WXYeLuPVre-wT1LdQYuqHX8/view?usp=drivesdk"
+  },
+  {
+    "folder": "Gidralogiya va iqlimshunoslik",
+    "fileName": "1 Petrov Y.V., Egamberdiyev Н.Т., Alautdinov М., Xolmatjanov В.М. Iqlimshunoslik (2010",
+    "url": "https://drive.google.com/file/d/16txyFg5gwy7Ax6BZ_r6yIJQEt-GnHOEo/view?usp=drivesdk"
+  },
+  {
+    "folder": "Geomorfologiya va geologiya asoslari",
+    "fileName": "2 Чинниқулиев Х., Қўшоқов А., Хамидов Э. Umumiy geologiya (2011)",
+    "url": "https://drive.google.com/file/d/13a6JjpUzDClk2lzMPEjIO8ljKh18OFTi/view?usp=drivesdk"
+  },
+  {
+    "folder": "Geomorfologiya va geologiya asoslari",
+    "fileName": "Қурбонов А.С. Палеогеография",
+    "url": "https://drive.google.com/file/d/1EyiRFxZh4qYD4mmIl_ZhEAoTEPYBMrMA/view?usp=drivesdk"
+  },
+  {
+    "folder": "Geomorfologiya va geologiya asoslari",
+    "fileName": "Жўлиев А Х, Соатов А, Юсупов Р Геология асослари",
+    "url": "https://drive.google.com/file/d/1it7up5kjt0BddMjkBuPo6IAMdjeeQJG8/view?usp=drivesdk"
+  },
+  {
+    "folder": "Geomorfologiya va geologiya asoslari",
+    "fileName": "N.SH. Tulyagan geologiya va gidrogeologiya 2017",
+    "url": "https://drive.google.com/file/d/1jjn_v7UKjI2_nzHCTTAAB5Qda37QeoBI/view?usp=drivesdk"
+  },
+  {
+    "folder": "Geomorfologiya va geologiya asoslari",
+    "fileName": "5 Olloyorov B.I. Geomorfologiya va to'rtlamchi davr geologiyasi (2019)",
+    "url": "https://drive.google.com/file/d/1nNnUzBYkvUuuMohf19yvaiMSyepD_F9F/view?usp=drivesdk"
+  },
+  {
+    "folder": "Geomorfologiya va geologiya asoslari",
+    "fileName": "1 Mamatqulov M. Geologiya va geomorfologiya. (2019)",
+    "url": "https://drive.google.com/file/d/1Y5VjNgcxoX0nuy1rZefR4BCXhHShymcS/view?usp=drivesdk"
+  },
+  {
+    "folder": "Jahon geografiyasi",
+    "fileName": "Dunyo qit'alari tabiiy geografiyasi",
+    "url": "https://drive.google.com/file/d/1TC20RZOMDOXdBQSfqyrDccLOzxwcLJCs/view?usp=drivesdk"
+  },
+  {
+    "folder": "Jahon geografiyasi",
+    "fileName": "Тошов Х Р, Ачилова Ш А, Бозорова Э Б Жаҳон географияси",
+    "url": "https://drive.google.com/file/d/1InAr3pZciPe8fjVNoZR3LNdZfHWkH0OT/view?usp=drivesdk"
+  },
+  {
+    "folder": "Jahon geografiyasi",
+    "fileName": "materiklar va okeanlar tabiiy geografiyasi",
+    "url": "https://drive.google.com/file/d/1Arc8v-rjdOJR4R31tVwDlA4k0IZt8U3w/view?usp=drivesdk"
+  },
+  {
+    "folder": "Jahon geografiyasi",
+    "fileName": "Jahon mamlakatlari nomlarining geografik va toponimik asoslari A",
+    "url": "https://drive.google.com/file/d/1SC-ltZcr4jE52hvsUVcy23SqW9iSDsuA/view?usp=drivesdk"
+  },
+  {
+    "folder": "Jahon geografiyasi",
+    "fileName": "Jahon geografiyasi Maxmudova M.J",
+    "url": "https://drive.google.com/file/d/1qIqZpWRu_BlZA5_qq3ibWTf5uel2QD2e/view?usp=drivesdk"
+  },
+  {
+    "folder": "Jahon geografiyasi",
+    "fileName": "JAHON IQTISODIY VA IJTIMOIY GEOGRAFIYASI NAMOZOV J A , DO'SMONOV",
+    "url": "https://drive.google.com/file/d/1rRNSdclvU9EujjX0QaZkXpodbdH32DGX/view?usp=drivesdk"
+  },
+  {
+    "folder": "Jahon geografiyasi",
+    "fileName": "Jahon iqtisodiy geografiyasi",
+    "url": "https://drive.google.com/file/d/1uLCjic4qdZNPAK3mvnz025rpcIIJ77AC/view?usp=drivesdk"
+  },
+  {
+    "folder": "Jahon geografiyasi",
+    "fileName": "Dunyo qit'alari tabiiy geografiyasi A.M.Riyabchikov",
+    "url": "https://drive.google.com/file/d/1C2KKCilxTF2t9uxqY8CixU-KVxghksO0/view?usp=drivesdk"
+  },
+  {
+    "folder": "Jahon geografiyasi",
+    "fileName": "Darslik iqtisodiy ijtimoiy geografiya. 20.09.2019.",
+    "url": "https://drive.google.com/file/d/1BJpNh_BBjaI_WMJZRaDW5JOkFNlhwjvb/view?usp=drivesdk"
+  },
+  {
+    "folder": "Jahon geografiyasi",
+    "fileName": "Jahon mamalakatlari iqtisodiy va ijtimoiy geografiyasi 2019",
+    "url": "https://drive.google.com/file/d/1CWrYAKaAtvk7ubXPUoMTB7AKPCR9QTtJ/view?usp=drivesdk"
+  },
+  {
+    "folder": "Jahon geografiyasi",
+    "fileName": "Materiklar va okeanlar tabiij geografijasi uv llanma 2020",
+    "url": "https://drive.google.com/file/d/1QyU-GQrJzSj4pV_QH-xy2rk2Wuy2FeIf/view?usp=drivesdk"
+  },
+  {
+    "folder": "Jahon geografiyasi",
+    "fileName": "3 Баратов П., Маматқулов М., Рафиқов А. Ўрта Осиё табиий географияси (2002)",
+    "url": "https://drive.google.com/file/d/11T1M4t0G35JWTGjXBqslaPOwxHX5MsYU/view?usp=drivesdk"
+  },
+  {
+    "folder": "Jahon geografiyasi",
+    "fileName": "2 Maxmudova M.J., Qo‘ldasheva M.N. Jahon mamlakatlari iqtisodiy va ijtimoiy geografiyasi (2020)",
+    "url": "https://drive.google.com/file/d/1FYrZqwUviWPfv1sHm1Wc7mNLl7Yz1WnI/view?usp=drivesdk"
+  },
+  {
+    "folder": "Jahon geografiyasi",
+    "fileName": "1 Vaxobov X., Abdulqosimov A.A., Alimqulov N.R. Materiklar va okeanlar tabiiy geografiyasi (2020)",
+    "url": "https://drive.google.com/file/d/1UpJ7VXdKOtOQoJPsSIgK_PA6jH282PQU/view?usp=drivesdk"
+  },
+  {
+    "folder": "Geologiya va mineralogiya",
+    "fileName": "Жўлиев А Х, Соатов А, Юсупов Р Геология асослари 1",
+    "url": "https://drive.google.com/file/d/1rZCOfZLyZlqMwWTf6edUkTMuHO3NRyPA/view?usp=drivesdk"
+  },
+  {
+    "folder": "Geologiya va mineralogiya",
+    "fileName": "Геоморфология (А.Ходжиматов)",
+    "url": "https://drive.google.com/file/d/1q2oeClXdYrMwEheAnnm8Sq1cBxiZ_slU/view?usp=drivesdk"
+  },
+  {
+    "folder": "Geologiya va mineralogiya",
+    "fileName": "Q1 R A Ibragimova Geologiya va Geomorfologiya amaliy mashg'ulot",
+    "url": "https://drive.google.com/file/d/1nKv6vHA6N1xN0dgDT7Vg9MYOU81NE8v5/view?usp=drivesdk"
+  },
+  {
+    "folder": "Geologiya va mineralogiya",
+    "fileName": "3 Qo‘shmurodov A., Umarov P., Ziyayeva P. Mineralogiya (laboratoriya mashg‘ulotlari uchun) (2020)",
+    "url": "https://drive.google.com/file/d/1TDXbGEkPpjS1qeoMjye2peF4o2rpEr5d/view?usp=drivesdk"
+  },
+  {
+    "folder": "Iqtisodiy va ijtimoiy geografiyaning metodologiyasi",
+    "fileName": "Родионова И А Экономическая и социальная география мира",
+    "url": "https://drive.google.com/file/d/1dw1AHEjxTyE52QovtSMnnDdkgRpd1jZv/view?usp=drivesdk"
+  },
+  {
+    "folder": "Iqtisodiy va ijtimoiy geografiyaning metodologiyasi",
+    "fileName": "Солиев А, Махамадалиев Р Иқтисодий ва социал географиянинг асосий",
+    "url": "https://drive.google.com/file/d/1Nf-8U8CcyqNELBNVpDfXNEai6tY5UZAi/view?usp=drivesdk"
+  },
+  {
+    "folder": "Iqtisodiy va ijtimoiy geografiyaning metodologiyasi",
+    "fileName": "A.Soliyev. Tanlangan asarkar (1)",
+    "url": "https://drive.google.com/file/d/1c_pNu2DJybm9mkeHiIfjjtnXgayLARIs/view?usp=drivesdk"
+  },
+  {
+    "folder": "Iqtisodiy va ijtimoiy geografiyaning metodologiyasi",
+    "fileName": "Саушкин Ю Г Экономическая география",
+    "url": "https://drive.google.com/file/d/1eu2h165p6aaUuBvhFgnscRFDN6yLMqsk/view?usp=drivesdk"
+  },
+  {
+    "folder": "Iqtisodiy va ijtimoiy geografiyaning metodologiyasi",
+    "fileName": "Солиев А, Қаршибоева Л Иқтисодий географиянинг назарий ва амалий",
+    "url": "https://drive.google.com/file/d/1oHDA18vcrnMdV7jRzmOhbhvYK-wKH1Pz/view?usp=drivesdk"
+  },
+  {
+    "folder": "Iqtisodiy va ijtimoiy geografiyaning metodologiyasi",
+    "fileName": "Кореева Е Б Методы социально экономического прогнозирования",
+    "url": "https://drive.google.com/file/d/15CDMJTjGkB-G0UEkg15RlnLoCWM2FM2W/view?usp=drivesdk"
+  },
+  {
+    "folder": "Iqtisodiy va ijtimoiy geografiyaning metodologiyasi",
+    "fileName": "4 Komilova N.Q., Jumaxonov Sh., Rajabov F. Inson geografiyasi (2018)",
+    "url": "https://drive.google.com/file/d/13bfJ4rpA4Eg7xewjFjsTLrPGNj_LCLzZ/view?usp=drivesdk"
+  },
+  {
+    "folder": "Iqtisodiy va ijtimoiy geografiyaning metodologiyasi",
+    "fileName": "2 A.S.Soliyev, N.K.Komilova, S.L.Yanchuk, Sh.Z.Jumaxonov, F.T.Rajabov. Iqtisodiy va ijtimoiy geografiya (2019)",
+    "url": "https://drive.google.com/file/d/1O9BrAxdoN8HXES-X0pnZEnMsUXiC81L2/view?usp=drivesdk"
+  },
+  {
+    "folder": "Iqtisodiy va ijtimoiy geografiyaning metodologiyasi",
+    "fileName": "1 ijtimoiy geografiya metodologiyasi",
+    "url": "https://drive.google.com/file/d/1bjNyCSWAwL2jw2546ODaGYEqfRTVfKpu/view?usp=drivesdk"
+  },
+  {
+    "folder": "orta osiyo geografiyasi",
+    "fileName": "Climate change Central Asia (1) 2016",
+    "url": "https://drive.google.com/file/d/1lwu843dHMfklYlQDbmJrSbDLA3eK06c1/view?usp=drivesdk"
+  },
+  {
+    "folder": "orta osiyo geografiyasi",
+    "fileName": "Никадамбаева Ҳ Б, Рўзиева Д И, Карабазов З А Ўрта Осиё табиий географиясини",
+    "url": "https://drive.google.com/file/d/1epTK-rMFQGheJ5YHiAwtU7smQ3-5m5D4/view?usp=drivesdk"
+  },
+  {
+    "folder": "orta osiyo geografiyasi",
+    "fileName": "Баратов П, Маматқулов М, Рафиқов А Ўрта Осиё табиий географияси",
+    "url": "https://drive.google.com/file/d/12K_mo22ySjISbNvF8i6N1jfBIOG6tV4D/view?usp=drivesdk"
+  },
+  {
+    "folder": "orta osiyo geografiyasi",
+    "fileName": "O'rta Osiyo tabiiy geografiyasi (P.Baratov va b.)",
+    "url": "https://drive.google.com/file/d/1JkSoRTyLV1bN6ZXOHVKbrWs0eAwXhMMl/view?usp=drivesdk"
+  },
+  {
+    "folder": "orta osiyo geografiyasi",
+    "fileName": "Markaziy osiyo geografiyasi",
+    "url": "https://drive.google.com/file/d/15zSreeFzTghQuDDgw7ZpDsrFXI0xL16G/view?usp=drivesdk"
+  },
+  {
+    "folder": "orta osiyo geografiyasi",
+    "fileName": "markaziy osiyo geografiyasi. abdunazarov l.m.",
+    "url": "https://drive.google.com/file/d/1RB0RcFe_enhq-zIdF3DS7UF_DNFxPOy8/view?usp=drivesdk"
+  },
+  {
+    "folder": "orta osiyo geografiyasi",
+    "fileName": "Climate change Central Asia",
+    "url": "https://drive.google.com/file/d/1CjX3v6V4Ois-Lo_JQ1ssrMlal9uCTMpK/view?usp=drivesdk"
+  },
+  {
+    "folder": "orta osiyo geografiyasi",
+    "fileName": "П Баратов, М Маматқулов, А Рафиқов 2002",
+    "url": "https://drive.google.com/file/d/1gvNeF_sTVa230GCHDIC-PngniGNot3NG/view?usp=drivesdk"
+  },
+  {
+    "folder": "ozbekiston geografiyasi",
+    "fileName": "Мақсудов А Ўзбекистон тупроқлари",
+    "url": "https://drive.google.com/file/d/1k-YuqOUcq3YaaNV6wyPYz7OUIVHwUQk7/view?usp=drivesdk"
+  },
+  {
+    "folder": "ozbekiston geografiyasi",
+    "fileName": "Qurbonov Sh. O'zbekiston iqtisodiy geografiyasi",
+    "url": "https://drive.google.com/file/d/1lizfuhAaTl-gTn8xn42yhLYSVf0uRzJm/view?usp=drivesdk"
+  },
+  {
+    "folder": "ozbekiston geografiyasi",
+    "fileName": "Солиев А, Назаров М Ўзбекистон қишлоқлари Қишлоқ жойлар географияси",
+    "url": "https://drive.google.com/file/d/1J9MxzfVRw3GvHK-pmetCrswMAQyzksJP/view?usp=drivesdk"
+  },
+  {
+    "folder": "ozbekiston geografiyasi",
+    "fileName": "Ата Мирзаев О Б Народонаселение Узбекистана",
+    "url": "https://drive.google.com/file/d/1Jq0VKaMFu42yNo3MbiIUJvL48LtM2rEz/view?usp=drivesdk"
+  },
+  {
+    "folder": "ozbekiston geografiyasi",
+    "fileName": "Oʻzbekiston geografiyasi",
+    "url": "https://drive.google.com/file/d/1KlShet3K2Z25qO2Wt1vTu7NGnqyAMSMS/view?usp=drivesdk"
+  },
+  {
+    "folder": "ozbekiston geografiyasi",
+    "fileName": "Oʻzbekiston iqtisodiy va ijtimoiy geografiyasi",
+    "url": "https://drive.google.com/file/d/1Rl9Y2a7GJqwiV-9CjFz5AytYOGpcI3jK/view?usp=drivesdk"
+  },
+  {
+    "folder": "ozbekiston geografiyasi",
+    "fileName": "Ozbekiston tabiiy geografiyasi P. Baratov 1996",
+    "url": "https://drive.google.com/file/d/1aEp7zVQnR5T7OCi5mvt8gJ4S7aU71RO3/view?usp=drivesdk"
+  },
+  {
+    "folder": "ozbekiston geografiyasi",
+    "fileName": "Oʻzbekiston tabiiy geografiyasi",
+    "url": "https://drive.google.com/file/d/1nseZr96LMpy_zg1cJJ2sWP4kuF35LJe0/view?usp=drivesdk"
+  },
+  {
+    "folder": "Siyosiy geografiya va tashqi iqtisodiy aloqalar",
+    "fileName": "1 Martin Jones, Rhys Jones, Michael Woods. An introduction to political geography space, place and politics (2004)",
+    "url": "https://drive.google.com/file/d/1RJO0pz9BGRWTr12bENYnSDcLE5xYAyM6/view?usp=drivesdk"
+  },
+  {
+    "folder": "Siyosiy geografiya va tashqi iqtisodiy aloqalar",
+    "fileName": "Издано Nazarov M , Yanchuk Siyosiy geografiya 2022",
+    "url": "https://drive.google.com/file/d/1HEm9ovbD2WQV9teGqBvn0xwaD1eGqWRe/view?usp=drivesdk"
+  },
+  {
+    "folder": "Siyosiy geografiya va tashqi iqtisodiy aloqalar",
+    "fileName": "Soliyev Iqtisodiy va siyosiy geografiya asoslari",
+    "url": "https://drive.google.com/file/d/1BMgNQCvJi7EYU_ZTJ9IihG5fXNyKh2fv/view?usp=drivesdk"
+  },
+  {
+    "folder": "Siyosiy geografiya va tashqi iqtisodiy aloqalar",
+    "fileName": "Хантингтон С Цивилизациялар тўқнашуви",
+    "url": "https://drive.google.com/file/d/1SwTUrWg3IjNHMsitA25SOVx97Zbqll3h/view?usp=drivesdk"
+  },
+  {
+    "folder": "Siyosiy geografiya va tashqi iqtisodiy aloqalar",
+    "fileName": "БЖЕЗИНСКИЙ Великая шахматная доска 1999 256с",
+    "url": "https://drive.google.com/file/d/1luElyrvQojZ8IYxObF4OQ675PkSzOle5/view?usp=drivesdk"
+  },
+  {
+    "folder": "Siyosiy geografiya va tashqi iqtisodiy aloqalar",
+    "fileName": "Siyosiy geografiya (darslik 2022)",
+    "url": "https://drive.google.com/file/d/1ASgzrYRDK9RbcpOhg8Zl7JRpHsdO3a-v/view?usp=drivesdk"
+  },
+  {
+    "folder": "Siyosiy geografiya va tashqi iqtisodiy aloqalar",
+    "fileName": "geosiyosat asoslari uslubiy qollanma toshkent  ",
+    "url": "https://drive.google.com/file/d/1K63QdEDnwQRLB23UgdxPAmnJ5BKVWLMD/view?usp=drivesdk"
+  },
+  {
+    "folder": "Siyosiy geografiya va tashqi iqtisodiy aloqalar",
+    "fileName": "5 Jumaxanov Sh.Z., Toshpo‘latov A.M. Siyosiy geografiya. (2022)",
+    "url": "https://drive.google.com/file/d/1UfMTg0YWw3VcljFJpbK1P5lu-QplY1Il/view?usp=drivesdk"
+  },
+  {
+    "folder": "Siyosiy geografiya va tashqi iqtisodiy aloqalar",
+    "fileName": "3  Колосов В.А. Геополитика и политическая география (2001",
+    "url": "https://drive.google.com/file/d/1tIkbvAw8zFpfaWiIsak2vNiapEo4NxDT/view?usp=drivesdk"
+  },
+  {
+    "folder": "Siyosiy geografiya va tashqi iqtisodiy aloqalar",
+    "fileName": "2 Голубчик М.М. Политическая география мира. (1998)",
+    "url": "https://docs.google.com/document/d/1NKrcWWEUuk3aS0a0uKzEDt1zX1c22D0W/edit?usp=drivesdk&ouid=103609026798553673083&rtpof=true&sd=true"
+  },
+  {
+    "folder": "O'zbekistonning qishloq joylari geografiyasi",
+    "fileName": "Shahar va qishloqlar geografiyasi majmua 2021 G'apparov",
+    "url": "https://drive.google.com/file/d/1PFNZrQz5f-o4F75LngP5eiSul2tG1MuK/view?usp=drivesdk"
+  },
+  {
+    "folder": "O'zbekistonning qishloq joylari geografiyasi",
+    "fileName": "4 Солиев A. Ўзбекистон географияси (2014)",
+    "url": "https://drive.google.com/file/d/1BQnkP6uY83pBC2Edx--B8dLleZi_XVI8/view?usp=drivesdk"
+  },
+  {
+    "folder": "landshaftshunoslik",
+    "fileName": "Landshaftshunoslik asoslari",
+    "url": "https://docs.google.com/document/d/1EHG08iMx62LCA0yeohK0fw193hAECMPv/edit?usp=drivesdk&ouid=103609026798553673083&rtpof=true&sd=true"
+  },
+  {
+    "folder": "landshaftshunoslik",
+    "fileName": "Geoekologiya va landshat ekologiyasi 2021",
+    "url": "https://drive.google.com/file/d/1EMVlB14uZ-pZ9gqKHzjcCujg7ply5mwp/view?usp=drivesdk"
+  },
+  {
+    "folder": "landshaftshunoslik",
+    "fileName": "Landshaftshunoslik asoslari    Sh.Zokirov",
+    "url": "https://drive.google.com/file/d/1buKAWz1aVm8StLBGKtxLfule7zKcrYrk/view?usp=drivesdk"
+  },
+  {
+    "folder": "landshaftshunoslik",
+    "fileName": "landshaft amaliy",
+    "url": "https://docs.google.com/document/d/1jUEKi51jkTSAwnbAfCNnIK9yQ8c506xg/edit?usp=drivesdk&ouid=103609026798553673083&rtpof=true&sd=true"
+  },
+  {
+    "folder": "landshaftshunoslik",
+    "fileName": "Антропоген китоб (А.Ходжиматов)",
+    "url": "https://drive.google.com/file/d/1t7ml_poleWdzt5OMmd_vGogn3QUU7MoA/view?usp=drivesdk"
+  },
+  {
+    "folder": "landshaftshunoslik",
+    "fileName": "Sh.Zokirov   Landshaftshunoslik asoslari",
+    "url": "https://drive.google.com/file/d/1LbWIovJFGj8lghxWRyOEUNeYh3O45mUK/view?usp=drivesdk"
+  },
+  {
+    "folder": "Sotsial geografiyada yangi yo‘nalishlar",
+    "fileName": "Вольского В В Социально экономическая зарубежского мира",
+    "url": "https://drive.google.com/file/d/1Yq447Rc6I1tk149Y5E6yKKwULi83e7om/view?usp=drivesdk"
+  },
+  {
+    "folder": "Sotsial geografiyada yangi yo‘nalishlar",
+    "fileName": "4 А.П. Горкин. Социально экономическая география понятия и термины (2013)",
+    "url": "https://drive.google.com/file/d/1YdJ17JA2hcp313khw7rGWcaRXhUx9tMb/view?usp=drivesdk"
+  },
+  {
+    "folder": "Sotsial va madaniy geografiya",
+    "fileName": "N.Komilova va b. Sotsial va madaniy geog. (1)",
+    "url": "https://drive.google.com/file/d/17YvBjdpCa2ufVMVNaE_SqwHr6E0EmW5l/view?usp=drivesdk"
+  },
+  {
+    "folder": "Sotsial va madaniy geografiya",
+    "fileName": "Социально экономическая география ",
+    "url": "https://drive.google.com/file/d/11sgm7-6QoUY2xNO3ieGfH8_23961ucy3/view?usp=drivesdk"
+  },
+  {
+    "folder": "Sotsial va madaniy geografiya",
+    "fileName": "2 Назаров М., Тожиева З. Ижтимоий география (2003)",
+    "url": "https://docs.google.com/document/d/1CGTILNbou7KENTilpk_khuBxltNral27/edit?usp=drivesdk&ouid=103609026798553673083&rtpof=true&sd=true"
+  },
+  {
+    "folder": "Sotsial va madaniy geografiya",
+    "fileName": "1 Komilova N.Q., Jumaxonov Sh.Z., Toshpo'latova А.M. Soцial va madaniy geografiya (2019",
+    "url": "https://drive.google.com/file/d/1QhXCoFMBPD9Wzd1yw0vs_C8uAgiMISNt/view?usp=drivesdk"
+  },
+  {
+    "folder": "Shaharlar geografiyasi va geourbanistika asoslari",
+    "fileName": "3 Солиев А.С.Шаҳарлар географияси 2011",
+    "url": "https://docs.google.com/document/d/1uM30AJ4f1XgA75stMNHYokzqpIy_FPp6/edit?usp=drivesdk&ouid=103609026798553673083&rtpof=true&sd=true"
+  },
+  {
+    "folder": "Shaharlar geografiyasi va geourbanistika asoslari",
+    "fileName": "1 Лаппо Г.М. География городов (1997)",
+    "url": "https://drive.google.com/file/d/10-f13HqVMmHTde72XyFcny0MQJGaFUPR/view?usp=drivesdk"
+  },
+  {
+    "folder": "Shaharlar geografiyasi va geourbanistika asoslari",
+    "fileName": "Shaharlar geografiyasi Soliyev A S , Tashtayeva S K , Egamberdiyeva",
+    "url": "https://drive.google.com/file/d/1F4xneo7IHTs57Z7w3QBBkVKlvSKXtsUH/view?usp=drivesdk"
+  },
+  {
+    "folder": "Shaharlar geografiyasi va geourbanistika asoslari",
+    "fileName": "5 Matchanova A.E, Abduvaliyeva Z.L. Shaharlar geografiyasi va geourbanistika asoslari fanidan amaliy mashg’ulotlar (2024)",
+    "url": "https://drive.google.com/file/d/1Bx7HRidNa-ih2G4qi-GpZttpA1MriL1H/view?usp=drivesdk"
+  },
+  {
+    "folder": "Shaharlar geografiyasi va geourbanistika asoslari",
+    "fileName": "2 Soliyev A., Tashtayeva S. Shaharlar geografiyasi (2018)",
+    "url": "https://drive.google.com/file/d/1unaxACQ7JQC2TR5fR0i-26VrjHRcXwHB/view?usp=drivesdk"
+  },
+  {
+    "folder": "Shaharlar geografiyasi va geourbanistika asoslari",
+    "fileName": "4 Michael Pacione. Urban geography a global perspective (2009)",
+    "url": "https://drive.google.com/file/d/1A999y6dTmVqvC52MpXPL_2FF7rhn2k5O/view?usp=drivesdk"
+  },
+  {
+    "folder": "Landshaftni rejalashtirish",
+    "fileName": "Landshaft planirovkasi SILLABUS 2025 2026",
+    "url": "https://docs.google.com/document/d/1skl_McpFtunQvZwW-n0lnACLob308of5/edit?usp=drivesdk&ouid=103609026798553673083&rtpof=true&sd=true"
+  },
+  {
+    "folder": "Landshaftni rejalashtirish",
+    "fileName": "Колбовский Е Ю Ландшафтное планирование",
+    "url": "https://docs.google.com/document/d/1LgS8aH83JJU0gDKqeGtzeLnYZrp8icM5/edit?usp=drivesdk&ouid=103609026798553673083&rtpof=true&sd=true"
+  },
+  {
+    "folder": "Landshaftni rejalashtirish",
+    "fileName": "1 Колбовский Е.Ю. Ландшафтное планирование (2008)",
+    "url": "https://docs.google.com/document/d/1OIkjFalKx-X_NCGUMF99KRj8jeZFO9HJ/edit?usp=drivesdk&ouid=103609026798553673083&rtpof=true&sd=true"
+  },
+  {
+    "folder": "Tabiatdan foydalanishning geografik asoslari",
+    "fileName": "Чориев А Алланов Қ Табиатдан фойдаланишнинг географик асослари",
+    "url": "https://drive.google.com/file/d/1jqGqo5S18dnZgiTIyPSqiF1p2YhnOROR/view?usp=drivesdk"
+  },
+  {
+    "folder": "Tabiatdan foydalanishning geografik asoslari",
+    "fileName": "Қаюмов А А, Якубов Ў Ш Табиатдан фойдаланиш ва уни муҳофаза қилиш",
+    "url": "https://drive.google.com/file/d/1MaYshu4NSd8QzOAWLmoBB8Hmi2q-X4Bp/view?usp=drivesdk"
+  },
+  {
+    "folder": "Tabiatdan foydalanishning geografik asoslari",
+    "fileName": "3 Исаченко А.Г. Оптимизация природной среды (1989",
+    "url": "https://drive.google.com/file/d/1QBao_I6BSFLq8tAY6qfsZR9zW2mOpWFw/view?usp=drivesdk"
+  },
+  {
+    "folder": "Toponimika",
+    "fileName": "3 Gulomov P.N., Мirakmalov M.T. Toponimika va geografik terminshunoslik (2005)",
+    "url": "https://drive.google.com/file/d/1sCsivgY-gWOBaUf4MMotxTWIrtg23dMe/view?usp=drivesdk"
+  },
+  {
+    "folder": "Toponimika",
+    "fileName": "Низомов А, Рахимова Г, Расулова Н Топонимика",
+    "url": "https://drive.google.com/file/d/1ZrcRg-QLtiDGvFvbKdDU4z_IL6NepTHf/view?usp=drivesdk"
+  },
+  {
+    "folder": "Toponimika",
+    "fileName": "Ғуломов П Топонимика ва географик атамашунослик",
+    "url": "https://drive.google.com/file/d/1QpOJ7-6G9I0-zc9ceCBZU-zecJm753N_/view?usp=drivesdk"
+  },
+  {
+    "folder": "Toponimika",
+    "fileName": "Toponimika Xakimov K.M. darslik 2024",
+    "url": "https://drive.google.com/file/d/1EcyTqyIv2lYyzNHFmppBAiCXCmDnQZAL/view?usp=drivesdk"
+  },
+  {
+    "folder": "Toponimika",
+    "fileName": "Hakimov Q M Toponimika Darslik 5110500 Geografiya o`qitish metodikasi",
+    "url": "https://drive.google.com/file/d/1-WuFqcWotnOd6TX7PVjFvGLhxrwbfhXv/view?usp=drivesdk"
+  },
+  {
+    "folder": "Toponimika",
+    "fileName": "Аҳмадалиев Ю И Топонимика ва географик терминшунослик",
+    "url": "https://drive.google.com/file/d/1lwCrjkEvGxUQL3khxZ29YMG96DgDnQzo/view?usp=drivesdk"
+  },
+  {
+    "folder": "Toponimika",
+    "fileName": "2 Xakimov K.M. Toponimika (2024)",
+    "url": "https://drive.google.com/file/d/1-J71jh7I4eiTOWOtTA_L7TZGuzNUs7OO/view?usp=drivesdk"
+  },
+  {
+    "folder": "Toponimika",
+    "fileName": "1 Xakimov K.M., Mirakmalov M.T. Toponimika (2020)",
+    "url": "https://drive.google.com/file/d/1pj0IUskxl3kcLVavnOM1JxBGmcMdCm9-/view?usp=drivesdk"
+  },
+  {
+    "folder": "Turizm geografiyasi",
+    "fileName": "TURIZM GEOGRAFIYASI  O`QUV QOLLANMA",
+    "url": "https://drive.google.com/file/d/1GwP8WjJOZ8LJZoJGqFOVL3CinJhvH8al/view?usp=drivesdk"
+  },
+  {
+    "folder": "Turizm geografiyasi",
+    "fileName": "Usmanov M.R. Turizm geografiyasi",
+    "url": "https://drive.google.com/file/d/1tslIm7dxA6T1ZJysxRaHC01K4d23ujB2/view?usp=drivesdk"
+  },
+  {
+    "folder": "Turizm geografiyasi",
+    "fileName": "2 M.R.Usmanov. Turizm geografiyasi (2020)",
+    "url": "https://drive.google.com/file/d/1GNbjekJC1Hw5ZnvPfOOmh_1qa3bZuXAw/view?usp=drivesdk"
+  },
+  {
+    "folder": "umumiy",
+    "fileName": "izohli lugat",
+    "url": "https://drive.google.com/file/d/1gAldCH-3CR-Cp2EEyp9KfSRMaoHgWrgh/view?usp=drivesdk"
+  },
+  {
+    "folder": "umumiy",
+    "fileName": "В А Бронштэн Гигантские метеориты ХХ века",
+    "url": "https://drive.google.com/file/d/13ZEwhW0hvOB_2u3iFlr6DfVZ4pnre8Ip/view?usp=drivesdk"
+  },
+  {
+    "folder": "umumiy",
+    "fileName": "Боринская С А , Рогаев Е И ГЕНЫ И ПОВЕДЕНИЕ",
+    "url": "https://drive.google.com/file/d/1aBBppmCdDRZ0eTQb8xGPnxi4U2rXXaH0/view?usp=drivesdk"
+  },
+  {
+    "folder": "umumiy",
+    "fileName": "МОНОГРАФИЯ 2021 АНКЛАВЛАР НАЗАРИЯСИ ТЎЛИҚ",
+    "url": "https://drive.google.com/file/d/1puSyjXFpkvqtfAHureeKORaVeUAALpii/view?usp=drivesdk"
+  },
+  {
+    "folder": "umumiy",
+    "fileName": "Жахонгашта сайёх олимлар",
+    "url": "https://drive.google.com/file/d/1nrqkA3mrgX9gXPNZU-ViP6b9GNbJR4lx/view?usp=drivesdk"
+  },
+  {
+    "folder": "umumiy",
+    "fileName": "Голубчик М М, Евдокимов С П, Максимов Г Н, Носонов А М Теория и",
+    "url": "https://drive.google.com/file/d/1hJMiaaPVWjgJSWRQ-vHj61ad_-j5kVIN/view?usp=drivesdk"
+  },
+  {
+    "folder": "umumiy",
+    "fileName": "Анучин В А Теоретические основы географии",
+    "url": "https://drive.google.com/file/d/1o00V0EQ9yZDq7yvyB7vH-HZFUngOGmrg/view?usp=drivesdk"
+  },
+  {
+    "folder": "umumiy",
+    "fileName": "qiziqarli geografiya",
+    "url": "https://drive.google.com/file/d/12Bk2jprIUWxkUmA_U37MUwZyrGVsxcZy/view?usp=drivesdk"
+  },
+  {
+    "folder": "umumiy",
+    "fileName": "Sharipov Sh M, Allaberdiyev R X, Kuchkarov N Y, Ro'zimova X K Geoekologiya",
+    "url": "https://drive.google.com/file/d/1Z9PhXHBe-C-tKjqaMvs9ft8BXwBE68SL/view?usp=drivesdk"
+  },
+  {
+    "folder": "umumiy",
+    "fileName": "Magidovich V I, Malofeyeva N N, Shironina Y V Geografik kashfiyotlar2013",
+    "url": "https://drive.google.com/file/d/1ctWUUJ9ylQ9vBZQ7zFVz89eB8lindB1L/view?usp=drivesdk"
+  },
+  {
+    "folder": "umumiy",
+    "fileName": "Hamidulla Hasanov. Sayyoh olimlar",
+    "url": "https://drive.google.com/file/d/1ykEl7SA0lKnSacO8ls1oK9DiM3jmc1j2/view?usp=drivesdk"
+  },
+  {
+    "folder": "umumiy",
+    "fileName": "Geografiya tarixi  Sh Zokirov., X Toshov 2018",
+    "url": "https://drive.google.com/file/d/1C4--rvxlezlYfQhBpqm1EMOvLfCmTFwc/view?usp=drivesdk"
+  },
+  {
+    "folder": "Topografiya, kartografiya, GAT",
+    "fileName": "экологическая картография Краснадар 2020",
+    "url": "https://drive.google.com/file/d/1MpWK-vib15P33kWxFiKEgflF1VTR27np/view?usp=drivesdk"
+  },
+  {
+    "folder": "Topografiya, kartografiya, GAT",
+    "fileName": "Тошпўлатов С А, Авчиев Ш Қ, Ковалёв Н В Олий геодезия",
+    "url": "https://drive.google.com/file/d/1vv4UG-CQg9cI5S9vMZevB67WALLVUwu7/view?usp=drivesdk"
+  },
+  {
+    "folder": "Topografiya, kartografiya, GAT",
+    "fileName": "экологическая картография Екатеринбург 2008",
+    "url": "https://drive.google.com/file/d/1jjRYpXia8FCyQ1tM0BuWhwfbD5YUz6nU/view?usp=drivesdk"
+  },
+  {
+    "folder": "Topografiya, kartografiya, GAT",
+    "fileName": "Alimqulov N. Topografiya va kartografiya asoslari (1)",
+    "url": "https://drive.google.com/file/d/12nza8QGDJLUMRU1hnw4soo0awkI4AoT_/view?usp=drivesdk"
+  },
+  {
+    "folder": "Topografiya, kartografiya, GAT",
+    "fileName": "экологическая картография Учебник Краснодар 2017",
+    "url": "https://drive.google.com/file/d/13af35HbPlFgOLuYaMYK49mCmEdgbXQRy/view?usp=drivesdk"
+  },
+  {
+    "folder": "Topografiya, kartografiya, GAT",
+    "fileName": "alihanov b akchura f nasritdinov a ekologicheskiy atlas uzbekistana (1)",
+    "url": "https://drive.google.com/file/d/19EZp1EN3phNPZui229cQLry-d39R8aaz/view?usp=drivesdk"
+  },
+  {
+    "folder": "Topografiya, kartografiya, GAT",
+    "fileName": "Muborakov X. Geodeziya Darslik 2021",
+    "url": "https://drive.google.com/file/d/1__0Mdm9MugqpZltDZuOFGUSZoce8T2FO/view?usp=drivesdk"
+  },
+  {
+    "folder": "Topografiya, kartografiya, GAT",
+    "fileName": "Topografiya va kartografiya GAT texnologiyalari Safarov Muminov",
+    "url": "https://drive.google.com/file/d/1tFxQFZYToaKsamvOgvTxuEQQrbDAwRwY/view?usp=drivesdk"
+  },
+  {
+    "folder": "Topografiya, kartografiya, GAT",
+    "fileName": "Мубораков Ҳ М, Рўзиев А С Геодезия",
+    "url": "https://drive.google.com/file/d/1FLWRdc3Kt4Ia2n8S91BpQlgLuqIvmDQm/view?usp=drivesdk"
+  },
+  {
+    "folder": "Topografiya, kartografiya, GAT",
+    "fileName": "Историческая картография",
+    "url": "https://drive.google.com/file/d/1Erk20aqHsDk3_fl8sCf85YmR234GG_Vo/view?usp=drivesdk"
+  },
+  {
+    "folder": "Topografiya, kartografiya, GAT",
+    "fileName": "Берлянт А.М. Картография",
+    "url": "https://drive.google.com/file/d/1Z_SharSV6OS0alieRx9WWBHm6ftfngEM/view?usp=drivesdk"
+  },
+  {
+    "folder": "Topografiya, kartografiya, GAT",
+    "fileName": "Topogr Kart GAT Majmua B.Abduraxmonov ",
+    "url": "https://drive.google.com/file/d/1XLYUp8Ka820-pRdX0py6UFtZMUcD3KhI/view?usp=drivesdk"
+  },
+  {
+    "folder": "Topografiya, kartografiya, GAT",
+    "fileName": "А.М. БЕРЛЯНТ ТЕОРИЯ ГЕОИЗОБРАЖЕНИЙ 2006",
+    "url": "https://drive.google.com/file/d/1C_90gQKz81fb1EQM2mO5Tv7gXjHfiGIs/view?usp=drivesdk"
+  },
+  {
+    "folder": "Topografiya, kartografiya, GAT",
+    "fileName": "А. М. Берлянт ГЕОИНФОРМАЦИОННОЕ КАРТОГРАФИРОВАНИЕ 1997",
+    "url": "https://drive.google.com/file/d/1_UEWS3HIILE8Fq2mwuGC3E604ntd_Ql5/view?usp=drivesdk"
+  },
+  {
+    "folder": "Topografiya, kartografiya, GAT",
+    "fileName": "А. М. Берлянт КАРТОГРАФИЯ 2002",
+    "url": "https://drive.google.com/file/d/1ZcGvq0acLDBUHOMHU9NvTmTE_r6Mi2pH/view?usp=drivesdk"
+  },
+  {
+    "folder": "Topografiya, kartografiya, GAT",
+    "fileName": "Баранов Ю.Б Геоинформатика 1990",
+    "url": "https://drive.google.com/file/d/1zg3LrcOOFZ1nALMptWR85WC-SFClpVjU/view?usp=drivesdk"
+  },
+  {
+    "folder": "Topografiya, kartografiya, GAT",
+    "fileName": "alihanov b akchura f nasritdinov a ekologicheskiy atlas uzbekistana",
+    "url": "https://drive.google.com/file/d/1fHZeBg339gr1X_idYFIQdub0snTMLesc/view?usp=drivesdk"
+  },
+  {
+    "folder": "Topografiya, kartografiya, GAT",
+    "fileName": "Alimqulov N. Topografiya va kartografiya asoslari",
+    "url": "https://drive.google.com/file/d/1utu9V-ASEvlsiOMj9D3NKm9lPG-N3TTe/view?usp=drivesdk"
+  },
+  {
+    "folder": "Topografiya, kartografiya, GAT",
+    "fileName": "2 Мубораков китоб Геодезия 2 қисм",
+    "url": "https://drive.google.com/file/d/1VMtzNEuA7P-R-_dEhQNysZJGyrsCY8lL/view?usp=drivesdk"
+  },
+  {
+    "folder": "Topografiya, kartografiya, GAT",
+    "fileName": "4 Gulyamova L. Geoaxborot tizimlari va texnologiyalari (2018)",
+    "url": "https://drive.google.com/file/d/1mMQr0vvHe6e0N9WF35Z3nB2YxWkmPdoj/view?usp=drivesdk"
+  },
+  {
+    "folder": "Topografiya, kartografiya, GAT",
+    "fileName": "3 Сафаров Э.Ю., Пренов Ш., Мўминов А. Топография ва картография, ГАТ технологиялари (2018",
+    "url": "https://drive.google.com/file/d/1v7BcU8XuuKH0z62UinTXlU0HYSGICoZn/view?usp=drivesdk"
+  },
+  {
+    "folder": "Topografiya, kartografiya, GAT",
+    "fileName": "1 Мирзалиев Т., Сафаров Э.Ю., Эгамбердиев А. Карташунослик (2012)",
+    "url": "https://drive.google.com/file/d/1c2mqAq0kSPO1tIbmWiwZZxMRFqaQxELi/view?usp=drivesdk"
+  },
+  {
+    "folder": "Tibbiyot geografiyasi",
+    "fileName": "Tibbiyot geografiyasi",
+    "url": "https://drive.google.com/file/d/1S1zSPE_8_eOfsS28pjZvZCbeN7gIiFoU/view?usp=drivesdk"
+  },
+  {
+    "folder": "Tibbiyot geografiyasi",
+    "fileName": "5 Komilova N., Ravshanov A., Muhammedova N. Tibbiyot geografiyasi va global salomatlik (2018)",
+    "url": "https://drive.google.com/file/d/1UjM10hbogWVDPqlUQFN_9kq9tV5pg6RV/view?usp=drivesdk"
+  },
+  {
+    "folder": "Tibbiyot geografiyasi",
+    "fileName": "3 Рўзиева Д., Усманбаева М, Холиқова З. Интерфаол методлар моҳияти ва қўлланилиши (2013)",
+    "url": "https://drive.google.com/file/d/193UEf9skyUWuPqSA3QJOApddUmJKRHl4/view?usp=drivesdk"
+  },
+  {
+    "folder": "Tibbiyot geografiyasi",
+    "fileName": "2 Brown, Т., McLafferty, S. and Moon, G. A Companion to Health and Medical Geography (2009)",
+    "url": "https://drive.google.com/file/d/1X3C3dBfTPCbEKcWUGngKVPaffhSrUxg-/view?usp=drivesdk"
+  },
+  {
+    "folder": "Tibbiyot geografiyasi",
+    "fileName": "1 Meade and Michael Emch. Medical Geography (2010)",
+    "url": "https://drive.google.com/file/d/1FkZWrgbPQPJv_2pGPantvX1Yc7pYCVBM/view?usp=drivesdk"
+  },
+  {
+    "folder": "Turizm va rekreatsiya geografiyasi",
+    "fileName": "Rekreatsiya va turizm (1)",
+    "url": "https://docs.google.com/document/d/1Sx01aojbQs92TPCR2oIhvKWIA5Cg1W2C/edit?usp=drivesdk&ouid=103609026798553673083&rtpof=true&sd=true"
+  },
+  {
+    "folder": "Turizm va rekreatsiya geografiyasi",
+    "fileName": "Turizm geografiyasi (1)",
+    "url": "https://drive.google.com/file/d/1VVvPq1uvyytvEQ3eEPh59FM1S1g2mFMz/view?usp=drivesdk"
+  },
+  {
+    "folder": "Turizm va rekreatsiya geografiyasi",
+    "fileName": "Rekreatsiya va turizm",
+    "url": "https://docs.google.com/document/d/1VzmhD4RGi6_Umai6uH51iWmQr1iQYKL5/edit?usp=drivesdk&ouid=103609026798553673083&rtpof=true&sd=true"
+  },
+  {
+    "folder": "Turizm va rekreatsiya geografiyasi",
+    "fileName": "Turizm geografiyasi",
+    "url": "https://drive.google.com/file/d/1aO_K-8SGeOuY91cRuIi0p36z1t9feRLG/view?usp=drivesdk"
+  },
+  {
+    "folder": "Turizm va rekreatsiya geografiyasi",
+    "fileName": "Солиев А С Маҳмудов М М Туризм ва рекреация географияси",
+    "url": "https://drive.google.com/file/d/11y544tkeeWfM20TBZ6PTRtezgoWHwyMf/view?usp=drivesdk"
+  },
+  {
+    "folder": "Turizm va rekreatsiya geografiyasi",
+    "fileName": "2 А.С.Кусков, В.Л.Голубева, Т.Н.Одинцова. Рекреационная География (2004)",
+    "url": "https://drive.google.com/file/d/1Qw5F8AOWAZkV3WLojeePIJT32M53d12h/view?usp=drivesdk"
+  },
+  {
+    "folder": "Tabiiy ofatlar riskini boshqarishda masofadan maʼlumotlar olish va GAT",
+    "fileName": "5 Shokirov Sh., Musaev I.M. Masofadan zondlash (2015)",
+    "url": "https://drive.google.com/file/d/1dxySqLom8zSvmpAfZET8OYeuK1rH7yJy/view?usp=drivesdk"
+  },
+  {
+    "folder": "Tabiiy ofatlar riskini boshqarishda masofadan maʼlumotlar olish va GAT",
+    "fileName": "4 Baas S. et. al. Disaster Risk Management system analyses (2008",
+    "url": "https://drive.google.com/file/d/1DfaIUnSZwR0MIGxAfhiShyeD4BZ27HXC/view?usp=drivesdk"
+  },
+  {
+    "folder": "Tabiiy ofatlar riskini boshqarishda masofadan maʼlumotlar olish va GAT",
+    "fileName": "1 Lillesand, Thomas M. Remote sensing and image interpretation (2016)",
+    "url": "https://drive.google.com/file/d/1T-ob6laykPX6qy-S5ZC6B7jnJC2wCd4a/view?usp=drivesdk"
+  },
+  {
+    "folder": "Tabiiy ofatlar riskini boshqarishda masofadan maʼlumotlar olish va GAT",
+    "fileName": "2 Otto Huisman and Rolf A. Principles of Geographic Information System (2009)",
+    "url": "https://drive.google.com/file/d/1g5QvHyUYGxGHaTOj8m22C5HnEqTASUh7/view?usp=drivesdk"
+  },
+  {
+    "folder": "Xorazm geografiyasi",
+    "fileName": "Хоразм географияси мажмуа 2020",
+    "url": "https://docs.google.com/document/d/1J6QOQMfswq9D-CONhVYg0taLGeh2hodf/edit?usp=drivesdk&ouid=103609026798553673083&rtpof=true&sd=true"
+  },
+  {
+    "folder": "Umumiy tabiiy geografiya",
+    "fileName": "Турсунов Х Т, Рахимова Т У Экология",
+    "url": "https://drive.google.com/file/d/155bzLmLq-UcsxCukTYoesNQ95qt7INBv/view?usp=drivesdk"
+  },
+  {
+    "folder": "Umumiy tabiiy geografiya",
+    "fileName": "Общее землеведение Курс лекций для иностранных студентов Гледко",
+    "url": "https://drive.google.com/file/d/10AJS6FzUNxYcGzZMcOU3CJXoF4Xf5saw/view?usp=drivesdk"
+  },
+  {
+    "folder": "Umumiy tabiiy geografiya",
+    "fileName": "Калесник С В Умумий Ер билими киска курси",
+    "url": "https://drive.google.com/file/d/1ZFdM6LLg8XP6TdZT7QdkS_PqA085-gUp/view?usp=drivesdk"
+  },
+  {
+    "folder": "Umumiy tabiiy geografiya",
+    "fileName": "Umumiy  tabiiy  geografiya.Toshkent 2018",
+    "url": "https://drive.google.com/file/d/1KZ5vgS7qIiguaNs_km910llpU_voqhQA/view?usp=drivesdk"
+  },
+  {
+    "folder": "Umumiy tabiiy geografiya",
+    "fileName": "Алибеков инсон ва табиат дарслик",
+    "url": "https://drive.google.com/file/d/1_8wFiOcvc-Ip09ihxdJCaVLKOY9lflx4/view?usp=drivesdk"
+  },
+  {
+    "folder": "Umumiy tabiiy geografiya",
+    "fileName": "Umumiy Yer bilimi",
+    "url": "https://drive.google.com/file/d/1ubf8tFYvzHhi7R8ou-FRwtS9OG4WWM-C/view?usp=drivesdk"
+  },
+  {
+    "folder": "Umumiy tabiiy geografiya",
+    "fileName": "2 Vahobov va boshqalar. Umumiy yer bilimi (2005)",
+    "url": "https://drive.google.com/file/d/1tClSfUtDnbUdqpvQy7pS0ZxJfGh0iq72/view?usp=drivesdk"
+  },
+  {
+    "folder": "Umumiy tabiiy geografiya",
+    "fileName": "1. Umumiy tabiiy geografiya. Abdunazarov O'.Q va bosh",
+    "url": "https://drive.google.com/file/d/1lJa66M5srdJ1cN8rFZEB1FATnqglsWjQ/view?usp=drivesdk"
+  },
+  {
+    "folder": "Tuproqlar geografiyasi",
+    "fileName": "SOIL GEOGRAPHY",
+    "url": "https://drive.google.com/file/d/1GWAZohB5H35vnMplV4A9XSU47zHjb1U9/view?usp=drivesdk"
+  },
+  {
+    "folder": "Tuproqlar geografiyasi",
+    "fileName": "Tuproqshunoslik",
+    "url": "https://drive.google.com/file/d/1a5gnxE1jfWvwJfCzk3OqpalSDos_QqcO/view?usp=drivesdk"
+  },
+  {
+    "folder": "Tuproqlar geografiyasi",
+    "fileName": "Tuproqlar geografiyasi darslik Xodjimatov 2018",
+    "url": "https://drive.google.com/file/d/1SVDPz28OwKr0KIVWOZ9S7zVwf0e0NYn5/view?usp=drivesdk"
+  },
+  {
+    "folder": "Tuproqlar geografiyasi",
+    "fileName": "4 Xodjimatov A. Tuproqlar geografiyasi (2018)",
+    "url": "https://drive.google.com/file/d/1mPD5ffV7Flz0Gbnk0YLfT8P5MDp1DDjw/view?usp=drivesdk"
+  },
