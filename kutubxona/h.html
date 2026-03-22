@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rahmatjon | Smart Library</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg: #0f172a;
+            --surface: #1e293b;
+            --emerald: #10b981;
+            --text: #f8fafc;
+            --text-dim: #94a3b8;
+            --header-h: 70px;
+            --footer-h: 60px;
+        }
+
+        * { box-sizing: border-box; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding-top: var(--header-h);
+            padding-bottom: var(--footer-h); /* Footer uchun joy tashlaymiz */
+            min-height: 100vh;
+        }
+
+        header {
+            background: rgba(30, 41, 59, 0.9);
+            backdrop-filter: blur(10px);
+            height: var(--header-h);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 2px solid var(--emerald);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .controls {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 1rem;
+        }
+
+        #search-input {
+            width: 100%;
+            padding: 12px 20px;
+            border-radius: 12px;
+            border: 1px solid #334155;
+            background: var(--surface);
+            color: white;
+            outline: none;
+        }
+
+        #search-input:focus { border-color: var(--emerald); box-shadow: 0 0 15px rgba(16, 185, 129, 0.2); }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 1rem 30px 1rem;
+        }
+
+        /* Accordion Style */
+        .category-wrapper {
+            margin-bottom: 8px;
+            background: var(--surface);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .category-header {
+            padding: 15px 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .category-header:hover { background: rgba(16, 185, 129, 0.1); }
+
+        .category-title {
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--emerald);
+        }
+
+        .chevron { font-size: 0.8rem; transition: transform 0.3s; }
+
+        .category-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+            background: rgba(15, 23, 42, 0.3);
+        }
+
+        .category-wrapper.active .category-content { max-height: 2500px; padding-bottom: 10px; }
+        .category-wrapper.active .chevron { transform: rotate(180deg); }
+
+        .book-item {
+            padding: 12px 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .book-name { font-size: 0.9rem; color: var(--text-dim); line-height: 1.4; }
+
+        .btn-open {
+            color: var(--emerald);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 5px 12px;
+            border: 1px solid var(--emerald);
+            border-radius: 6px;
+            font-size: 0.8rem;
+            white-space: nowrap;
+        }
+
+        .btn-open:hover { background: var(--emerald); color: white; }
+
+        /* FIXED FOOTER (IXCHAM) */
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: var(--footer-h);
+            background: var(--surface);
+            border-top: 1px solid var(--emerald);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 1.5rem;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+
+        .footer-info { font-weight: 600; font-size: 0.9rem; color: var(--text); }
+
+        .social-links { display: flex; gap: 15px; }
+        .social-links a { color: var(--emerald); font-size: 1.2rem; text-decoration: none; }
+        .social-links a:hover { transform: scale(1.2); }
+
+        .loader { text-align: center; padding: 50px; color: var(--emerald); }
+
+        @media (max-width: 600px) {
+            .footer-info { font-size: 0.8rem; }
+            .container { padding: 0 0.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div style="font-weight: 800; color: var(--emerald); font-size: 1.2rem;">GEOGRAFIYA KUTUBXONASI</div>
+</header>
+
+<div class="controls">
+    <input type="text" id="search-input" placeholder="Kitob yoki fanni qidiring...">
+</div>
+
+<div class="container" id="main-container">
+    <div class="loader"><i class="fas fa-spinner fa-spin"></i> Yuklanmoqda...</div>
+</div>
+
+<footer>
+    <div class="footer-info">Bekimmatov Rahmatjon</div>
+    <div class="social-links">
+        <a href="https://instagram.com/bekimmatovv" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://t.me/Geografiya_Rahmatjon" target="_blank"><i class="fab fa-telegram"></i></a>
+    </div>
+</footer>
+
+<script>
+    const container = document.getElementById('main-container');
+    const searchInput = document.getElementById('search-input');
+    let rawData = [];
+
+    async function fetchData() {
+        const url = 'https://raw.githubusercontent.com/Bekimmatov/html/main/kutubxona/data_export_2026-03-22_13-44.json';
+        try {
+            const res = await fetch(url);
+            let text = await res.text();
+            text = text.trim();
+            if (text.endsWith(',]')) text = text.replace(',]', ']');
+            if (text.endsWith(', ]')) text = text.replace(', ]', ']');
+            rawData = JSON.parse(text);
+            render(rawData);
+        } catch (e) {
+            container.innerHTML = `<div class="loader" style="color:#ef4444">Ma'lumotda xato bor.</div>`;
+        }
+    }
+
+    function render(data) {
+        container.innerHTML = '';
+        if (data.length === 0) {
+            container.innerHTML = '<div class="loader">Natija topilmadi.</div>';
+            return;
+        }
+
+        const groups = data.reduce((acc, item) => {
+            const f = item.folder || "Umumiy";
+            if (!acc[f]) acc[f] = [];
+            acc[f].push(item);
+            return acc;
+        }, {});
+
+        Object.keys(groups).sort().forEach(folderName => {
+            const wrapper = document.createElement('div');
+            wrapper.className = 'category-wrapper';
+            
+            const header = document.createElement('div');
+            header.className = 'category-header';
+            header.innerHTML = `
+                <div class="category-title">
+                    <i class="fas fa-folder"></i>
+                    ${folderName} (${groups[folderName].length})
+                </div>
+                <i class="fas fa-chevron-down chevron"></i>
+            `;
+
+            const content = document.createElement('div');
+            content.className = 'category-content';
+            
+            groups[folderName].forEach(book => {
+                const item = document.createElement('div');
+                item.className = 'book-item';
+                item.innerHTML = `
+                    <div class="book-name">${book.fileName}</div>
+                    <a href="${book.url}" target="_blank" class="btn-open">Ochish</a>
+                `;
+                content.appendChild(item);
+            });
+
+            header.onclick = () => wrapper.classList.toggle('active');
+
+            wrapper.appendChild(header);
+            wrapper.appendChild(content);
+            container.appendChild(wrapper);
+        });
+    }
+
+    searchInput.addEventListener('input', (e) => {
+        const term = e.target.value.toLowerCase();
+        const filtered = rawData.filter(i => 
+            i.fileName.toLowerCase().includes(term) || 
+            i.folder.toLowerCase().includes(term)
+        );
+        render(filtered);
+        if (term.length > 0) {
+            document.querySelectorAll('.category-wrapper').forEach(w => w.classList.add('active'));
+        }
+    });
+
+    fetchData();
+</script>
+
+</body>
+</html>
