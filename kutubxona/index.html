@@ -97,7 +97,8 @@
         let categories = {};
         let currentCategory = 'Barchasi';
 
-        const jsonFileUrl = 'data_export_2026-03-22_13-44.json';
+        // GitHub xom havolasini ishlatish
+        const jsonFileUrl = 'https://raw.githubusercontent.com/Bekimmatov/html/refs/heads/main/kutubxona/data_export_2026-03-22_13-44.json';
 
         // Ma'lumotlarni yuklash
         async function fetchBooks() {
@@ -173,7 +174,7 @@
             const grid = document.getElementById('booksGrid');
             const emptyState = document.getElementById('emptyState');
             document.getElementById('resultsCount').textContent = \
-`\${books.length} ta natija`;
+ `${books.length} ta natija`;
             grid.innerHTML = '';
 
             if (books.length === 0) {
