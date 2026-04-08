@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- MOBILE AS DESKTOP: Fixed width 1280px to force desktop view on all devices -->
+    <meta name="viewport" content="width=1280">
+    <title>Geografik kashfiyot: Toshkent iqtisodiy rayoni</title>
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
+    <!-- Leaflet Routing Machine CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.css" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <audio id="bg-music" loop>
+        <source src="audio.mp3" type="audio/mpeg">
+    </audio>
+
+    <header>
+        <div class="header-content">
+            <h1>Geografik kashfiyot: Toshkent iqtisodiy rayoni</h1>
+        </div>
+    </header>
+
+    <div id="game-container" class="main-container">
+        <!-- Sidebar -->
+        <aside id="sidebar">
+
+            <!-- TOP SECTION: Active Team & Quiz -->
+            <div id="active-panel">
+                <div id="active-header-box">
+                    <span class="label">Hozirgi Navbat:</span>
+                    <h2 id="active-team-display">Guruh 1</h2>
+                </div>
+
+                <!-- Goal Hint -->
+                <div id="mission-box" class="mission-box">
+                    <span class="mission-label">MAQSAD:</span>
+                    <p id="mission-text">Yuklanmoqda...</p>
+                </div>
+
+                <!-- Action & Quiz (Compact) -->
+                <div id="quiz-area">
+                    <div id="action-wrapper">
+                        <button id="btn-start-quiz" class="action-btn hidden" onclick="Game.startQuizSequence()">
+                            SAVOLGA TAYYORMISIZ?
+                        </button>
+                    </div>
+
+                    <div id="quiz-interface" class="hidden">
+                        <p id="question-text">Savol matni...</p>
+
+                        <div class="timer-box">
+                            <div class="progress-bg">
+                                <div id="progress-bar"></div>
+                            </div>
+                            <!-- Wide text area for distance -->
+                            <span id="timer-text">Masofa: 50.0 km</span>
+                        </div>
+
+                        <div id="options-container"></div>
+                    </div>
+                </div>
+
+                <!-- Notification Toast -->
+                <div id="notification-area">
+                    <p id="last-message">O'yin boshlandi.</p>
+                </div>
+            </div>
+
+            <!-- BOTTOM SECTION: Compact Stats -->
+            <div id="bottom-section">
+                <h3>JONLI NATIJALAR</h3>
+                <table id="stats-table">
+                    <thead>
+                        <tr>
+                            <th>Guruh</th>
+                            <th>Topildi</th>
+                            <th>✅</th>
+                            <th>❌</th>
+                        </tr>
+                    </thead>
+                    <tbody id="stats-body">
+                        <!-- JS generated -->
+                    </tbody>
+                </table>
+            </div>
+
+        </aside>
+
+        <!-- Map -->
+        <div id="map"></div>
+    </div>
+
+    <!-- Bottom Footer (Team Controls + Tools) -->
+    <footer id="footer-panel">
+        <div class="footer-group">
+            <span class="footer-label">Guruh:</span>
+            <div class="team-controls">
+                <button id="btn-team-1" class="team-btn" onclick="UI.selectTeam(0)">1</button>
+                <button id="btn-team-2" class="team-btn" onclick="UI.selectTeam(1)">2</button>
+                <button id="btn-team-3" class="team-btn" onclick="UI.selectTeam(2)">3</button>
+            </div>
+        </div>
+
+        <div class="footer-group">
+            <button id="fullscreen-btn" class="tool-btn" onclick="UI.toggleFullscreen()">⛶ To'liq Ekran</button>
+            <button id="music-toggle" class="tool-btn" onclick="UI.toggleMusic()">🎵 Musiqa: OFF</button>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
