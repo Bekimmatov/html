@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="uz">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,16 +14,124 @@
 <link rel="stylesheet" href="css/nouislider.min.css">
         <link rel="stylesheet" href="css/leaflet.photon.css">
         <style>
-        html, body, #map {
+        :root {
+            --bg: #f3f6fb;
+            --panel-bg: rgba(255, 255, 255, 0.96);
+            --panel-border: #dfe7f3;
+            --text-main: #1e2a3b;
+            --text-muted: #5e6c84;
+            --shadow: 0 16px 40px rgba(18, 38, 63, 0.14);
+        }
+
+        html, body {
             width: 100%;
             height: 100%;
             padding: 0;
             margin: 0;
         }
+
+        body {
+            font-family: "Segoe UI", "Inter", "Roboto", Arial, sans-serif;
+            background: radial-gradient(circle at top, #ffffff 0%, var(--bg) 60%);
+            color: var(--text-main);
+        }
+
+        #all {
+            display: flex;
+            gap: 14px;
+            height: 100%;
+            padding: 74px 14px 14px;
+            box-sizing: border-box;
+        }
+
+        #mapWindow {
+            width: calc(100% - 360px) !important;
+            height: 100% !important;
+        }
+
+        #map {
+            width: 100%;
+            height: 100%;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        #menu {
+            width: 340px;
+            height: 100%;
+            padding: 14px;
+            border-radius: 14px;
+            background: var(--panel-bg);
+            border: 1px solid var(--panel-border);
+            box-shadow: var(--shadow);
+            box-sizing: border-box;
+            overflow-y: auto;
+            backdrop-filter: blur(6px);
+        }
+
+        .map-header {
+            position: fixed;
+            top: 14px;
+            left: 14px;
+            right: 14px;
+            z-index: 999;
+            padding: 12px 18px;
+            border-radius: 14px;
+            background: var(--panel-bg);
+            border: 1px solid var(--panel-border);
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
+        }
+
+        .map-header h1 {
+            margin: 0;
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 0.2px;
+        }
+
+        .map-header p {
+            margin: 4px 0 0;
+            color: var(--text-muted);
+            font-size: 13px;
+        }
+
+        .panel-title {
+            margin: 0 0 12px;
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .leaflet-control-layers {
+            border-radius: 12px !important;
+            border: 1px solid var(--panel-border) !important;
+            box-shadow: 0 8px 22px rgba(15, 23, 42, 0.15) !important;
+        }
+
+        .leaflet-control-layers-list {
+            font-size: 13px;
+            line-height: 1.45;
+            color: var(--text-main);
+        }
+
+        .leaflet-control-layers-list table {
+            margin-top: 6px;
+            border-collapse: collapse;
+        }
+
+        .leaflet-control-layers-list table td {
+            padding: 1px 6px 1px 0;
+            font-size: 12px;
+        }
         </style>
-        <title></title>
+        <title>Quyi Amudaryo sanoat xaritasi</title>
     </head>
     <body>
+        <header class="map-header">
+            <h1>Quyi Amudaryo sanoat salohiyati xaritasi</h1>
+            <p>Qatlamlar, shartli belgilar va hududiy ko‘rsatkichlar</p>
+        </header>
         <div id="map">
         </div>
         <script src="js/qgis2web_expressions.js"></script>
@@ -1138,15 +1246,15 @@
         var overlaysTree = [
             {label: '<img src="legend/Aeroportlar_10.png" /> Aeroportlar', layer: layer_Aeroportlar_10},
             {label: '<img src="legend/Orol_9.png" /> Orol', layer: layer_Orol_9},
-            {label: '<img src="legend/YIRI_DARYOLAR1_8.png" /> YIRI_DARYOLAR1', layer: layer_YIRI_DARYOLAR1_8},
+            {label: '<img src="legend/YIRI_DARYOLAR1_8.png" /> Yirik daryolar', layer: layer_YIRI_DARYOLAR1_8},
             {label: '<img src="legend/Respublikachegarasi_7.png" /> Respublika chegarasi', layer: layer_Respublikachegarasi_7},
-            {label: '<img src="legend/Viloyatchegara_6.png" /> Viloyat chegara', layer: layer_Viloyatchegara_6},
-            {label: '<img src="legend/Tumanchegaralariline_5.png" /> Tuman chegaralari line', layer: layer_Tumanchegaralariline_5},
-            {label: '<img src="legend/TEMIR_YOLLAR_a31e37c8_4d68_4f11_a34a_8ffe69f58c56_4.png" /> TEMIR_YOLLAR_a31e37c8_4d68_4f11_a34a_8ffe69f58c56', layer: layer_TEMIR_YOLLAR_a31e37c8_4d68_4f11_a34a_8ffe69f58c56_4},
-            {label: '<img src="legend/Avtomabilyollari_3.png" /> Avtomabil yollari', layer: layer_Avtomabilyollari_3},
-            {label: 'dddd', layer: layer_dddd_2},
-            {label: 'Centroids<br /><table><tr><td style="text-align: center;"><img src="legend/Centroids_1_1433270.png" /></td><td>143 - 327</td></tr><tr><td style="text-align: center;"><img src="legend/Centroids_1_3278041.png" /></td><td>327 - 804</td></tr><tr><td style="text-align: center;"><img src="legend/Centroids_1_80415592.png" /></td><td>804 - 1559</td></tr><tr><td style="text-align: center;"><img src="legend/Centroids_1_155984333.png" /></td><td>1559 - 8433</td></tr></table>', layer: layer_Centroids_1},
-            {label: 'Xoqazm qoraqalpoq poligone 40N — tumanlar statstika v2<br /><table><tr><td style="text-align: center;"><img src="legend/Xoqazmqoraqalpoqpoligone40Ntumanlarstatstikav2_0_181950.png" /></td><td>18 - 195</td></tr><tr><td style="text-align: center;"><img src="legend/Xoqazmqoraqalpoqpoligone40Ntumanlarstatstikav2_0_1954481.png" /></td><td>195 - 448</td></tr><tr><td style="text-align: center;"><img src="legend/Xoqazmqoraqalpoqpoligone40Ntumanlarstatstikav2_0_44810742.png" /></td><td>448 - 1074</td></tr><tr><td style="text-align: center;"><img src="legend/Xoqazmqoraqalpoqpoligone40Ntumanlarstatstikav2_0_107439343.png" /></td><td>1074 - 3934</td></tr><tr><td style="text-align: center;"><img src="legend/Xoqazmqoraqalpoqpoligone40Ntumanlarstatstikav2_0_39347057594.png" /></td><td>3934 - 705759</td></tr></table>', layer: layer_Xoqazmqoraqalpoqpoligone40Ntumanlarstatstikav2_0},]
+            {label: '<img src="legend/Viloyatchegara_6.png" /> Viloyat chegarasi', layer: layer_Viloyatchegara_6},
+            {label: '<img src="legend/Tumanchegaralariline_5.png" /> Tuman chegaralari', layer: layer_Tumanchegaralariline_5},
+            {label: '<img src="legend/TEMIR_YOLLAR_a31e37c8_4d68_4f11_a34a_8ffe69f58c56_4.png" /> Temir yo‘llar', layer: layer_TEMIR_YOLLAR_a31e37c8_4d68_4f11_a34a_8ffe69f58c56_4},
+            {label: '<img src="legend/Avtomabilyollari_3.png" /> Avtomobil yo‘llari', layer: layer_Avtomabilyollari_3},
+            {label: 'Sanoat obyektlari', layer: layer_dddd_2},
+            {label: 'Tuman markazlari (korxonalar soni)<br /><table><tr><td style="text-align: center;"><img src="legend/Centroids_1_1433270.png" /></td><td>143 - 327</td></tr><tr><td style="text-align: center;"><img src="legend/Centroids_1_3278041.png" /></td><td>327 - 804</td></tr><tr><td style="text-align: center;"><img src="legend/Centroids_1_80415592.png" /></td><td>804 - 1559</td></tr><tr><td style="text-align: center;"><img src="legend/Centroids_1_155984333.png" /></td><td>1559 - 8433</td></tr></table>', layer: layer_Centroids_1},
+            {label: 'Tumanlar bo‘yicha mahsulot hajmi<br /><table><tr><td style="text-align: center;"><img src="legend/Xoqazmqoraqalpoqpoligone40Ntumanlarstatstikav2_0_181950.png" /></td><td>18 - 195</td></tr><tr><td style="text-align: center;"><img src="legend/Xoqazmqoraqalpoqpoligone40Ntumanlarstatstikav2_0_1954481.png" /></td><td>195 - 448</td></tr><tr><td style="text-align: center;"><img src="legend/Xoqazmqoraqalpoqpoligone40Ntumanlarstatstikav2_0_44810742.png" /></td><td>448 - 1074</td></tr><tr><td style="text-align: center;"><img src="legend/Xoqazmqoraqalpoqpoligone40Ntumanlarstatstikav2_0_107439343.png" /></td><td>1074 - 3934</td></tr><tr><td style="text-align: center;"><img src="legend/Xoqazmqoraqalpoqpoligone40Ntumanlarstatstikav2_0_39347057594.png" /></td><td>3934 - 705759</td></tr></table>', layer: layer_Xoqazmqoraqalpoqpoligone40Ntumanlarstatstikav2_0},]
         var lay = L.control.layers.tree(null, overlaysTree,{
             //namedToggle: true,
             //selectorBack: false,
@@ -1190,6 +1298,10 @@
         document.getElementById("all").appendChild(col1);
         document.getElementById("all").appendChild(col2);
         col1.appendChild(mapDiv)
+            var menuTitle = document.createElement('h3');
+            menuTitle.className = 'panel-title';
+            menuTitle.innerHTML = "Qatlam filtrlari";
+            document.getElementById("menu").appendChild(menuTitle);
         var Filters = {"ss_distric": "str"};
         function filterFunc() {
           map.eachLayer(function(lyr){
@@ -1338,11 +1450,11 @@
             sel_ss_distric.innerHTML = ss_distric_options_str;
             div_ss_distric.appendChild(sel_ss_distric);
             var lab_ss_distric = document.createElement('div');
-            lab_ss_distric.innerHTML = 'ss_distric';
+            lab_ss_distric.innerHTML = 'Tuman bo‘yicha filtr';
             lab_ss_distric.className = 'filterlabel';
             div_ss_distric.appendChild(lab_ss_distric);
             var reset_ss_distric = document.createElement('div');
-            reset_ss_distric.innerHTML = 'clear filter';
+            reset_ss_distric.innerHTML = 'Filtrni tozalash';
             reset_ss_distric.className = 'filterlabel';
             reset_ss_distric.onclick = function() {
                 var options = document.getElementById("sel_ss_distric").options;
