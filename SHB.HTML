@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <title>QGIS Dashboard - CSS Only Premium</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            width: 100vw;
+            height: 100vh;
+            margin: 0;
+            padding: 2mm;
+            font-family: 'Inter', Arial, sans-serif;
+            background-color: transparent;
+            overflow: hidden;
+        }
+
+        /* Glassmorphism Panel */
+        .glass-panel {
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(10pt);
+            -webkit-backdrop-filter: blur(10pt);
+            border: 0.5pt solid rgba(255, 255, 255, 0.8);
+            border-radius: 4mm;
+            box-shadow: 0 10pt 25pt rgba(0, 0, 0, 0.15), inset 0 0 10pt rgba(255, 255, 255, 0.8);
+            padding: 3mm 4mm;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        /* Typography & Titles */
+        .main-title {
+            font-size: 10pt;
+            font-weight: 800;
+            text-align: center;
+            color: #0f172a;
+            text-transform: uppercase;
+            letter-spacing: 0.5pt;
+            margin-bottom: 2mm;
+            flex-shrink: 0;
+            text-shadow: 0 1pt 1pt rgba(255,255,255,0.8);
+        }
+
+        .chart-title {
+            font-size: 7pt;
+            font-weight: 800;
+            color: #1e293b;
+            text-align: center;
+            text-transform: uppercase;
+            margin-bottom: 2mm;
+            height: 12%;
+        }
+
+        /* Dividers */
+        .divider {
+            width: 100%;
+            height: 0.5pt;
+            background: linear-gradient(to right, transparent, #cbd5e1, transparent);
+            margin: 1.5mm 0;
+            flex-shrink: 0;
+        }
+
+        /* --- PURE CSS CHARTS SECTIONS --- */
+        
+        /* 1. Top 10 Bar Chart */
+        .chart-section-top {
+            height: 24%;
+            width: 100%;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 1mm;
+            padding-top: 4mm;
+            position: relative;
+        }
+
+        .css-bar-group {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            height: 100%;
+        }
+
+        .css-bar {
+            width: 60%;
+            background: linear-gradient(to top, rgba(3, 105, 161, 0.9), rgba(56, 189, 248, 1));
+            border-radius: 2pt 2pt 0 0;
+            position: relative;
+            box-shadow: 2pt 0 4pt rgba(0,0,0,0.1);
+        }
+
+        .css-bar-val {
+            font-size: 6.5pt;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 1mm;
+        }
+
+        .css-bar-label {
+            font-size: 5.5pt;
+            font-weight: 700;
+            color: #334155;
+            text-align: center;
+            margin-top: 1mm;
+            height: 5mm;
+            line-height: 1;
+        }
+
+        /* 2. Grid Charts (4 elements) */
+        .chart-section-grid {
+            height: 26%;
+            width: 100%;
+            display: flex;
+            gap: 2mm;
+        }
+
+        .chart-card {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 2mm;
+            padding: 1.5mm;
+            box-shadow: inset 0 1pt 3pt rgba(0,0,0,0.03);
+            border: 0.5pt solid rgba(255,255,255,0.5);
+            align-items: center;
+        }
+
+        /* CSS Trade Bar Chart */
+        .trade-chart-container {
+            width: 100%;
+            height: 80%;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-around;
+            padding: 0 2mm;
+        }
+
+        .trade-group {
+            display: flex;
+            gap: 1mm;
+            height: 100%;
+            align-items: flex-end;
+            width: 40%;
+        }
+
+        .trade-bar-wrap {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            height: 100%;
+        }
+
+        .trade-bar {
+            width: 100%;
+            border-radius: 1.5pt 1.5pt 0 0;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 1mm;
+        }
+        
+        .trade-bar.exp { background: #22c55e; }
+        .trade-bar.imp { background: #ef4444; }
+
+        .trade-val {
+            font-size: 5.5pt;
+            color: #fff;
+            font-weight: 700;
+        }
+
+        /* CSS Pie & Donut Charts */
+        .pie-container {
+            flex: 1;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .css-pie {
+            width: 20mm;
+            height: 20mm;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2pt 5pt rgba(0,0,0,0.15);
+            position: relative;
+        }
+
+        .css-donut-hole {
+            width: 55%;
+            height: 55%;
+            background: #fbfcfd;
+            border-radius: 50%;
+            box-shadow: inset 0 2pt 4pt rgba(0,0,0,0.1);
+        }
+
+        /* Tiny Legends for CSS Charts */
+        .chart-mini-legend {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 2mm;
+            margin-top: 1mm;
+        }
+        .mini-legend-item {
+            display: flex;
+            align-items: center;
+            gap: 1mm;
+            font-size: 5pt;
+            font-weight: 700;
+            color: #475569;
+        }
+        .mini-color {
+            width: 4pt;
+            height: 4pt;
+            border-radius: 1pt;
+        }
+
+        /* --- LEGEND SECTION (PRESERVED ACCURACY) --- */
+        .legend-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            background: #ffffff;
+            border-radius: 3mm;
+            padding: 2.5mm;
+            box-shadow: 0 8pt 20pt rgba(0, 0, 0, 0.12), inset 0 1pt 4pt rgba(0, 0, 0, 0.05);
+            border: 0.5pt solid rgba(0, 0, 0, 0.06);
+            margin-top: 1mm;
+        }
+
+        .legend-title {
+            font-size: 9pt;
+            font-weight: 800;
+            text-align: center;
+            color: #1a1a1a;
+            text-transform: uppercase;
+            letter-spacing: 1pt;
+            margin-bottom: 2mm;
+            position: relative;
+            padding-bottom: 1.5mm;
+            flex-shrink: 0;
+        }
+
+        .legend-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 35pt;
+            height: 1.5pt;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            border-radius: 2pt;
+        }
+
+        .legend-grid {
+            display: flex;
+            flex: 1;
+            gap: 2mm;
+            overflow: hidden;
+        }
+
+        .legend-group {
+            flex: 1;
+            background: #fcfcfc;
+            border-radius: 2mm;
+            padding: 2mm;
+            border: 0.5pt solid #f0f0f0;
+            box-shadow: inset 0 1pt 2pt rgba(0,0,0,0.02);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        
+        .legend-group:nth-child(4) { flex: 1.4; } /* BOSHQA needs more space */
+
+        .group-title {
+            font-size: 7pt;
+            font-weight: 800;
+            color: #64748b;
+            margin-bottom: 1.5mm;
+            text-transform: uppercase;
+            letter-spacing: 0.5pt;
+            display: flex;
+            align-items: center;
+            gap: 1.5mm;
+            flex-shrink: 0;
+        }
+
+        .group-title::before {
+            content: '';
+            display: inline-block;
+            width: 3.5pt;
+            height: 3.5pt;
+            background: #cbd5e1;
+            border-radius: 50%;
+        }
+
+        .legend-items-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 1mm;
+            overflow-y: auto;
+            padding-right: 1mm;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            padding: 1.5mm;
+            border-radius: 1.5mm;
+            background: #ffffff;
+            border: 0.5pt solid #f1f5f9;
+            box-shadow: 0 1pt 3pt rgba(0, 0, 0, 0.08);
+        }
+
+        .symbol {
+            width: 25pt;
+            height: 12pt;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1.5mm;
+            flex-shrink: 0;
+            filter: drop-shadow(0 1pt 2pt rgba(0,0,0,0.2));
+        }
+
+        .symbol svg { width: 100%; height: 100%; }
+
+        .label { font-size: 6.5pt; font-weight: 700; color: #334155; line-height: 1.1; }
+        .sub-label { font-size: 6pt; color: #475569; font-weight: 600; }
+
+        .inner-list { display: flex; flex-direction: column; gap: 1mm; padding-left: 1mm; margin-top: 1mm; width: 100%; }
+        .inner-item { display: flex; align-items: center; gap: 2mm; padding: 1mm; background: #f8fafc; border-radius: 1mm; border: 0.5pt solid #e2e8f0; }
+
+        /* Footer */
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            font-size: 7.5pt;
+            font-weight: 800;
+            color: #64748b;
+            padding-top: 1.5mm;
+            text-transform: uppercase;
+            flex-shrink: 0;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="glass-panel">
+    
+    <!-- MAIN TITLE -->
+    <div class="main-title">AHOLI JON BOSHIGA YENGIL SANOAT HAJMI BOʻYICHA YETAKCHI TUMANLAR (MLN SOʻM)</div>
+
+    <!-- 1. PURE CSS TOP 10 BAR CHART -->
+    <div class="chart-section-top">
+        <div class="css-bar-group"><div class="css-bar-val">66.8</div><div class="css-bar" style="height: 95%;"></div><div class="css-bar-label">TUPROQ<br>QAL'A</div></div>
+        <div class="css-bar-group"><div class="css-bar-val">22.3</div><div class="css-bar" style="height: 32%;"></div><div class="css-bar-label">TAXIA<br>TOSH</div></div>
+        <div class="css-bar-group"><div class="css-bar-val">15.3</div><div class="css-bar" style="height: 22%;"></div><div class="css-bar-label">QORA<br>O'ZAK</div></div>
+        <div class="css-bar-group"><div class="css-bar-val">9.3</div><div class="css-bar" style="height: 13%;"></div><div class="css-bar-label">MO'Y<br>NOQ</div></div>
+        <div class="css-bar-group"><div class="css-bar-val">7.9</div><div class="css-bar" style="height: 11%;"></div><div class="css-bar-label">QO'NG'<br>IROT</div></div>
+        <div class="css-bar-group"><div class="css-bar-val">6.8</div><div class="css-bar" style="height: 10%;"></div><div class="css-bar-label">SHUMA<br>NAY</div></div>
+        <div class="css-bar-group"><div class="css-bar-val">4.2</div><div class="css-bar" style="height: 6%;"></div><div class="css-bar-label">CHIM<br>BOY</div></div>
+        <div class="css-bar-group"><div class="css-bar-val">3.5</div><div class="css-bar" style="height: 5%;"></div><div class="css-bar-label">ELLIK<br>QAL'A</div></div>
+        <div class="css-bar-group"><div class="css-bar-val">2.4</div><div class="css-bar" style="height: 4%;"></div><div class="css-bar-label">GUR<br>LAN</div></div>
+        <div class="css-bar-group"><div class="css-bar-val">2.1</div><div class="css-bar" style="height: 3%;"></div><div class="css-bar-label">URGANCH<br>TUMANI</div></div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- 2. PURE CSS GRID CHARTS -->
+    <div class="chart-section-grid">
+        
+        <!-- Bar Chart (Trade) -->
+        <div class="chart-card">
+            <div class="chart-title">QUYI AMUDARYO TASHQI SAVDO (MLN $)</div>
+            <div class="trade-chart-container">
+                <div class="trade-group">
+                    <div class="trade-bar-wrap"><div class="trade-bar exp" style="height: 34%;"><span class="trade-val">128</span></div></div>
+                    <div class="trade-bar-wrap"><div class="trade-bar imp" style="height: 100%;"><span class="trade-val">375</span></div></div>
+                </div>
+                <div class="trade-group">
+                    <div class="trade-bar-wrap"><div class="trade-bar exp" style="height: 80%;"><span class="trade-val">300</span></div></div>
+                    <div class="trade-bar-wrap"><div class="trade-bar imp" style="height: 34%;"><span class="trade-val">130</span></div></div>
+                </div>
+            </div>
+            <div class="chart-mini-legend">
+                <div class="mini-legend-item"><div class="mini-color" style="background:#22c55e;"></div>EKSPORT</div>
+                <div class="mini-legend-item"><div class="mini-color" style="background:#ef4444;"></div>IMPORT</div>
+            </div>
+            <div class="chart-mini-legend" style="margin-top: 0;">
+                <div class="mini-legend-item" style="margin-right: 5mm;">XORAZM</div>
+                <div class="mini-legend-item">QORAQALPOGʻISTON</div>
+            </div>
+        </div>
+
+        <!-- Donut Chart (Trade Umumiy) -->
+        <div class="chart-card">
+            <div class="chart-title">UMUMIY SAVDO AYLANMASI</div>
+            <div class="pie-container">
+                <div class="css-pie" style="background: conic-gradient(#ef4444 0% 54%, #22c55e 54% 100%);">
+                    <div class="css-donut-hole"></div>
+                </div>
+            </div>
+            <div class="chart-mini-legend">
+                <div class="mini-legend-item"><div class="mini-color" style="background:#22c55e;"></div>EKS (428)</div>
+                <div class="mini-legend-item"><div class="mini-color" style="background:#ef4444;"></div>IMP (505)</div>
+            </div>
+        </div>
+
+        <!-- Donut Chart (Invest) -->
+        <div class="chart-card">
+            <div class="chart-title">INVESTITSIYA TAQSIMOTI</div>
+            <div class="pie-container">
+                <div class="css-pie" style="background: conic-gradient(#8b5cf6 0% 29%, #f59e0b 29% 100%);">
+                    <div class="css-donut-hole"></div>
+                </div>
+            </div>
+            <div class="chart-mini-legend">
+                <div class="mini-legend-item"><div class="mini-color" style="background:#8b5cf6;"></div>XORAZM</div>
+                <div class="mini-legend-item"><div class="mini-color" style="background:#f59e0b;"></div>QORAQALPOGʻ.</div>
+            </div>
+        </div>
+
+        <!-- Pie Chart (Output) -->
+        <div class="chart-card">
+            <div class="chart-title">SANOAT HAJMI ULUSHI</div>
+            <div class="pie-container">
+                <div class="css-pie" style="background: conic-gradient(#ec4899 0% 24%, #06b6d4 24% 100%);"></div>
+            </div>
+            <div class="chart-mini-legend">
+                <div class="mini-legend-item"><div class="mini-color" style="background:#ec4899;"></div>XOR (24%)</div>
+                <div class="mini-legend-item"><div class="mini-color" style="background:#06b6d4;"></div>QOR (76%)</div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- 3. LEGEND SECTION (PERFECTLY MATCHED) -->
+    <div class="legend-container">
+        <div class="legend-title">SHARTLI BELGI</div>
+
+        <div class="legend-grid">
+            
+            <!-- CHEGARALAR -->
+            <div class="legend-group">
+                <div class="group-title">CHEGARALAR</div>
+                <div class="legend-items-wrapper">
+                    <div class="legend-item">
+                        <div class="symbol">
+                            <svg viewBox="0 0 60 20">
+                                <path d="M0,10 L60,10" stroke="#e570b8" stroke-width="18" stroke-linecap="square" />
+                                <path d="M0,10 L60,10" stroke="#e51a6e" stroke-width="12.5" stroke-linecap="square" />
+                                <path d="M0,10 L60,10" stroke="#232323" stroke-width="2" stroke-linecap="square" stroke-dasharray="15,6,3,6" />
+                            </svg>
+                        </div>
+                        <div class="label">RESPUBLIKA CHEGARASI</div>
+                    </div>
+                    <div class="legend-item">
+                        <div class="symbol">
+                            <svg viewBox="0 0 60 20">
+                                <path d="M0,10 L60,10" stroke="#e51a6e" stroke-width="8.6" stroke-linecap="square" />
+                                <path d="M0,10 L60,10" stroke="#232323" stroke-width="1.3" stroke-linecap="square" stroke-dasharray="12,6" />
+                            </svg>
+                        </div>
+                        <div class="label">VILOYAT CHEGARASI</div>
+                    </div>
+                    <div class="legend-item">
+                        <div class="symbol">
+                            <svg viewBox="0 0 60 20">
+                                <path d="M0,10 L60,10" stroke="#e570b8" stroke-width="4.7" stroke-linecap="square" />
+                                <path d="M0,10 L60,10" stroke="#232323" stroke-width="0.7" stroke-linecap="square" stroke-dasharray="8,4" />
+                            </svg>
+                        </div>
+                        <div class="label">TUMAN CHEGARASI</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ALOQA YOʻLLARI -->
+            <div class="legend-group">
+                <div class="group-title">ALOQA YOʻLLARI</div>
+                <div class="legend-items-wrapper">
+                    <div class="legend-item">
+                        <div class="symbol">
+                            <svg viewBox="0 0 60 20">
+                                <path d="M0,10 L60,10" stroke="#000000" stroke-width="4.7" stroke-linecap="square" />
+                                <path d="M0,10 L60,10" stroke="#e8660b" stroke-width="2.8" stroke-linecap="square" />
+                            </svg>
+                        </div>
+                        <div class="label">AVTOMOBIL YO'LLARI</div>
+                    </div>
+                    <div class="legend-item">
+                        <div class="symbol">
+                            <svg viewBox="0 0 60 20">
+                                <path d="M0,10 L60,10" stroke="#ffffff" stroke-width="4.7" stroke-linecap="square" />
+                                <path d="M0,10 L60,10" stroke="#000000" stroke-width="4.7" stroke-linecap="butt" stroke-dasharray="12,5" />
+                            </svg>
+                        </div>
+                        <div class="label">TEMIR YO'LLAR</div>
+                    </div>
+                    <div class="legend-item">
+                        <div class="symbol" style="height: 18pt;">
+                            <svg viewBox="0 0 100 100">
+                                <circle cx="50" cy="50" r="45" fill="#ffffff" stroke="#000000" stroke-width="5"/>
+                                <g transform="translate(50, 50) rotate(45) scale(0.6) translate(-50, -50)">
+                                    <path d="M50,15 C50,15 54,15 54,25 L54,45 L85,60 L85,65 L54,55 L54,75 L65,82 L65,85 L50,80 L35,85 L35,82 L46,75 L46,55 L15,65 L15,60 L46,45 L46,25 C46,15 50,15 50,15" fill="#000000"/>
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="label">AEROPORTLAR</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GIDROGRAFIYA -->
+            <div class="legend-group">
+                <div class="group-title">GIDROGRAFIYA</div>
+                <div class="legend-items-wrapper">
+                    <div class="legend-item">
+                        <div class="symbol">
+                            <svg viewBox="0 0 60 24">
+                                <path d="M0,0 L60,0 L60,24 L0,24 Z" fill="#4381b7" stroke="#232323" stroke-width="1.5" />
+                            </svg>
+                        </div>
+                        <div class="label">OROL DENGIZI</div>
+                    </div>
+                    <div class="legend-item">
+                        <div class="symbol">
+                            <svg viewBox="0 0 60 20">
+                                <path d="M0,10 L60,10" stroke="#3e5ae1" stroke-width="7.8" stroke-linecap="square" />
+                            </svg>
+                        </div>
+                        <div class="label">DARYOLAR</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BOSHQA -->
+            <div class="legend-group">
+                <div class="group-title">BOSHQA</div>
+                <div class="legend-items-wrapper">
+                    
+                    <div class="legend-item" style="flex-direction: column; align-items: flex-start;">
+                        <div class="label">TASHQI SAVDO:</div>
+                        <div class="inner-list" style="flex-direction: row; gap: 3mm; align-items: center; padding-left: 0;">
+                            <div style="display: flex; align-items: center; gap: 1mm;">
+                                <div style="width: 8pt; height: 8pt; background-color: #22c55e; clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); filter: drop-shadow(0 1pt 1pt rgba(34,197,94,0.35));"></div>
+                                <span class="sub-label">EKSPORT</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 1mm;">
+                                <div style="width: 8pt; height: 8pt; background-color: #ef4444; clip-path: polygon(0% 0%, 100% 0%, 50% 100%); filter: drop-shadow(0 1pt 1pt rgba(239,68,68,0.35));"></div>
+                                <span class="sub-label">IMPORT</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="legend-item" style="flex-direction: column; align-items: flex-start;">
+                        <div class="label">KORXONALAR SONI:</div>
+                        <div class="inner-list" style="flex-direction: row; flex-wrap: wrap;">
+                            <div class="inner-item" style="flex: 1; min-width: 45%;">
+                                <svg width="10" height="10"><circle cx="5" cy="5" r="4" fill="#612807" stroke="#232323" stroke-width="1"/></svg>
+                                <span class="sub-label">143-327</span>
+                            </div>
+                            <div class="inner-item" style="flex: 1; min-width: 45%;">
+                                <svg width="14" height="14"><circle cx="7" cy="7" r="6" fill="#612807" stroke="#232323" stroke-width="1"/></svg>
+                                <span class="sub-label">327-804</span>
+                            </div>
+                            <div class="inner-item" style="flex: 1; min-width: 45%;">
+                                <svg width="18" height="18"><circle cx="9" cy="9" r="8" fill="#612807" stroke="#232323" stroke-width="1"/></svg>
+                                <span class="sub-label">804-1559</span>
+                            </div>
+                            <div class="inner-item" style="flex: 1; min-width: 45%;">
+                                <svg width="22" height="22"><circle cx="11" cy="11" r="10" fill="#612807" stroke="#232323" stroke-width="1"/></svg>
+                                <span class="sub-label">1559-8433</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="legend-item" style="flex-direction: column; align-items: flex-start;">
+                        <div class="label">MAHSULOT HAJMI (MLRD):</div>
+                        <div class="inner-list" style="flex-direction: row; flex-wrap: wrap;">
+                            <div class="inner-item"><svg width="16" height="8"><rect width="16" height="8" fill="#fef0d9" stroke="#232323" stroke-width="1" rx="1"/></svg><span class="sub-label">18-195</span></div>
+                            <div class="inner-item"><svg width="16" height="8"><rect width="16" height="8" fill="#fdcc8a" stroke="#232323" stroke-width="1" rx="1"/></svg><span class="sub-label">195-448</span></div>
+                            <div class="inner-item"><svg width="16" height="8"><rect width="16" height="8" fill="#fc8d59" stroke="#232323" stroke-width="1" rx="1"/></svg><span class="sub-label">448-1074</span></div>
+                            <div class="inner-item"><svg width="16" height="8"><rect width="16" height="8" fill="#e34a33" stroke="#232323" stroke-width="1" rx="1"/></svg><span class="sub-label">1074-3934</span></div>
+                            <div class="inner-item"><svg width="16" height="8"><rect width="16" height="8" fill="#b30000" stroke="#232323" stroke-width="1" rx="1"/></svg><span class="sub-label">3934-705759</span></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <span>2024-YIL</span>
+        <span>MASSHTAB: 1:4 000 000</span>
+    </div>
+
+</div>
+
+</body>
+</html>
