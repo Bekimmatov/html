@@ -1,0 +1,3871 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kasbiy Qiziqishlar Tahlili | 26-sonli maktab</title>
+  <meta name="description" content="Xorazm viloyati Yangibozor tumani 26-sonli umumiy o'rta ta'lim maktabi 8-sinf o'quvchilarining kasbiy qiziqish va intilishlarini aniqlash metodikasi natijalari.">
+  <meta name="theme-color" content="#1e3a8a">
+  <style>
+    /* ==========================================================================
+       ZAMONAVIY CSS DIZAYN TIZIMI VA O'ZGARUVCHILAR
+       ========================================================================== */
+    :root {
+      --primary-dark: #0f172a;
+      --primary-blue: #1e3a8a;
+      --primary-indigo: #4338ca;
+      --primary-accent: #6366f1;
+      --accent-hover: #4f46e5;
+      --bg-main: #f8fafc;
+      --bg-card: #ffffff;
+      --bg-subtle: #f1f5f9;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --text-light: #94a3b8;
+      --border-color: #e2e8f0;
+      --border-focus: #818cf8;
+      
+      --color-success: #10b981;
+      --color-success-bg: #ecfdf5;
+      --color-warning: #f59e0b;
+      --color-warning-bg: #fffbeb;
+      --color-info: #0284c7;
+      --color-info-bg: #f0f9ff;
+      
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -2px rgba(0, 0, 0, 0.04);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.03);
+      --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+      
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-xl: 24px;
+      --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ==========================================================================
+       HEADER VA MAKTAB SOHASI
+       ========================================================================== */
+    .header {
+      background: linear-gradient(135deg, #091326 0%, #1e3a8a 55%, #312e81 100%);
+      color: #ffffff;
+      padding: 2.2rem 1.25rem 2.8rem;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 10px 25px -5px rgba(30, 58, 138, 0.35);
+      overflow: hidden;
+    }
+
+    .header::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0) 65%);
+      pointer-events: none;
+    }
+
+    .header-container {
+      max-width: 1050px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.85rem;
+    }
+
+    .school-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      padding: 0.4rem 1.1rem;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      text-transform: uppercase;
+    }
+
+    .school-title {
+      font-size: clamp(1.35rem, 3.2vw, 1.95rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+    }
+
+    .school-subtitle {
+      font-size: clamp(0.95rem, 2vw, 1.15rem);
+      font-weight: 400;
+      color: #e0e7ff;
+      max-width: 780px;
+      line-height: 1.45;
+    }
+
+    /* ==========================================================================
+       ASOSIY KONTEYNER VA SAHIFA BLOKLARI
+       ========================================================================== */
+    .main-wrapper {
+      max-width: 1100px;
+      width: 100%;
+      margin: -1.75rem auto 3rem;
+      padding: 0 1.25rem;
+      flex: 1;
+      position: relative;
+      z-index: 2;
+    }
+
+    .view-card {
+      background: var(--bg-card);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-xl);
+      border: 1px solid var(--border-color);
+      overflow: hidden;
+      transition: var(--transition);
+      animation: fadeIn 0.4s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ==========================================================================
+       O'QUVCHI PROFILI KARTASI (REPORT VIEW)
+       ========================================================================== */
+    .profile-hero {
+      background: linear-gradient(to right, #f8fafc, #f1f5f9);
+      padding: 2rem;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+
+    .profile-info {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      flex: 1;
+      min-width: 280px;
+    }
+
+    .profile-avatar {
+      width: 76px;
+      height: 76px;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, var(--primary-indigo), var(--primary-blue));
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.85rem;
+      font-weight: 700;
+      box-shadow: 0 6px 16px rgba(67, 56, 202, 0.28);
+      flex-shrink: 0;
+    }
+
+    .profile-details h1 {
+      font-size: 1.55rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      line-height: 1.2;
+      margin-bottom: 0.4rem;
+    }
+
+    .meta-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.25rem 0.75rem;
+      border-radius: 6px;
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+
+    .badge-id {
+      background-color: #e0e7ff;
+      color: #3730a3;
+      border: 1px solid #c7d2fe;
+    }
+
+    .badge-class {
+      background-color: #dbeafe;
+      color: #1e40af;
+      border: 1px solid #bfdbfe;
+    }
+
+    .badge-date {
+      background-color: #f1f5f9;
+      color: #475569;
+      border: 1px solid #e2e8f0;
+    }
+
+    .badge-total {
+      background-color: #ecfdf5;
+      color: #065f46;
+      border: 1px solid #a7f3d0;
+      font-size: 0.9rem;
+      padding: 0.35rem 0.85rem;
+    }
+
+    .profile-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.65rem 1.15rem;
+      border-radius: var(--radius-md);
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: var(--transition);
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background-color: var(--primary-indigo);
+      color: #ffffff;
+      box-shadow: 0 4px 10px rgba(67, 56, 202, 0.25);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--accent-hover);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background-color: #ffffff;
+      color: var(--primary-blue);
+      border-color: var(--border-color);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--bg-subtle);
+      border-color: #cbd5e1;
+    }
+
+    .btn-icon {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+    }
+
+    /* ==========================================================================
+       QR VA INDIVIDUAL HAVOLA BO'LIMI
+       ========================================================================== */
+    .qr-banner {
+      margin: 1.5rem 2rem 0;
+      background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+      border: 1px solid #86efac;
+      border-radius: var(--radius-lg);
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+    }
+
+    .qr-left {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    .qr-box {
+      width: 110px;
+      height: 110px;
+      background: #ffffff;
+      padding: 6px;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .qr-box svg {
+      width: 100% !important;
+      height: 100% !important;
+    }
+
+    .qr-text h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #14532d;
+      margin-bottom: 0.25rem;
+    }
+
+    .qr-text p {
+      font-size: 0.85rem;
+      color: #166534;
+      line-height: 1.4;
+      max-width: 480px;
+    }
+
+    /* ==========================================================================
+       SHAXSIYLASHTIRILGAN KASBIY TAVSIYA KARTASI
+       ========================================================================== */
+    .recommendation-card {
+      margin: 1.5rem 2rem;
+      background: linear-gradient(135deg, #eef2ff 0%, #faf5ff 100%);
+      border: 1px solid #c7d2fe;
+      border-left: 6px solid var(--primary-indigo);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem 1.75rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .recommendation-header {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .recommendation-header svg {
+      width: 26px;
+      height: 26px;
+      fill: var(--primary-indigo);
+    }
+
+    .recommendation-header h2 {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: #1e1b4b;
+    }
+
+    .top-directions-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .badge-dominant {
+      background: linear-gradient(135deg, #3730a3, #4338ca);
+      color: #ffffff;
+      padding: 0.35rem 0.85rem;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      box-shadow: 0 2px 5px rgba(67, 56, 202, 0.2);
+    }
+
+    .recommendation-text {
+      font-size: 0.95rem;
+      color: #312e81;
+      line-height: 1.6;
+    }
+
+    /* ==========================================================================
+       9 TA KASBIY YO'NALISH GRIDI
+       ========================================================================== */
+    .section-title-wrap {
+      padding: 1.25rem 2rem 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .section-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .directions-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      gap: 1.25rem;
+      padding: 1rem 2rem 2.25rem;
+    }
+
+    .dir-card {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .dir-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--border-focus);
+    }
+
+    .dir-card.highlight-card {
+      border: 2px solid var(--primary-accent);
+      background: linear-gradient(to bottom, #ffffff, #fdf4ff);
+    }
+
+    .dir-card.highlight-card::before {
+      content: "Ustuvor";
+      position: absolute;
+      top: 10px;
+      right: -28px;
+      background: var(--primary-accent);
+      color: #fff;
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 2px 28px;
+      transform: rotate(45deg);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+    }
+
+    .dir-top {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.85rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .dir-icon-wrap {
+      width: 46px;
+      height: 46px;
+      border-radius: var(--radius-md);
+      background: #eef2ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      flex-shrink: 0;
+      border: 1px solid #e0e7ff;
+    }
+
+    .dir-headings {
+      flex: 1;
+    }
+
+    .dir-name {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      line-height: 1.25;
+      margin-bottom: 0.2rem;
+    }
+
+    .dir-questions {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .dir-score-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+    }
+
+    .dir-score-num {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: var(--primary-blue);
+    }
+
+    .dir-score-max {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .dir-level-badge {
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.2rem 0.6rem;
+      border-radius: 9999px;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+
+    .level-high {
+      background-color: var(--color-success-bg);
+      color: #065f46;
+      border: 1px solid #6ee7b7;
+    }
+
+    .level-mid {
+      background-color: #eff6ff;
+      color: #1e40af;
+      border: 1px solid #bfdbfe;
+    }
+
+    .level-low {
+      background-color: var(--bg-subtle);
+      color: #64748b;
+      border: 1px solid var(--border-color);
+    }
+
+    /* Progress bar */
+    .progress-track {
+      width: 100%;
+      height: 10px;
+      background-color: #e2e8f0;
+      border-radius: 9999px;
+      overflow: hidden;
+      margin-bottom: 0.85rem;
+      position: relative;
+    }
+
+    .progress-fill {
+      height: 100%;
+      border-radius: 9999px;
+      transition: width 1s cubic-bezier(0.16, 1, 0.3, 1);
+      width: 0%;
+    }
+
+    .fill-high {
+      background: linear-gradient(90deg, #10b981, #059669);
+    }
+
+    .fill-mid {
+      background: linear-gradient(90deg, #3b82f6, #2563eb);
+    }
+
+    .fill-low {
+      background: linear-gradient(90deg, #94a3b8, #64748b);
+    }
+
+    .dir-desc {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+      margin-top: auto;
+      padding-top: 0.5rem;
+      border-top: 1px dashed #e2e8f0;
+    }
+
+    /* ==========================================================================
+       QIDIRUV VA RO'YXAT PANELI (DIRECTORY VIEW)
+       ========================================================================== */
+    .directory-container {
+      padding: 2.25rem 2rem;
+    }
+
+    .search-alert {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: var(--radius-md);
+      padding: 1rem 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.75rem;
+      color: #1e40af;
+      font-size: 0.95rem;
+    }
+
+    .search-alert svg {
+      width: 22px;
+      height: 22px;
+      fill: #2563eb;
+      flex-shrink: 0;
+    }
+
+    .search-controls {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .search-input-wrap {
+      position: relative;
+      width: 100%;
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 20px;
+      height: 20px;
+      fill: var(--text-muted);
+      pointer-events: none;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 0.85rem 1rem 0.85rem 2.85rem;
+      font-size: 1rem;
+      border: 2px solid var(--border-color);
+      border-radius: var(--radius-md);
+      outline: none;
+      transition: var(--transition);
+      background-color: #ffffff;
+      color: var(--text-main);
+    }
+
+    .search-input:focus {
+      border-color: var(--primary-accent);
+      box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15);
+    }
+
+    .filter-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .chip {
+      padding: 0.35rem 0.85rem;
+      border-radius: 9999px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      background: #f1f5f9;
+      color: #475569;
+      border: 1px solid #e2e8f0;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .chip:hover, .chip.active {
+      background: var(--primary-indigo);
+      color: #ffffff;
+      border-color: var(--primary-indigo);
+    }
+
+    .students-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.15rem;
+    }
+
+    .student-item-card {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 1.15rem;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: var(--transition);
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .student-item-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--primary-accent);
+    }
+
+    .st-top-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.5rem;
+    }
+
+    .st-name {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 0.4rem;
+    }
+
+    .st-top-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .st-btn-view {
+      margin-top: auto;
+      background: #eef2ff;
+      color: var(--primary-indigo);
+      padding: 0.5rem 0.85rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-align: center;
+      border: 1px solid #c7d2fe;
+      transition: var(--transition);
+    }
+
+    .student-item-card:hover .st-btn-view {
+      background: var(--primary-indigo);
+      color: #ffffff;
+    }
+
+    /* ==========================================================================
+       TOAST VA XABARNOMA
+       ========================================================================== */
+    .toast {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: #0f172a;
+      color: #ffffff;
+      padding: 0.75rem 1.25rem;
+      border-radius: var(--radius-md);
+      font-size: 0.9rem;
+      font-weight: 600;
+      box-shadow: var(--shadow-xl);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: var(--transition);
+      pointer-events: none;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ==========================================================================
+       FOOTER VA IJTIMOIY TARMOQLAR
+       ========================================================================== */
+    .footer {
+      background: #0a0f1d;
+      color: #94a3b8;
+      padding: 3rem 1.25rem 2rem;
+      margin-top: auto;
+      border-top: 1px solid #1e293b;
+    }
+
+    .footer-content {
+      max-width: 1050px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 1.5rem;
+    }
+
+    .footer-author {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #f8fafc;
+      letter-spacing: -0.01em;
+    }
+
+    .footer-school-sub {
+      font-size: 0.9rem;
+      color: #64748b;
+      max-width: 600px;
+    }
+
+    .social-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .social-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #f1f5f9;
+      padding: 0.6rem 1.1rem;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .social-btn:hover {
+      background: rgba(255, 255, 255, 0.15);
+      color: #ffffff;
+      transform: translateY(-2px);
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .social-btn svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+    }
+
+    .footer-copy {
+      font-size: 0.8rem;
+      color: #475569;
+      border-top: 1px solid #1e293b;
+      padding-top: 1.5rem;
+      width: 100%;
+    }
+
+    /* ==========================================================================
+       CHOP ETISH UCHUN OPTIMALLASHTIRISH (PRINT STYLES)
+       ========================================================================== */
+    @media print {
+      body {
+        background: #ffffff !important;
+        color: #000000 !important;
+      }
+      .header {
+        background: none !important;
+        color: #000000 !important;
+        box-shadow: none !important;
+        padding: 1rem 0 !important;
+        border-bottom: 2px solid #000 !important;
+      }
+      .school-badge, .school-subtitle {
+        color: #333333 !important;
+      }
+      .main-wrapper {
+        margin: 0 !important;
+        padding: 0 !important;
+        max-width: 100% !important;
+      }
+      .view-card {
+        box-shadow: none !important;
+        border: none !important;
+      }
+      .profile-actions, .qr-right, .footer, .toast {
+        display: none !important;
+      }
+      .qr-banner {
+        background: none !important;
+        border: 1px solid #000000 !important;
+        margin: 1rem 0 !important;
+      }
+      .recommendation-card {
+        background: none !important;
+        border: 1px solid #000000 !important;
+        margin: 1rem 0 !important;
+      }
+      .directions-grid {
+        padding: 1rem 0 !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 0.75rem !important;
+      }
+      .dir-card {
+        box-shadow: none !important;
+        border: 1px solid #ccc !important;
+        break-inside: avoid;
+      }
+    }
+
+    /* ==========================================================================
+       MOBIL VA MOSLASHUVCHAN EKRAN SOZLAMALARI
+       ========================================================================== */
+    @media (max-width: 768px) {
+      .header {
+        padding: 1.75rem 1rem 2.25rem;
+      }
+      .profile-hero {
+        padding: 1.25rem;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .profile-actions {
+        width: 100%;
+      }
+      .profile-actions .btn {
+        flex: 1;
+      }
+      .qr-banner {
+        margin: 1rem 1.25rem 0;
+        padding: 1rem;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .recommendation-card {
+        margin: 1rem 1.25rem;
+        padding: 1.25rem;
+      }
+      .section-title-wrap {
+        padding: 1rem 1.25rem 0.25rem;
+      }
+      .directions-grid {
+        grid-template-columns: 1fr;
+        padding: 0.75rem 1.25rem 1.75rem;
+      }
+      .directory-container {
+        padding: 1.5rem 1.25rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==========================================================================
+       YUQORI SARLAVHA VA MAKTAB MA'LUMOTLARI
+       ========================================================================== -->
+  <header class="header">
+    <div class="header-container">
+      <div class="school-badge">
+        <svg style="width: 16px; height: 16px; fill: currentColor;" viewBox="0 0 24 24">
+          <path d="M12 3L1 9L12 15L21 10.09V17H23V9M5 13.18V17.18L12 21L19 17.18V13.18L12 17L5 13.18Z"/>
+        </svg>
+        <span>Respublika Ta'lim Tizimi &bull; 8-Sinf</span>
+      </div>
+      <h1 class="school-title">Xorazm viloyati Yangibozor tumani 26-sonli umumiy oʻrta taʼlim maktabi</h1>
+      <p class="school-subtitle">O'quvchilarning qiziqishlari va kasbiy intilishlarini aniqlash metodikasi tahlili</p>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       ASOSIY DASTURIY MAYDON (DINAMIK O'ZGARUVCHI)
+       ========================================================================== -->
+  <main class="main-wrapper">
+    <div class="view-card" id="app-root">
+      <!-- Dinamik ravishda JavaScript orqali to'ldiriladi -->
+    </div>
+  </main>
+
+  <!-- ==========================================================================
+       PASTI MUALLIF VA IJTIMOIY TARMOQLAR
+       ========================================================================== -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-author">Maktab maslahatchisi: Bekimmatov Rahmatjon</div>
+      <p class="footer-school-sub">
+        Xorazm viloyati Yangibozor tumani 26-sonli umumiy o'rta ta'lim maktabi psixologik xizmati &bull; Kasb-hunarga yo'naltirish tashxisi
+      </p>
+
+      <!-- Ijtimoiy tarmoqlar SVG ikonkalari bilan -->
+      <div class="social-links">
+        <!-- Email -->
+        <a href="mailto:yangibozor26maktab@gmail.com" class="social-btn" title="Email orqali bog'lanish" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z"/></svg>
+          <span>Email</span>
+        </a>
+
+        <!-- Telegram -->
+        <a href="https://t.me/yangibozor26maktab" class="social-btn" title="Rasmiy Telegram kanal" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
+          <span>Telegram</span>
+        </a>
+
+        <!-- Instagram -->
+        <a href="https://www.instagram.com/yangibozor26maktab" class="social-btn" title="Rasmiy Instagram sahifa" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          <span>Instagram</span>
+        </a>
+
+        <!-- YouTube -->
+        <a href="https://youtube.com/@yangibozor26maktab" class="social-btn" title="Rasmiy YouTube kanal" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          <span>YouTube</span>
+        </a>
+
+        <!-- Facebook -->
+        <a href="http://facebook.com/yangibozor26maktab" class="social-btn" title="Rasmiy Facebook sahifa" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          <span>Facebook</span>
+        </a>
+      </div>
+
+      <div class="footer-copy">
+        &copy; 2026-2027 o'quv yili. Xorazm viloyati Yangibozor tumani 26-sonli umumiy o'rta ta'lim maktabi. Barcha huquqlar himoyalangan.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Qalqib chiquvchi xabarnoma (Toast) -->
+  <div id="toast" class="toast">
+    <svg style="width: 18px; height: 18px; fill: #10b981;" viewBox="0 0 24 24">
+      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+    </svg>
+    <span id="toast-msg">Nusxalandi!</span>
+  </div>
+
+  <!-- ==========================================================================
+       JAVASCRIPT: MA'LUMOTLAR BAZASI, QR GENERATOR VA ILOVA MANTIG'I
+       ========================================================================== -->
+  <script>
+    /**
+     * ============================================================================
+     * YO'RIQNOMA: EXCEL MA'LUMOTLARINI USHBU JSON MASSIVGA KIRITISH VA YANGILASH
+     * ============================================================================
+     * 1. Excel faylida ("8_sinf_psixologik_test_tahlili.xlsx") har bir o'quvchining 45 ta savol
+     *    bo'yicha javoblari kiritilgandan so'ng, 9 ta yo'nalish ballari avtomatik hisoblanadi.
+     * 2. Python skripti orqali yangi o'quvchilarni JSON formatiga eksport qilish:
+     *    python3 -c "import json; ... print(json.dumps(yangi_massiv))"
+     * 3. Quyidagi `STUDENTS_DATABASE` massivi o'rniga yangi ma'lumotlarni qo'yishingiz mumkin.
+     *    Har bir obyekt quyidagi tuzilmaga ega bo'lishi shart:
+     *    {
+     *      "number": 1,
+     *      "id": "8A-01",          // O'quvchi ID kodi (URL orqali uzatiladi: ?id=8A-01)
+     *      "id_num": "1",          // Qisqa raqamli ID (?id=1 deb kirilganda ham o'qiydi)
+     *      "ism": "Ism Familiya",  // O'quvchi to'liq ismi
+     *      "sinf": "8-A",          // O'quvchining sinfi
+     *      "sana": "07.10.2026",   // Test o'tkazilgan sana
+     *      "ballar": {
+     *        "jismoniy": 5,        // 1, 10, 19, 28, 37-savollar yig'indisi (0..5)
+     *        "tashkilotchilik": 3, // 2, 11, 20, 29, 38-savollar yig'indisi (0..5)
+     *        "matematik": 4,       // 3, 12, 21, 30, 39-savollar yig'indisi (0..5)
+     *        "konstruktorlik": 4,  // 4, 13, 22, 31, 40-savollar yig'indisi (0..5)
+     *        "tasviriy_artistik": 2, // 5, 14, 23, 32, 41-savollar yig'indisi (0..5)
+     *        "kommunikativ": 3,    // 6, 15, 24, 33, 42-savollar yig'indisi (0..5)
+     *        "musiqiy": 1,         // 7, 16, 25, 34, 43-savollar yig'indisi (0..5)
+     *        "badiiy_tasviriy": 2, // 8, 17, 26, 35, 44-savollar yig'indisi (0..5)
+     *        "filologik": 2        // 9, 18, 27, 36, 45-savollar yig'indisi (0..5)
+     *      },
+     *      "jami": 26,             // Jami ball (barcha 9 ta yo'nalish yig'indisi)
+     *      "ustuvor": "Jismoniy, Matematik", // Eng yuqori ball to'plangan soha(lar)
+     *      "tavsiya": "Shaxsiylashtirilgan kasbiy tavsiya matni..."
+     *    }
+     * 4. GitHub Pages orqali ishlatish: Faylni `index.html` nomi bilan asosiy papkaga joylab,
+     *    GitHub repository Settings -> Pages bo'limidan 'main branch'ni yoqing.
+     *    Individual QR kod havolasi: https://<username>.github.io/<repo>/?id=8A-01
+     * ============================================================================
+     */
+
+    const STUDENTS_DATABASE = [
+  {
+    "number": 1,
+    "id": "8A-01",
+    "id_num": "1",
+    "ism": "Kuranbayev Begzodbek Dilshad O'g'li",
+    "sinf": "8-A",
+    "sana": "07.10.2026",
+    "savollar": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      1,
+      0
+    ],
+    "ballar": {
+      "jismoniy": 5,
+      "tashkilotchilik": 2,
+      "matematik": 4,
+      "konstruktorlik": 4,
+      "tasviriy_artistik": 2,
+      "kommunikativ": 2,
+      "musiqiy": 0,
+      "badiiy_tasviriy": 1,
+      "filologik": 1
+    },
+    "jami": 21,
+    "ustuvor": "Jismoniy (sport), Matematik, Konstruktorlik-texnika",
+    "tavsiya": "O'quvchida Jismoniy (sport), Matematik, Konstruktorlik-texnika yo'nalishlarida yuqori qiziqish va tabiiy moyillik aniqlandi. Tavsiya etiladigan sohalar va kasblar: Professional sportchi, murabbiy, jismoniy tarbiya o'qituvchisi, fitnes instruktor, harbiy soha, favqulodda vaziyatlar xodimi; Dasturchi, IT mutaxassis, ma'lumotlar tahlilchisi (Data Analyst), iqtisodchi, moliya tahlilchisi, matematik-tadqiqotchi. 8-9-sinflarda chuqurlashtirilgan to'garaklar va amaliy loyihalarga jalb etish tavsiya qilinadi."
+  },
+  {
+    "number": 2,
+    "id": "8A-02",
+    "id_num": "2",
+    "ism": "Ro'zimova Malika Raximboy Qizi",
+    "sinf": "8-A",
+    "sana": "07.10.2026",
+    "savollar": [
+      0,
+      1,
+      1,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1,
+      0,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      1,
+      1,
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      1,
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      1
+    ],
+    "ballar": {
+      "jismoniy": 0,
+      "tashkilotchilik": 5,
+      "matematik": 1,
+      "konstruktorlik": 0,
+      "tasviriy_artistik": 3,
+      "kommunikativ": 5,
+      "musiqiy": 1,
+      "badiiy_tasviriy": 4,
+      "filologik": 5
+    },
+    "jami": 24,
+    "ustuvor": "Tashkilotchilik, Kommunikativ, Filologik (til-adabiyot)",
+    "tavsiya": "O'quvchida Tashkilotchilik, Kommunikativ, Filologik (til-adabiyot) yo'nalishlarida yuqori qiziqish va tabiiy moyillik aniqlandi. Tavsiya etiladigan sohalar va kasblar: Menejer, loyiha boshqaruvchisi (Project Manager), rahbar, tadbirkor, event-menejer, ma'muriy boshqaruvchi; Psixolog, pedagog, kadrlar bo'yicha mutaxassis (HR), diplomat, PR menejer, ijtimoiy xodim. 8-9-sinflarda chuqurlashtirilgan to'garaklar va amaliy loyihalarga jalb etish tavsiya qilinadi."
+  },
+  {
+    "number": 3,
+    "id": "8A-03",
+    "id_num": "3",
+    "ism": "Shamuratov Zafarbek Zoxid O'g'li",
+    "sinf": "8-A",
+    "sana": "07.10.2026",
+    "savollar": [
+      1,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1,
+      0,
+      0,
+      0
+    ],
+    "ballar": {
+      "jismoniy": 2,
+      "tashkilotchilik": 3,
+      "matematik": 5,
+      "konstruktorlik": 5,
+      "tasviriy_artistik": 1,
+      "kommunikativ": 1,
+      "musiqiy": 0,
+      "badiiy_tasviriy": 2,
+      "filologik": 0
+    },
+    "jami": 19,
+    "ustuvor": "Matematik, Konstruktorlik-texnika",
+    "tavsiya": "O'quvchida Matematik, Konstruktorlik-texnika yo'nalishlarida yuqori qiziqish va tabiiy moyillik aniqlandi. Tavsiya etiladigan sohalar va kasblar: Dasturchi, IT mutaxassis, ma'lumotlar tahlilchisi (Data Analyst), iqtisodchi, moliya tahlilchisi, matematik-tadqiqotchi; Muhandis-konstruktor, robototexnik, arxitektor, texnolog, avtomobil muhandisi, elektronika mutaxassisi. 8-9-sinflarda chuqurlashtirilgan to'garaklar va amaliy loyihalarga jalb etish tavsiya qilinadi."
+  },
+  {
+    "number": 4,
+    "id": "8A-04",
+    "id_num": "4",
+    "ism": "Donlyorbekov Nurbek Doniyorbek O'g'li",
+    "sinf": "8-A",
+    "sana": "07.10.2026",
+    "savollar": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0
+    ],
+    "ballar": {
+      "jismoniy": 4,
+      "tashkilotchilik": 4,
+      "matematik": 1,
+      "konstruktorlik": 0,
+      "tasviriy_artistik": 1,
+      "kommunikativ": 2,
+      "musiqiy": 2,
+      "badiiy_tasviriy": 2,
+      "filologik": 0
+    },
+    "jami": 16,
+    "ustuvor": "Jismoniy (sport), Tashkilotchilik",
+    "tavsiya": "O'quvchida Jismoniy (sport), Tashkilotchilik yo'nalishlarida yuqori qiziqish va tabiiy moyillik aniqlandi. Tavsiya etiladigan sohalar va kasblar: Professional sportchi, murabbiy, jismoniy tarbiya o'qituvchisi, fitnes instruktor, harbiy soha, favqulodda vaziyatlar xodimi; Menejer, loyiha boshqaruvchisi (Project Manager), rahbar, tadbirkor, event-menejer, ma'muriy boshqaruvchi. 8-9-sinflarda chuqurlashtirilgan to'garaklar va amaliy loyihalarga jalb etish tavsiya qilinadi."
+  },
+  {
+    "number": 5,
+    "id": "8A-05",
+    "id_num": "5",
+    "ism": "Sadillayeva Dilnura Elmurod Qizi",
+    "sinf": "8-A",
+    "sana": "07.10.2026",
+    "savollar": [
+      0,
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      1,
+      1,
+      0,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0
+    ],
+    "ballar": {
+      "jismoniy": 0,
+      "tashkilotchilik": 2,
+      "matematik": 0,
+      "konstruktorlik": 0,
+      "tasviriy_artistik": 4,
+      "kommunikativ": 3,
+      "musiqiy": 1,
+      "badiiy_tasviriy": 4,
+      "filologik": 2
+    },
+    "jami": 16,
+    "ustuvor": "Tasviriy (artistik), Badiiy-tasviriy",
+    "tavsiya": "O'quvchida Tasviriy (artistik), Badiiy-tasviriy yo'nalishlarida yuqori qiziqish va tabiiy moyillik aniqlandi. Tavsiya etiladigan sohalar va kasblar: Aktyor, rejissyor, teatr va kino xodimi, sahna ustasi, madaniyat xodimi, notiq; Grafik dizayner, rassom, illyustrator, interyer dizayneri, animator, haykaltarosh. 8-9-sinflarda chuqurlashtirilgan to'garaklar va amaliy loyihalarga jalb etish tavsiya qilinadi."
+  },
+  {
+    "number": 6,
+    "id": "8A-06",
+    "id_num": "6",
+    "ism": "Yuldashev Nizomiddin Siroj o'g'li",
+    "sinf": "8-A",
+    "sana": "07.10.2026",
+    "savollar": [
+      1,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ballar": {
+      "jismoniy": 2,
+      "tashkilotchilik": 2,
+      "matematik": 5,
+      "konstruktorlik": 5,
+      "tasviriy_artistik": 0,
+      "kommunikativ": 0,
+      "musiqiy": 1,
+      "badiiy_tasviriy": 0,
+      "filologik": 0
+    },
+    "jami": 15,
+    "ustuvor": "Matematik, Konstruktorlik-texnika",
+    "tavsiya": "O'quvchida Matematik, Konstruktorlik-texnika yo'nalishlarida yuqori qiziqish va tabiiy moyillik aniqlandi. Tavsiya etiladigan sohalar va kasblar: Dasturchi, IT mutaxassis, ma'lumotlar tahlilchisi (Data Analyst), iqtisodchi, moliya tahlilchisi, matematik-tadqiqotchi; Muhandis-konstruktor, robototexnik, arxitektor, texnolog, avtomobil muhandisi, elektronika mutaxassisi. 8-9-sinflarda chuqurlashtirilgan to'garaklar va amaliy loyihalarga jalb etish tavsiya qilinadi."
+  },
+  {
+    "number": 7,
+    "id": "8A-07",
+    "id_num": "7",
+    "ism": "Shermetov Mehrbek O'tkir o'g'li",
+    "sinf": "8-A",
+    "sana": "07.10.2026",
+    "savollar": [
+      1,
+      1,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ballar": {
+      "jismoniy": 4,
+      "tashkilotchilik": 4,
+      "matematik": 2,
+      "konstruktorlik": 4,
+      "tasviriy_artistik": 2,
+      "kommunikativ": 2,
+      "musiqiy": 2,
+      "badiiy_tasviriy": 0,
+      "filologik": 0
+    },
+    "jami": 20,
+    "ustuvor": "Jismoniy (sport), Tashkilotchilik, Konstruktorlik-texnika",
+    "tavsiya": "O'quvchida Jismoniy (sport), Tashkilotchilik, Konstruktorlik-texnika yo'nalishlarida yuqori qiziqish va tabiiy moyillik aniqlandi. Tavsiya etiladigan sohalar va kasblar: Professional sportchi, murabbiy, jismoniy tarbiya o'qituvchisi, fitnes instruktor, harbiy soha, favqulodda vaziyatlar xodimi; Menejer, loyiha boshqaruvchisi (Project Manager), rahbar, tadbirkor, event-menejer, ma'muriy boshqaruvchi. 8-9-sinflarda chuqurlashtirilgan to'garaklar va amaliy loyihalarga jalb etish tavsiya qilinadi."
+  },
+  {
+    "number": 8,
+    "id": "8A-08",
+    "id_num": "8",
+    "ism": "Matqurbanova Nafisa Uyg'un Qizi",
+    "sinf": "8-A",
+    "sana": "07.10.2026",
+    "savollar": [
+      0,
+      1,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1
+    ],
+    "ballar": {
+      "jismoniy": 0,
+      "tashkilotchilik": 1,
+      "matematik": 2,
+      "konstruktorlik": 2,
+      "tasviriy_artistik": 2,
+      "kommunikativ": 4,
+      "musiqiy": 1,
+      "badiiy_tasviriy": 0,
+      "filologik": 5
+    },
+    "jami": 17,
+    "ustuvor": "Filologik (til-adabiyot), Kommunikativ",
+    "tavsiya": "O'quvchida Filologik (til-adabiyot), Kommunikativ yo'nalishlarida yuqori qiziqish va tabiiy moyillik aniqlandi. Tavsiya etiladigan sohalar va kasblar: Jurnalist, muharrir, yozuvchi, tarjimon, tilshunos, kopirayter, matbuot kotibi; Psixolog, pedagog, kadrlar bo'yicha mutaxassis (HR), diplomat, PR menejer, ijtimoiy xodim. 8-9-sinflarda chuqurlashtirilgan to'garaklar va amaliy loyihalarga jalb etish tavsiya qilinadi."
+  },
+  {
+    "number": 9,
+    "id": "8A-09",
+    "id_num": "9",
+    "ism": "Muxammadsapoyev Shoxjoxon Madraximovich",
+    "sinf": "8-A",
+    "sana": "07.10.2026",
+    "savollar": [
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      1,
+      0,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ballar": {
+      "jismoniy": 0,
+      "tashkilotchilik": 2,
+      "matematik": 5,
+      "konstruktorlik": 4,
+      "tasviriy_artistik": 0,
+      "kommunikativ": 0,
+      "musiqiy": 2,
+      "badiiy_tasviriy": 1,
+      "filologik": 1
+    },
+    "jami": 15,
+    "ustuvor": "Matematik, Konstruktorlik-texnika",
+    "tavsiya": "O'quvchida Matematik, Konstruktorlik-texnika yo'nalishlarida yuqori qiziqish va tabiiy moyillik aniqlandi. Tavsiya etiladigan sohalar va kasblar: Dasturchi, IT mutaxassis, ma'lumotlar tahlilchisi (Data Analyst), iqtisodchi, moliya tahlilchisi, matematik-tadqiqotchi; Muhandis-konstruktor, robototexnik, arxitektor, texnolog, avtomobil muhandisi, elektronika mutaxassisi. 8-9-sinflarda chuqurlashtirilgan to'garaklar va amaliy loyihalarga jalb etish tavsiya qilinadi."
+  },
+  {
+    "number": 10,
+    "id": "8A-10",
+    "id_num": "10",
+    "ism": "Bekberganova Nozima Umidbek Qizi",
+    "sinf": "8-A",
+    "sana": "07.10.2026",
+    "savollar": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      1,
+      0
+    ],
+    "ballar": {
+      "jismoniy": 0,
+      "tashkilotchilik": 0,
+      "matematik": 1,
+      "konstruktorlik": 0,
+      "tasviriy_artistik": 2,
+      "kommunikativ": 0,
+      "musiqiy": 4,
+      "badiiy_tasviriy": 4,
+      "filologik": 0
+    },
+    "jami": 11,
+    "ustuvor": "Musiqiy, Badiiy-tasviriy",
+    "tavsiya": "O'quvchida Musiqiy, Badiiy-tasviriy yo'nalishlarida yuqori qiziqish va tabiiy moyillik aniqlandi. Tavsiya etiladigan sohalar va kasblar: Musiqachi, bastakor, vokalchi, dirijyor, ovoz rejissyori, musiqa o'qituvchisi; Grafik dizayner, rassom, illyustrator, interyer dizayneri, animator, haykaltarosh. 8-9-sinflarda chuqurlashtirilgan to'garaklar va amaliy loyihalarga jalb etish tavsiya qilinadi."
+  },
+  {
+    "number": 11,
+    "id": "8A-11",
+    "id_num": "11",
+    "ism": "Tursunova Oydinoy Ozodboy qizi",
+    "sinf": "8-A",
+    "sana": "07.10.2026",
+    "savollar": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1
+    ],
+    "ballar": {
+      "jismoniy": 1,
+      "tashkilotchilik": 1,
+      "matematik": 1,
+      "konstruktorlik": 2,
+      "tasviriy_artistik": 0,
+      "kommunikativ": 3,
+      "musiqiy": 2,
+      "badiiy_tasviriy": 5,
+      "filologik": 4
+    },
+    "jami": 19,
+    "ustuvor": "Badiiy-tasviriy, Filologik (til-adabiyot)",
+    "tavsiya": "O'quvchida Badiiy-tasviriy, Filologik (til-adabiyot) yo'nalishlarida yuqori qiziqish va tabiiy moyillik aniqlandi. Tavsiya etiladigan sohalar va kasblar: Grafik dizayner, rassom, illyustrator, interyer dizayneri, animator, haykaltarosh; Jurnalist, muharrir, yozuvchi, tarjimon, tilshunos, kopirayter, matbuot kotibi. 8-9-sinflarda chuqurlashtirilgan to'garaklar va amaliy loyihalarga jalb etish tavsiya qilinadi."
+  },
+  {
+    "number": 12,
+    "id": "8A-12",
+    "id_num": "12",
+    "ism": "Amanboyeva Gulyor Otabek Qizi",
+    "sinf": "8-A",
+    "sana": "07.10.2026",
+    "savollar": [
+      1,
+      1,
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      1
+    ],
+    "ballar": {
+      "jismoniy": 2,
+      "tashkilotchilik": 3,
+      "matematik": 2,
+      "konstruktorlik": 1,
+      "tasviriy_artistik": 2,
+      "kommunikativ": 5,
+      "musiqiy": 0,
+      "badiiy_tasviriy": 2,
+      "filologik": 5
+    },
+    "jami": 22,
+    "ustuvor": "Kommunikativ, Filologik (til-adabiyot)",
+    "tavsiya": "O'quvchida Kommunikativ, Filologik (til-adabiyot) yo'nalishlarida yuqori qiziqish va tabiiy moyillik aniqlandi. Tavsiya etiladigan sohalar va kasblar: Psixolog, pedagog, kadrlar bo'yicha mutaxassis (HR), diplomat, PR menejer, ijtimoiy xodim; Jurnalist, muharrir, yozuvchi, tarjimon, tilshunos, kopirayter, matbuot kotibi. 8-9-sinflarda chuqurlashtirilgan to'garaklar va amaliy loyihalarga jalb etish tavsiya qilinadi."
+  },
+  {
+    "number": 13,
+    "id": "8A-13",
+    "id_num": "13",
+    "ism": "Sultanov Firdavs To'ychibek o'g'li",
+    "sinf": "8-A",
+    "sana": "07.10.2026",
+    "savollar": [
+      1,
+      0,
+      0,
+      1,
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0
+    ],
+    "ballar": {
+      "jismoniy": 5,
+      "tashkilotchilik": 0,
+      "matematik": 3,
+      "konstruktorlik": 5,
+      "tasviriy_artistik": 0,
+      "kommunikativ": 1,
+      "musiqiy": 0,
+      "badiiy_tasviriy": 2,
+      "filologik": 1
+    },
+    "jami": 17,
+    "ustuvor": "Jismoniy (sport), Konstruktorlik-texnika",
+    "tavsiya": "O'quvchida Jismoniy (sport), Konstruktorlik-texnika yo'nalishlarida yuqori qiziqish va tabiiy moyillik aniqlandi. Tavsiya etiladigan sohalar va kasblar: Professional sportchi, murabbiy, jismoniy tarbiya o'qituvchisi, fitnes instruktor, harbiy soha, favqulodda vaziyatlar xodimi; Muhandis-konstruktor, robototexnik, arxitektor, texnolog, avtomobil muhandisi, elektronika mutaxassisi. 8-9-sinflarda chuqurlashtirilgan to'garaklar va amaliy loyihalarga jalb etish tavsiya qilinadi."
+  },
+  {
+    "number": 14,
+    "id": "8A-14",
+    "id_num": "14",
+    "ism": "Yo'ldoshbayev Aslbek Azamat O'g'li",
+    "sinf": "8-A",
+    "sana": "07.10.2026",
+    "savollar": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0
+    ],
+    "ballar": {
+      "jismoniy": 5,
+      "tashkilotchilik": 5,
+      "matematik": 0,
+      "konstruktorlik": 0,
+      "tasviriy_artistik": 1,
+      "kommunikativ": 4,
+      "musiqiy": 2,
+      "badiiy_tasviriy": 0,
+      "filologik": 0
+    },
+    "jami": 17,
+    "ustuvor": "Jismoniy (sport), Tashkilotchilik",
+    "tavsiya": "O'quvchida Jismoniy (sport), Tashkilotchilik yo'nalishlarida yuqori qiziqish va tabiiy moyillik aniqlandi. Tavsiya etiladigan sohalar va kasblar: Professional sportchi, murabbiy, jismoniy tarbiya o'qituvchisi, fitnes instruktor, harbiy soha, favqulodda vaziyatlar xodimi; Menejer, loyiha boshqaruvchisi (Project Manager), rahbar, tadbirkor, event-menejer, ma'muriy boshqaruvchi. 8-9-sinflarda chuqurlashtirilgan to'garaklar va amaliy loyihalarga jalb etish tavsiya qilinadi."
+  },
+  {
+    "number": 15,
+    "id": "8A-15",
+    "id_num": "15",
+    "ism": "Atamuratov Abdulaziz Bekzod O'g'li",
+    "sinf": "8-A",
+    "sana": "07.10.2026",
+    "savollar": [
+      1,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ballar": {
+      "jismoniy": 4,
+      "tashkilotchilik": 1,
+      "matematik": 4,
+      "konstruktorlik": 4,
+      "tasviriy_artistik": 2,
+      "kommunikativ": 0,
+      "musiqiy": 0,
+      "badiiy_tasviriy": 1,
+      "filologik": 0
+    },
+    "jami": 16,
+    "ustuvor": "Jismoniy (sport), Matematik, Konstruktorlik-texnika",
+    "tavsiya": "O'quvchida Jismoniy (sport), Matematik, Konstruktorlik-texnika yo'nalishlarida yuqori qiziqish va tabiiy moyillik aniqlandi. Tavsiya etiladigan sohalar va kasblar: Professional sportchi, murabbiy, jismoniy tarbiya o'qituvchisi, fitnes instruktor, harbiy soha, favqulodda vaziyatlar xodimi; Dasturchi, IT mutaxassis, ma'lumotlar tahlilchisi (Data Analyst), iqtisodchi, moliya tahlilchisi, matematik-tadqiqotchi. 8-9-sinflarda chuqurlashtirilgan to'garaklar va amaliy loyihalarga jalb etish tavsiya qilinadi."
+  },
+  {
+    "number": 16,
+    "id": "8A-16",
+    "id_num": "16",
+    "ism": "Ruzmetov Suxrob Otabek O'g'li",
+    "sinf": "8-A",
+    "sana": "07.10.2026",
+    "savollar": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ballar": {
+      "jismoniy": 5,
+      "tashkilotchilik": 4,
+      "matematik": 0,
+      "konstruktorlik": 2,
+      "tasviriy_artistik": 1,
+      "kommunikativ": 2,
+      "musiqiy": 1,
+      "badiiy_tasviriy": 1,
+      "filologik": 1
+    },
+    "jami": 17,
+    "ustuvor": "Jismoniy (sport), Tashkilotchilik",
+    "tavsiya": "O'quvchida Jismoniy (sport), Tashkilotchilik yo'nalishlarida yuqori qiziqish va tabiiy moyillik aniqlandi. Tavsiya etiladigan sohalar va kasblar: Professional sportchi, murabbiy, jismoniy tarbiya o'qituvchisi, fitnes instruktor, harbiy soha, favqulodda vaziyatlar xodimi; Menejer, loyiha boshqaruvchisi (Project Manager), rahbar, tadbirkor, event-menejer, ma'muriy boshqaruvchi. 8-9-sinflarda chuqurlashtirilgan to'garaklar va amaliy loyihalarga jalb etish tavsiya qilinadi."
+  },
+  {
+    "number": 17,
+    "id": "8A-17",
+    "id_num": "17",
+    "ism": "Ruzimbayev Artur G'ayrat O'g'li",
+    "sinf": "8-A",
+    "sana": "07.10.2026",
+    "savollar": [
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0,
+      1,
+      1,
+      0,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ballar": {
+      "jismoniy": 4,
+      "tashkilotchilik": 0,
+      "matematik": 4,
+      "konstruktorlik": 4,
+      "tasviriy_artistik": 1,
+      "kommunikativ": 2,
+      "musiqiy": 2,
+      "badiiy_tasviriy": 0,
+      "filologik": 2
+    },
+    "jami": 19,
+    "ustuvor": "Jismoniy (sport), Matematik, Konstruktorlik-texnika",
+    "tavsiya": "O'quvchida Jismoniy (sport), Matematik, Konstruktorlik-texnika yo'nalishlarida yuqori qiziqish va tabiiy moyillik aniqlandi. Tavsiya etiladigan sohalar va kasblar: Professional sportchi, murabbiy, jismoniy tarbiya o'qituvchisi, fitnes instruktor, harbiy soha, favqulodda vaziyatlar xodimi; Dasturchi, IT mutaxassis, ma'lumotlar tahlilchisi (Data Analyst), iqtisodchi, moliya tahlilchisi, matematik-tadqiqotchi. 8-9-sinflarda chuqurlashtirilgan to'garaklar va amaliy loyihalarga jalb etish tavsiya qilinadi."
+  },
+  {
+    "number": 18,
+    "id": "8A-18",
+    "id_num": "18",
+    "ism": "Ruzimboyev Bobur Akmal O'g'li",
+    "sinf": "8-A",
+    "sana": "07.10.2026",
+    "savollar": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0
+    ],
+    "ballar": {
+      "jismoniy": 5,
+      "tashkilotchilik": 5,
+      "matematik": 4,
+      "konstruktorlik": 2,
+      "tasviriy_artistik": 0,
+      "kommunikativ": 1,
+      "musiqiy": 2,
+      "badiiy_tasviriy": 1,
+      "filologik": 0
+    },
+    "jami": 20,
+    "ustuvor": "Jismoniy (sport), Tashkilotchilik",
+    "tavsiya": "O'quvchida Jismoniy (sport), Tashkilotchilik yo'nalishlarida yuqori qiziqish va tabiiy moyillik aniqlandi. Tavsiya etiladigan sohalar va kasblar: Professional sportchi, murabbiy, jismoniy tarbiya o'qituvchisi, fitnes instruktor, harbiy soha, favqulodda vaziyatlar xodimi; Menejer, loyiha boshqaruvchisi (Project Manager), rahbar, tadbirkor, event-menejer, ma'muriy boshqaruvchi. 8-9-sinflarda chuqurlashtirilgan to'garaklar va amaliy loyihalarga jalb etish tavsiya qilinadi."
+  },
+  {
+    "number": 19,
+    "id": "8A-19",
+    "id_num": "19",
+    "ism": "Qadirova Maxfuza Fayzulla Qizi",
+    "sinf": "8-A",
+    "sana": "07.10.2026",
+    "savollar": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      1
+    ],
+    "ballar": {
+      "jismoniy": 1,
+      "tashkilotchilik": 0,
+      "matematik": 1,
+      "konstruktorlik": 2,
+      "tasviriy_artistik": 3,
+      "kommunikativ": 3,
+      "musiqiy": 2,
+      "badiiy_tasviriy": 4,
+      "filologik": 4
+    },
+    "jami": 20,
+    "ustuvor": "Badiiy-tasviriy, Filologik (til-adabiyot)",
+    "tavsiya": "O'quvchida Badiiy-tasviriy, Filologik (til-adabiyot) yo'nalishlarida yuqori qiziqish va tabiiy moyillik aniqlandi. Tavsiya etiladigan sohalar va kasblar: Grafik dizayner, rassom, illyustrator, interyer dizayneri, animator, haykaltarosh; Jurnalist, muharrir, yozuvchi, tarjimon, tilshunos, kopirayter, matbuot kotibi. 8-9-sinflarda chuqurlashtirilgan to'garaklar va amaliy loyihalarga jalb etish tavsiya qilinadi."
+  },
+  {
+    "number": 20,
+    "id": "8A-20",
+    "id_num": "20",
+    "ism": "Muratova Gullola Sherzod Qizi",
+    "sinf": "8-A",
+    "sana": "07.10.2026",
+    "savollar": [
+      1,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      1,
+      1,
+      1,
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0,
+      1,
+      1,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1
+    ],
+    "ballar": {
+      "jismoniy": 2,
+      "tashkilotchilik": 3,
+      "matematik": 2,
+      "konstruktorlik": 1,
+      "tasviriy_artistik": 2,
+      "kommunikativ": 5,
+      "musiqiy": 2,
+      "badiiy_tasviriy": 1,
+      "filologik": 5
+    },
+    "jami": 23,
+    "ustuvor": "Kommunikativ, Filologik (til-adabiyot)",
+    "tavsiya": "O'quvchida Kommunikativ, Filologik (til-adabiyot) yo'nalishlarida yuqori qiziqish va tabiiy moyillik aniqlandi. Tavsiya etiladigan sohalar va kasblar: Psixolog, pedagog, kadrlar bo'yicha mutaxassis (HR), diplomat, PR menejer, ijtimoiy xodim; Jurnalist, muharrir, yozuvchi, tarjimon, tilshunos, kopirayter, matbuot kotibi. 8-9-sinflarda chuqurlashtirilgan to'garaklar va amaliy loyihalarga jalb etish tavsiya qilinadi."
+  },
+  {
+    "number": 21,
+    "id": "8A-21",
+    "id_num": "21",
+    "ism": "Axmedova Asaloy Eldor qizi",
+    "sinf": "8-A",
+    "sana": "07.10.2026",
+    "savollar": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1,
+      0,
+      1,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1
+    ],
+    "ballar": {
+      "jismoniy": 0,
+      "tashkilotchilik": 2,
+      "matematik": 1,
+      "konstruktorlik": 2,
+      "tasviriy_artistik": 2,
+      "kommunikativ": 1,
+      "musiqiy": 5,
+      "badiiy_tasviriy": 5,
+      "filologik": 4
+    },
+    "jami": 22,
+    "ustuvor": "Musiqiy, Badiiy-tasviriy",
+    "tavsiya": "O'quvchida Musiqiy, Badiiy-tasviriy yo'nalishlarida yuqori qiziqish va tabiiy moyillik aniqlandi. Tavsiya etiladigan sohalar va kasblar: Musiqachi, bastakor, vokalchi, dirijyor, ovoz rejissyori, musiqa o'qituvchisi; Grafik dizayner, rassom, illyustrator, interyer dizayneri, animator, haykaltarosh. 8-9-sinflarda chuqurlashtirilgan to'garaklar va amaliy loyihalarga jalb etish tavsiya qilinadi."
+  },
+  {
+    "number": 22,
+    "id": "8A-22",
+    "id_num": "22",
+    "ism": "Amanboyev Doniyor Otabek O'g'li",
+    "sinf": "8-A",
+    "sana": "07.10.2026",
+    "savollar": [
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ballar": {
+      "jismoniy": 1,
+      "tashkilotchilik": 4,
+      "matematik": 5,
+      "konstruktorlik": 4,
+      "tasviriy_artistik": 2,
+      "kommunikativ": 1,
+      "musiqiy": 1,
+      "badiiy_tasviriy": 1,
+      "filologik": 1
+    },
+    "jami": 20,
+    "ustuvor": "Matematik, Tashkilotchilik, Konstruktorlik-texnika",
+    "tavsiya": "O'quvchida Matematik, Tashkilotchilik, Konstruktorlik-texnika yo'nalishlarida yuqori qiziqish va tabiiy moyillik aniqlandi. Tavsiya etiladigan sohalar va kasblar: Dasturchi, IT mutaxassis, ma'lumotlar tahlilchisi (Data Analyst), iqtisodchi, moliya tahlilchisi, matematik-tadqiqotchi; Menejer, loyiha boshqaruvchisi (Project Manager), rahbar, tadbirkor, event-menejer, ma'muriy boshqaruvchi. 8-9-sinflarda chuqurlashtirilgan to'garaklar va amaliy loyihalarga jalb etish tavsiya qilinadi."
+  },
+  {
+    "number": 23,
+    "id": "8A-23",
+    "id_num": "23",
+    "ism": "Ro'zimboyeva Jasmina To'lqin qizi",
+    "sinf": "8-A",
+    "sana": "07.10.2026",
+    "savollar": [
+      0,
+      0,
+      1,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      1,
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0
+    ],
+    "ballar": {
+      "jismoniy": 2,
+      "tashkilotchilik": 1,
+      "matematik": 2,
+      "konstruktorlik": 1,
+      "tasviriy_artistik": 5,
+      "kommunikativ": 3,
+      "musiqiy": 5,
+      "badiiy_tasviriy": 3,
+      "filologik": 0
+    },
+    "jami": 22,
+    "ustuvor": "Tasviriy (artistik), Musiqiy",
+    "tavsiya": "O'quvchida Tasviriy (artistik), Musiqiy yo'nalishlarida yuqori qiziqish va tabiiy moyillik aniqlandi. Tavsiya etiladigan sohalar va kasblar: Aktyor, rejissyor, teatr va kino xodimi, sahna ustasi, madaniyat xodimi, notiq; Musiqachi, bastakor, vokalchi, dirijyor, ovoz rejissyori, musiqa o'qituvchisi. 8-9-sinflarda chuqurlashtirilgan to'garaklar va amaliy loyihalarga jalb etish tavsiya qilinadi."
+  },
+  {
+    "number": 24,
+    "id": "8A-24",
+    "id_num": "24",
+    "ism": "Xajiyev Sarvar Anvar O'g'li",
+    "sinf": "8-A",
+    "sana": "07.10.2026",
+    "savollar": [
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0
+    ],
+    "ballar": {
+      "jismoniy": 5,
+      "tashkilotchilik": 2,
+      "matematik": 2,
+      "konstruktorlik": 5,
+      "tasviriy_artistik": 2,
+      "kommunikativ": 2,
+      "musiqiy": 0,
+      "badiiy_tasviriy": 2,
+      "filologik": 0
+    },
+    "jami": 20,
+    "ustuvor": "Jismoniy (sport), Konstruktorlik-texnika",
+    "tavsiya": "O'quvchida Jismoniy (sport), Konstruktorlik-texnika yo'nalishlarida yuqori qiziqish va tabiiy moyillik aniqlandi. Tavsiya etiladigan sohalar va kasblar: Professional sportchi, murabbiy, jismoniy tarbiya o'qituvchisi, fitnes instruktor, harbiy soha, favqulodda vaziyatlar xodimi; Muhandis-konstruktor, robototexnik, arxitektor, texnolog, avtomobil muhandisi, elektronika mutaxassisi. 8-9-sinflarda chuqurlashtirilgan to'garaklar va amaliy loyihalarga jalb etish tavsiya qilinadi."
+  },
+  {
+    "number": 25,
+    "id": "8A-25",
+    "id_num": "25",
+    "ism": "Beknazarova Shaxzoda Izzat Qizi",
+    "sinf": "8-A",
+    "sana": "07.10.2026",
+    "savollar": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      1,
+      1,
+      0,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0
+    ],
+    "ballar": {
+      "jismoniy": 1,
+      "tashkilotchilik": 5,
+      "matematik": 2,
+      "konstruktorlik": 2,
+      "tasviriy_artistik": 4,
+      "kommunikativ": 5,
+      "musiqiy": 2,
+      "badiiy_tasviriy": 1,
+      "filologik": 2
+    },
+    "jami": 24,
+    "ustuvor": "Tashkilotchilik, Kommunikativ",
+    "tavsiya": "O'quvchida Tashkilotchilik, Kommunikativ yo'nalishlarida yuqori qiziqish va tabiiy moyillik aniqlandi. Tavsiya etiladigan sohalar va kasblar: Menejer, loyiha boshqaruvchisi (Project Manager), rahbar, tadbirkor, event-menejer, ma'muriy boshqaruvchi; Psixolog, pedagog, kadrlar bo'yicha mutaxassis (HR), diplomat, PR menejer, ijtimoiy xodim. 8-9-sinflarda chuqurlashtirilgan to'garaklar va amaliy loyihalarga jalb etish tavsiya qilinadi."
+  },
+  {
+    "number": 26,
+    "id": "8A-26",
+    "id_num": "26",
+    "ism": "Yo'ldosheva Gulchiroy Kamol Qizi",
+    "sinf": "8-A",
+    "sana": "07.10.2026",
+    "savollar": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0
+    ],
+    "ballar": {
+      "jismoniy": 2,
+      "tashkilotchilik": 1,
+      "matematik": 2,
+      "konstruktorlik": 2,
+      "tasviriy_artistik": 1,
+      "kommunikativ": 5,
+      "musiqiy": 1,
+      "badiiy_tasviriy": 4,
+      "filologik": 3
+    },
+    "jami": 21,
+    "ustuvor": "Kommunikativ, Badiiy-tasviriy",
+    "tavsiya": "O'quvchida Kommunikativ, Badiiy-tasviriy yo'nalishlarida yuqori qiziqish va tabiiy moyillik aniqlandi. Tavsiya etiladigan sohalar va kasblar: Psixolog, pedagog, kadrlar bo'yicha mutaxassis (HR), diplomat, PR menejer, ijtimoiy xodim; Grafik dizayner, rassom, illyustrator, interyer dizayneri, animator, haykaltarosh. 8-9-sinflarda chuqurlashtirilgan to'garaklar va amaliy loyihalarga jalb etish tavsiya qilinadi."
+  },
+  {
+    "number": 27,
+    "id": "8A-27",
+    "id_num": "27",
+    "ism": "Jumaboyeva Lobar Ortiqboy Qizi",
+    "sinf": "8-A",
+    "sana": "07.10.2026",
+    "savollar": [
+      0,
+      0,
+      1,
+      1,
+      0,
+      1,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      1,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      1
+    ],
+    "ballar": {
+      "jismoniy": 0,
+      "tashkilotchilik": 3,
+      "matematik": 2,
+      "konstruktorlik": 2,
+      "tasviriy_artistik": 0,
+      "kommunikativ": 5,
+      "musiqiy": 4,
+      "badiiy_tasviriy": 1,
+      "filologik": 5
+    },
+    "jami": 22,
+    "ustuvor": "Kommunikativ, Filologik (til-adabiyot)",
+    "tavsiya": "O'quvchida Kommunikativ, Filologik (til-adabiyot) yo'nalishlarida yuqori qiziqish va tabiiy moyillik aniqlandi. Tavsiya etiladigan sohalar va kasblar: Psixolog, pedagog, kadrlar bo'yicha mutaxassis (HR), diplomat, PR menejer, ijtimoiy xodim; Jurnalist, muharrir, yozuvchi, tarjimon, tilshunos, kopirayter, matbuot kotibi. 8-9-sinflarda chuqurlashtirilgan to'garaklar va amaliy loyihalarga jalb etish tavsiya qilinadi."
+  },
+  {
+    "number": 28,
+    "id": "8A-28",
+    "id_num": "28",
+    "ism": "Zaripov Aslbek Azamat O'g'li",
+    "sinf": "8-A",
+    "sana": "07.10.2026",
+    "savollar": [
+      1,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0,
+      0
+    ],
+    "ballar": {
+      "jismoniy": 5,
+      "tashkilotchilik": 2,
+      "matematik": 3,
+      "konstruktorlik": 5,
+      "tasviriy_artistik": 0,
+      "kommunikativ": 2,
+      "musiqiy": 2,
+      "badiiy_tasviriy": 0,
+      "filologik": 0
+    },
+    "jami": 19,
+    "ustuvor": "Jismoniy (sport), Konstruktorlik-texnika",
+    "tavsiya": "O'quvchida Jismoniy (sport), Konstruktorlik-texnika yo'nalishlarida yuqori qiziqish va tabiiy moyillik aniqlandi. Tavsiya etiladigan sohalar va kasblar: Professional sportchi, murabbiy, jismoniy tarbiya o'qituvchisi, fitnes instruktor, harbiy soha, favqulodda vaziyatlar xodimi; Muhandis-konstruktor, robototexnik, arxitektor, texnolog, avtomobil muhandisi, elektronika mutaxassisi. 8-9-sinflarda chuqurlashtirilgan to'garaklar va amaliy loyihalarga jalb etish tavsiya qilinadi."
+  },
+  {
+    "number": 29,
+    "id": "8A-29",
+    "id_num": "29",
+    "ism": "Ochilboyev Sarvar G'afur O'g'li",
+    "sinf": "8-A",
+    "sana": "07.10.2026",
+    "savollar": [
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      1,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ballar": {
+      "jismoniy": 3,
+      "tashkilotchilik": 1,
+      "matematik": 5,
+      "konstruktorlik": 5,
+      "tasviriy_artistik": 0,
+      "kommunikativ": 2,
+      "musiqiy": 1,
+      "badiiy_tasviriy": 1,
+      "filologik": 0
+    },
+    "jami": 18,
+    "ustuvor": "Matematik, Konstruktorlik-texnika",
+    "tavsiya": "O'quvchida Matematik, Konstruktorlik-texnika yo'nalishlarida yuqori qiziqish va tabiiy moyillik aniqlandi. Tavsiya etiladigan sohalar va kasblar: Dasturchi, IT mutaxassis, ma'lumotlar tahlilchisi (Data Analyst), iqtisodchi, moliya tahlilchisi, matematik-tadqiqotchi; Muhandis-konstruktor, robototexnik, arxitektor, texnolog, avtomobil muhandisi, elektronika mutaxassisi. 8-9-sinflarda chuqurlashtirilgan to'garaklar va amaliy loyihalarga jalb etish tavsiya qilinadi."
+  },
+  {
+    "number": 30,
+    "id": "8A-30",
+    "id_num": "30",
+    "ism": "Karimboyeva Marjona San'at Qizi",
+    "sinf": "8-A",
+    "sana": "07.10.2026",
+    "savollar": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      1
+    ],
+    "ballar": {
+      "jismoniy": 1,
+      "tashkilotchilik": 0,
+      "matematik": 0,
+      "konstruktorlik": 1,
+      "tasviriy_artistik": 0,
+      "kommunikativ": 4,
+      "musiqiy": 0,
+      "badiiy_tasviriy": 4,
+      "filologik": 5
+    },
+    "jami": 15,
+    "ustuvor": "Filologik (til-adabiyot), Kommunikativ, Badiiy-tasviriy",
+    "tavsiya": "O'quvchida Filologik (til-adabiyot), Kommunikativ, Badiiy-tasviriy yo'nalishlarida yuqori qiziqish va tabiiy moyillik aniqlandi. Tavsiya etiladigan sohalar va kasblar: Jurnalist, muharrir, yozuvchi, tarjimon, tilshunos, kopirayter, matbuot kotibi; Psixolog, pedagog, kadrlar bo'yicha mutaxassis (HR), diplomat, PR menejer, ijtimoiy xodim. 8-9-sinflarda chuqurlashtirilgan to'garaklar va amaliy loyihalarga jalb etish tavsiya qilinadi."
+  },
+  {
+    "number": 31,
+    "id": "8A-31",
+    "id_num": "31",
+    "ism": "Jumabayev Xondamir Davranbek O'g'li",
+    "sinf": "8-A",
+    "sana": "07.10.2026",
+    "savollar": [
+      1,
+      1,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      1,
+      1,
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0
+    ],
+    "ballar": {
+      "jismoniy": 5,
+      "tashkilotchilik": 5,
+      "matematik": 0,
+      "konstruktorlik": 2,
+      "tasviriy_artistik": 0,
+      "kommunikativ": 0,
+      "musiqiy": 1,
+      "badiiy_tasviriy": 2,
+      "filologik": 1
+    },
+    "jami": 16,
+    "ustuvor": "Jismoniy (sport), Tashkilotchilik",
+    "tavsiya": "O'quvchida Jismoniy (sport), Tashkilotchilik yo'nalishlarida yuqori qiziqish va tabiiy moyillik aniqlandi. Tavsiya etiladigan sohalar va kasblar: Professional sportchi, murabbiy, jismoniy tarbiya o'qituvchisi, fitnes instruktor, harbiy soha, favqulodda vaziyatlar xodimi; Menejer, loyiha boshqaruvchisi (Project Manager), rahbar, tadbirkor, event-menejer, ma'muriy boshqaruvchi. 8-9-sinflarda chuqurlashtirilgan to'garaklar va amaliy loyihalarga jalb etish tavsiya qilinadi."
+  }
+];
+
+    // 9 ta kasbiy yo'nalish metama'lumotlari
+    const DIRECTIONS_CONFIG = [
+      {
+        id: "jismoniy",
+        name: "Jismoniy (sport)",
+        icon: "⚽",
+        questions: "1, 10, 19, 28, 37",
+        desc: "Jismoniy chiniqish, chaqqonlik, sport musobaqalari va harakatli faoliyatga bo'lgan barqaror moyillik.",
+        careers: "Professional sportchi, murabbiy, fitnes instruktori, harbiy ofitser, FVV xodimi."
+      },
+      {
+        id: "tashkilotchilik",
+        name: "Tashkilotchilik",
+        icon: "📋",
+        questions: "2, 11, 20, 29, 38",
+        desc: "Jamoani boshqarish, vazifalarni taqsimlash, tashabbuskorlik, liderlik va mustaqil qaror qabul qilish iqtidori.",
+        careers: "Loyiha menejeri (PM), tadbirkor, boshqaruvchi, jamoa rahbari, administrator."
+      },
+      {
+        id: "matematik",
+        name: "Matematik",
+        icon: "📐",
+        questions: "3, 12, 21, 30, 39",
+        desc: "Mantiqiy-algoritmik tafakkur, hisob-kitob, raqamlar, formulalar va mavhum modellarni tahlil qilish salohiyati.",
+        careers: "Dasturchi (Software Engineer), Data Analyst, iqtisodchi, bankir, axborot xavfsizligi mutaxassisi."
+      },
+      {
+        id: "konstruktorlik",
+        name: "Konstruktorlik-texnika",
+        icon: "⚙️",
+        questions: "4, 13, 22, 31, 40",
+        desc: "Texnik vositalar, asbob-uskunalar tuzilishi, modellashtirish, ixtirochilik va mexanizmlarga bo'lgan qiziqish.",
+        careers: "Muhandis-konstruktor, robototexnik, arxitektor, elektronika muhandisi, texnolog."
+      },
+      {
+        id: "tasviriy_artistik",
+        name: "Tasviriy (artistik)",
+        icon: "🎭",
+        questions: "5, 14, 23, 32, 41",
+        desc: "Sahna erkinligi, o'zini ifoda etish, notiqlik, badiiy havaskorlik va obrazli ijrochilik qobiliyati.",
+        careers: "Aktyor, rejissyor, teatr va kino xodimi, teleradiodasturlar boshlovchisi, dublyaj ustasi."
+      },
+      {
+        id: "kommunikativ",
+        name: "Kommunikativ",
+        icon: "💬",
+        questions: "6, 15, 24, 33, 42",
+        desc: "Odamlar bilan samimiy muloqot, psixologik tushunish, empatiya, tinglash va muammolarni birgalikda yechish.",
+        careers: "Psixolog, pedagog, HR-menejer, diplomat, jamoatchilik bilan aloqalar (PR) mutaxassisi."
+      },
+      {
+        id: "musiqiy",
+        name: "Musiqiy",
+        icon: "🎵",
+        questions: "7, 16, 25, 34, 43",
+        desc: "Musiqiy eshitish qobiliyati, ritmni teran his qilish, cholg'u asboblariga qiziqish va ohanglar uyg'unligi.",
+        careers: "Musiqachi, bastakor, vokalchi, dirijyor, ovoz rejissyori, musiqa muallimi."
+      },
+      {
+        id: "badiiy_tasviriy",
+        name: "Badiiy-tasviriy",
+        icon: "🎨",
+        questions: "8, 17, 26, 35, 44",
+        desc: "Vizual idrok, ranglar va kompozitsiya uyg'unligi, tasviriy san'at, chizmachilik va estetik tafakkur.",
+        careers: "Grafik dizayner, UI/UX dizayner, rassom, illyustrator, interyer va liboslar dizayneri."
+      },
+      {
+        id: "filologik",
+        name: "Filologik (til-adabiyot)",
+        icon: "📚",
+        questions: "9, 18, 27, 36, 45",
+        desc: "So'z boyligi, badiiy ifoda, chet tillarini o'zlashtirish, matn bilan ishlash va fikrni ravon yetkazish.",
+        careers: "Jurnalist, yozuvchi, tarjimon, tahririyat xodimi, kopirayter, tilshunos."
+      }
+    ];
+
+    /**
+     * ============================================================================
+     * TOZA VANILLA JS SVG QR KOD GENERATORI (Hech qanday tashqi kutubxonasiz)
+     * ============================================================================
+     */
+    function generatePureQRCodeSVG(text, size = 110) {
+      const EXP_TABLE = new Uint8Array(512);
+      const LOG_TABLE = new Uint8Array(256);
+      for (let i = 0, x = 1; i < 255; i++) {
+        EXP_TABLE[i] = x;
+        EXP_TABLE[i + 255] = x;
+        LOG_TABLE[x] = i;
+        x = (x << 1) ^ (x >= 128 ? 0x11d : 0);
+      }
+      function gmult(x, y) {
+        if (x === 0 || y === 0) return 0;
+        return EXP_TABLE[LOG_TABLE[x] + LOG_TABLE[y]];
+      }
+      function polyMul(p1, p2) {
+        const res = new Uint8Array(p1.length + p2.length - 1);
+        for (let i = 0; i < p1.length; i++) {
+          for (let j = 0; j < p2.length; j++) {
+            res[i + j] ^= gmult(p1[i], p2[j]);
+          }
+        }
+        return res;
+      }
+      function rsEncode(data, numEC) {
+        let g = new Uint8Array([1]);
+        for (let i = 0; i < numEC; i++) {
+          g = polyMul(g, new Uint8Array([1, EXP_TABLE[i]]));
+        }
+        const msg = new Uint8Array(data.length + numEC);
+        msg.set(data);
+        for (let i = 0; i < data.length; i++) {
+          const coef = msg[i];
+          if (coef !== 0) {
+            for (let j = 0; j < g.length; j++) {
+              msg[i + j] ^= gmult(g[j], coef);
+            }
+          }
+        }
+        return msg.subarray(data.length);
+      }
+
+      const utf8Bytes = [];
+      for (let i = 0; i < text.length; i++) {
+        let c = text.charCodeAt(i);
+        if (c < 128) utf8Bytes.push(c);
+        else if (c < 2048) {
+          utf8Bytes.push((c >> 6) | 192, (c & 63) | 128);
+        } else {
+          utf8Bytes.push((c >> 12) | 224, ((c >> 6) & 63) | 128, (c & 63) | 128);
+        }
+      }
+
+      const versions = [
+        { v: 1, cap: 14, ec: 10, width: 21 },
+        { v: 2, cap: 26, ec: 16, width: 25 },
+        { v: 3, cap: 42, ec: 26, width: 29 },
+        { v: 4, cap: 62, ec: 36, width: 33 },
+        { v: 5, cap: 84, ec: 48, width: 37 },
+        { v: 6, cap: 106, ec: 64, width: 41 }
+      ];
+
+      let selectedVer = versions.find(v => v.cap >= utf8Bytes.length + 3);
+      if (!selectedVer) selectedVer = versions[versions.length - 1];
+
+      const { v: version, cap, ec: numEC, width } = selectedVer;
+      const bitstream = [];
+      function pushBits(val, len) {
+        for (let i = len - 1; i >= 0; i--) bitstream.push((val >> i) & 1);
+      }
+      pushBits(0b0100, 4);
+      pushBits(utf8Bytes.length, 8);
+      for (let b of utf8Bytes) pushBits(b, 8);
+      while (bitstream.length < cap * 8 && bitstream.length % 8 !== 0) bitstream.push(0);
+      const padPatterns = [0xEC, 0x11];
+      let padIdx = 0;
+      while (bitstream.length < cap * 8) {
+        pushBits(padPatterns[padIdx % 2], 8);
+        padIdx++;
+      }
+
+      const dataCodewords = new Uint8Array(cap);
+      for (let i = 0; i < cap; i++) {
+        let byteVal = 0;
+        for (let b = 0; b < 8; b++) byteVal = (byteVal << 1) | bitstream[i * 8 + b];
+        dataCodewords[i] = byteVal;
+      }
+
+      const ecCodewords = rsEncode(dataCodewords, numEC);
+      const finalCodewords = new Uint8Array(dataCodewords.length + ecCodewords.length);
+      finalCodewords.set(dataCodewords);
+      finalCodewords.set(ecCodewords, dataCodewords.length);
+
+      const matrix = Array.from({ length: width }, () => Array(width).fill(null));
+      const isFunction = Array.from({ length: width }, () => Array(width).fill(false));
+
+      function setFunc(r, c, val) {
+        matrix[r][c] = val;
+        isFunction[r][c] = true;
+      }
+
+      function addFinder(top, left) {
+        for (let r = -1; r <= 7; r++) {
+          for (let c = -1; c <= 7; c++) {
+            const row = top + r, col = left + c;
+            if (row >= 0 && row < width && col >= 0 && col < width) {
+              if (r >= 0 && r <= 6 && c >= 0 && c <= 6) {
+                const isBlack = r === 0 || r === 6 || c === 0 || c === 6 || (r >= 2 && r <= 4 && c >= 2 && c <= 4);
+                setFunc(row, col, isBlack ? 1 : 0);
+              } else {
+                setFunc(row, col, 0);
+              }
+            }
+          }
+        }
+      }
+      addFinder(0, 0);
+      addFinder(0, width - 7);
+      addFinder(width - 7, 0);
+
+      if (version >= 2) {
+        const alignPos = [[], [6, 18], [6, 22], [6, 26], [6, 30], [6, 34]][version - 1];
+        if (alignPos && alignPos.length >= 2) {
+          const r = alignPos[1], c = alignPos[1];
+          for (let dr = -2; dr <= 2; dr++) {
+            for (let dc = -2; dc <= 2; dc++) {
+              const isBlack = Math.max(Math.abs(dr), Math.abs(dc)) !== 1;
+              setFunc(r + dr, c + dc, isBlack ? 1 : 0);
+            }
+          }
+        }
+      }
+
+      for (let i = 8; i < width - 8; i++) {
+        if (!isFunction[6][i]) setFunc(6, i, i % 2 === 0 ? 1 : 0);
+        if (!isFunction[i][6]) setFunc(i, 6, i % 2 === 0 ? 1 : 0);
+      }
+      setFunc(width - 8, 8, 1);
+
+      for (let i = 0; i < 9; i++) {
+        if (i !== 6) { isFunction[8][i] = true; isFunction[i][8] = true; }
+      }
+      for (let i = 0; i < 8; i++) {
+        isFunction[8][width - 1 - i] = true;
+        isFunction[width - 1 - i][8] = true;
+      }
+
+      let bitIdx = 0;
+      const totalBits = finalCodewords.length * 8;
+      let dir = -1;
+      let c = width - 1;
+      while (c > 0) {
+        if (c === 6) c--;
+        const rStart = dir === -1 ? width - 1 : 0;
+        const rEnd = dir === -1 ? -1 : width;
+        for (let r = rStart; r !== rEnd; r += (dir === -1 ? -1 : 1)) {
+          for (let colOffset = 0; colOffset < 2; colOffset++) {
+            const col = c - colOffset;
+            if (!isFunction[r][col]) {
+              let bit = 0;
+              if (bitIdx < totalBits) {
+                const byteIdx = Math.floor(bitIdx / 8);
+                const bitOffset = 7 - (bitIdx % 8);
+                bit = (finalCodewords[byteIdx] >> bitOffset) & 1;
+                bitIdx++;
+              }
+              const mask = ((r + col) % 2 === 0) ? 1 : 0;
+              matrix[r][col] = bit ^ mask;
+            }
+          }
+        }
+        dir = -dir;
+        c -= 2;
+      }
+
+      const formatBits = [1,0,1,0,1,0,0,0,0,0,1,0,0,1,0];
+      for (let i = 0; i < 6; i++) matrix[8][i] = formatBits[i];
+      matrix[8][7] = formatBits[6];
+      matrix[8][8] = formatBits[7];
+      matrix[7][8] = formatBits[8];
+      for (let i = 9; i < 15; i++) matrix[14 - i][8] = formatBits[i];
+      for (let i = 0; i < 7; i++) matrix[width - 1 - i][8] = formatBits[i];
+      for (let i = 7; i < 15; i++) matrix[8][width - 15 + i] = formatBits[i];
+
+      const pad = 2;
+      const viewBoxSize = width + pad * 2;
+      let rects = "";
+      for (let r = 0; r < width; r++) {
+        for (let c = 0; c < width; c++) {
+          if (matrix[r][c] === 1) {
+            rects += `<rect x="${c + pad}" y="${r + pad}" width="1" height="1" fill="#1E3A8A"/>`;
+          }
+        }
+      }
+      return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${viewBoxSize} ${viewBoxSize}" width="${size}" height="${size}" shape-rendering="crispEdges">${rects}</svg>`;
+    }
+
+    /**
+     * ============================================================================
+     * ILOVA HOLATI VA ROUTING (URL orqali ID ni qabul qilish)
+     * ============================================================================
+     */
+    function getStudentById(idParam) {
+      if (!idParam) return null;
+      const cleaned = String(idParam).trim().toLowerCase();
+      return STUDENTS_DATABASE.find(s => 
+        s.id.toLowerCase() === cleaned ||
+        s.id_num === cleaned ||
+        s.id.toLowerCase().replace("8a-", "") === cleaned ||
+        s.id.toLowerCase().replace("8a-0", "") === cleaned ||
+        s.ism.toLowerCase().includes(cleaned)
+      );
+    }
+
+    function showToast(message) {
+      const toast = document.getElementById("toast");
+      const msg = document.getElementById("toast-msg");
+      msg.textContent = message;
+      toast.classList.add("show");
+      setTimeout(() => toast.classList.remove("show"), 2800);
+    }
+
+    function copyCurrentLink() {
+      const link = window.location.href;
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(link).then(() => {
+          showToast("Individual havola nusxalandi!");
+        }).catch(() => {
+          prompt("Quyidagi havolani nusxalab oling:", link);
+        });
+      } else {
+        prompt("Quyidagi havolani nusxalab oling:", link);
+      }
+    }
+
+    /**
+     * ============================================================================
+     * 1-KO'RINISH: O'QUVCHI NATIJALARI HISOBOTI (INDIVIDUAL REPORT CARD)
+     * ============================================================================
+     */
+    function renderStudentReport(student) {
+      const appRoot = document.getElementById("app-root");
+      const initials = student.ism.split(" ").map(w => w[0]).slice(0, 2).join("");
+      const currentUrl = window.location.origin + window.location.pathname + "?id=" + encodeURIComponent(student.id);
+      const qrSvg = generatePureQRCodeSVG(currentUrl, 110);
+      const percentageTotal = Math.round((student.jami / 45) * 100);
+
+      // 9 ta yo'nalish kartalari
+      const cardsHtml = DIRECTIONS_CONFIG.map(dir => {
+        const score = student.ballar[dir.id] || 0;
+        const percent = (score / 5) * 100;
+        
+        let levelClass = "level-low";
+        let fillClass = "fill-low";
+        let levelText = "Past";
+        let isDominant = false;
+
+        if (score >= 4) {
+          levelClass = "level-high";
+          fillClass = "fill-high";
+          levelText = "Yuqori";
+          isDominant = true;
+        } else if (score >= 2) {
+          levelClass = "level-mid";
+          fillClass = "fill-mid";
+          levelText = "O'rtacha";
+        }
+
+        return `
+          <div class="dir-card ${isDominant ? 'highlight-card' : ''}">
+            <div>
+              <div class="dir-top">
+                <div class="dir-icon-wrap">${dir.icon}</div>
+                <div class="dir-headings">
+                  <h3 class="dir-name">${dir.name}</h3>
+                  <div class="dir-questions">Savollar: ${dir.questions}</div>
+                </div>
+              </div>
+
+              <div class="dir-score-row">
+                <div>
+                  <span class="dir-score-num">${score}</span>
+                  <span class="dir-score-max">/ 5 ball (${Math.round(percent)}%)</span>
+                </div>
+                <span class="dir-level-badge ${levelClass}">${levelText} daraja</span>
+              </div>
+
+              <div class="progress-track">
+                <div class="progress-fill ${fillClass}" style="width: ${percent}%;"></div>
+              </div>
+            </div>
+
+            <div class="dir-desc">
+              <strong>Moyillik:</strong> ${dir.desc}<br>
+              <strong>Kasblar:</strong> ${dir.careers}
+            </div>
+          </div>
+        `;
+      }).join("");
+
+      // Ustuvor yo'nalishlar nishonchalari
+      const topBadges = student.ustuvor.split(",").map(item => 
+        `<span class="badge-dominant">${item.trim()}</span>`
+      ).join(" ");
+
+      appRoot.innerHTML = `
+        <!-- O'quvchi bosh qismi -->
+        <div class="profile-hero">
+          <div class="profile-info">
+            <div class="profile-avatar">${initials}</div>
+            <div class="profile-details">
+              <h1>${student.ism}</h1>
+              <div class="meta-badges">
+                <span class="badge badge-id">ID: ${student.id}</span>
+                <span class="badge badge-class">Sinf: ${student.sinf}</span>
+                <span class="badge badge-date">Test sanasi: ${student.sana}</span>
+                <span class="badge badge-total">Jami: ${student.jami} / 45 ball (${percentageTotal}%)</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="profile-actions">
+            <button class="btn btn-secondary" onclick="navigateToDirectory()">
+              <svg class="btn-icon" viewBox="0 0 24 24"><path d="M19 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H19v-2z"/></svg>
+              <span>Qidiruv</span>
+            </button>
+            <button class="btn btn-secondary" onclick="window.print()">
+              <svg class="btn-icon" viewBox="0 0 24 24"><path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/></svg>
+              <span>Chop etish</span>
+            </button>
+            <button class="btn btn-primary" onclick="copyCurrentLink()">
+              <svg class="btn-icon" viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+              <span>Havolani nusxalash</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Individual QR Kod va Havola kartasi -->
+        <div class="qr-banner">
+          <div class="qr-left">
+            <div class="qr-box">
+              ${qrSvg}
+            </div>
+            <div class="qr-text">
+              <h3>Individual QR Kod &bull; Shaxsiy Natija</h3>
+              <p>
+                Ushbu QR kod bevosita <strong>${student.ism}</strong>ning test hisobotiga biriktirilgan. 
+                Mobil telefon kamerasida skaner qilinganda faqatgina ushbu o'quvchi profili ochiladi.
+              </p>
+            </div>
+          </div>
+          <div class="qr-right">
+            <button class="btn btn-secondary" style="border-color: #86efac; color: #166534; background: #ffffff;" onclick="copyCurrentLink()">
+              Skaner havolasini olish
+            </button>
+          </div>
+        </div>
+
+        <!-- Shaxsiylashtirilgan Kasbiy Tavsiya -->
+        <div class="recommendation-card">
+          <div class="recommendation-header">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+            </svg>
+            <h2>Pedagogik-Psixologik Kasbiy Xulosa va Tavsiya</h2>
+          </div>
+          <div class="top-directions-badges">
+            ${topBadges}
+          </div>
+          <div class="recommendation-text">
+            ${student.tavsiya}
+          </div>
+        </div>
+
+        <!-- 9 ta yo'nalish bo'yicha batafsil ballar -->
+        <div class="section-title-wrap">
+          <h2 class="section-title">
+            <svg style="width: 22px; height: 22px; fill: var(--primary-indigo);" viewBox="0 0 24 24">
+              <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+            </svg>
+            <span>9 ta kasbiy yo'nalish bo'yicha diagnostika tahlili</span>
+          </h2>
+          <span class="section-desc">Har bir yo'nalish bo'yicha maksimal ko'rsatkich: 5 ball</span>
+        </div>
+
+        <div class="directions-grid">
+          ${cardsHtml}
+        </div>
+      `;
+
+      // Smooth progress bar animation
+      requestAnimationFrame(() => {
+        setTimeout(() => {
+          const fills = document.querySelectorAll(".progress-fill");
+          fills.forEach(f => {
+            f.style.width = f.getAttribute("style").replace("width: ", "");
+          });
+        }, 50);
+      });
+    }
+
+    /**
+     * ============================================================================
+     * 2-KO'RINISH: QIDIRUV VA BARCHA O'QUVCHILAR RO'YXATI (DIRECTORY VIEW)
+     * ============================================================================
+     */
+    function renderDirectoryView(searchQuery = "", filterDir = "all") {
+      const appRoot = document.getElementById("app-root");
+
+      let filtered = STUDENTS_DATABASE.filter(st => {
+        const q = searchQuery.toLowerCase().trim();
+        const matchesQuery = !q || 
+          st.ism.toLowerCase().includes(q) || 
+          st.id.toLowerCase().includes(q) ||
+          st.ustuvor.toLowerCase().includes(q);
+        
+        let matchesFilter = true;
+        if (filterDir !== "all") {
+          matchesFilter = st.ustuvor.toLowerCase().includes(filterDir.toLowerCase());
+        }
+        return matchesQuery && matchesFilter;
+      });
+
+      const chipsConfig = [
+        { id: "all", label: "Barchasi (31)" },
+        { id: "Matematik", label: "Matematik" },
+        { id: "Konstruktorlik", label: "Konstruktorlik" },
+        { id: "Jismoniy", label: "Sport / Jismoniy" },
+        { id: "Tashkilotchilik", label: "Tashkilotchilik" },
+        { id: "Filologik", label: "Filologik" },
+        { id: "Kommunikativ", label: "Kommunikativ" },
+        { id: "Badiiy", label: "Badiiy-tasviriy" },
+        { id: "Musiqiy", label: "Musiqiy" }
+      ];
+
+      const chipsHtml = chipsConfig.map(chip => `
+        <button class="chip ${filterDir === chip.id ? 'active' : ''}" onclick="applyFilter('${chip.id}')">
+          ${chip.label}
+        </button>
+      `).join("");
+
+      const noResultHtml = '<div style="grid-column: 1/-1; text-align: center; padding: 3rem; color: #94a3b8; font-size: 1.1rem;">Bunday so‘rov bo‘yicha o‘quvchi topilmadi.</div>';
+
+      const studentsCards = filtered.map(st => `
+        <div class="student-item-card" onclick="selectStudent('${st.id}')">
+          <div>
+            <div class="st-top-row">
+              <span class="badge badge-id">ID: ${st.id}</span>
+              <span class="badge badge-class">${st.sinf}</span>
+            </div>
+            <div class="st-name">${st.ism}</div>
+            <div class="st-top-tags">
+              ${st.ustuvor.split(",").slice(0, 2).map(tag => `<span class="badge badge-date" style="background:#f1f5f9; color:#334155;">${tag.trim()}</span>`).join("")}
+            </div>
+          </div>
+          <div class="st-btn-view">
+            Hisobotni ochish &rarr;
+          </div>
+        </div>
+      `).join("");
+
+      appRoot.innerHTML = `
+        <div class="directory-container">
+          <div class="search-alert">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+            <div>
+              <strong>Individual QR Kod parametrini aniqlash:</strong> URL manzilda o'quvchi ID ko'rsatilmagan yoki noto'g'ri kiritilgan. 
+              Quyidagi qidiruv maydoni orqali o'quvchini tanlang yoki bevosita URL manziliga <code>?id=8A-01</code> parametrini biriktiring.
+            </div>
+          </div>
+
+          <div class="search-controls">
+            <div class="search-input-wrap">
+              <svg class="search-icon" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+              <input 
+                type="text" 
+                id="search-box" 
+                class="search-input" 
+                placeholder="O'quvchi ism-familiyasi yoki ID raqami bo'yicha qidiring..."
+                value="${searchQuery}"
+                oninput="onSearchInput(this.value)"
+              >
+            </div>
+
+            <div class="filter-chips">
+              ${chipsHtml}
+            </div>
+          </div>
+
+          <div class="students-grid">
+            ${studentsCards.length ? studentsCards : noResultHtml}
+          </div>
+        </div>
+      `;
+
+      // Keep focus on input if user was typing
+      if (searchQuery) {
+        const sb = document.getElementById("search-box");
+        if (sb) {
+          sb.focus();
+          sb.setSelectionRange(sb.value.length, sb.value.length);
+        }
+      }
+    }
+
+    // Qidiruv holati
+    let currentFilter = "all";
+    let currentSearch = "";
+
+    function onSearchInput(val) {
+      currentSearch = val;
+      renderDirectoryView(currentSearch, currentFilter);
+    }
+
+    function applyFilter(filterId) {
+      currentFilter = filterId;
+      renderDirectoryView(currentSearch, currentFilter);
+    }
+
+    function selectStudent(stId) {
+      const newUrl = window.location.pathname + "?id=" + encodeURIComponent(stId);
+      window.history.pushState({ id: stId }, "", newUrl);
+      const student = getStudentById(stId);
+      if (student) {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        renderStudentReport(student);
+      }
+    }
+
+    function navigateToDirectory() {
+      const cleanUrl = window.location.pathname;
+      window.history.pushState({}, "", cleanUrl);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      renderDirectoryView("", "all");
+    }
+
+    // Brauzer tarixi (orqaga/oldinga) tugmalarini boshqarish
+    window.addEventListener("popstate", () => {
+      initApp();
+    });
+
+    function initApp() {
+      const params = new URLSearchParams(window.location.search);
+      let idParam = params.get("id");
+      
+      // Hash orqali uzatilgan bo'lsa ham tekshirish (#8A-01 yoki #id=8A-01)
+      if (!idParam && window.location.hash) {
+        idParam = window.location.hash.replace("#id=", "").replace("#", "");
+      }
+
+      if (idParam) {
+        const student = getStudentById(idParam);
+        if (student) {
+          renderStudentReport(student);
+          return;
+        }
+      }
+
+      // Agar ID bo'lmasa yoki topilmasa, qidiruv katalogini ochish
+      renderDirectoryView();
+    }
+
+    // Ilovani yuklash
+    document.addEventListener("DOMContentLoaded", initApp);
+  </script>
+</body>
+</html>
